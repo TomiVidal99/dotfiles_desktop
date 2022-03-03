@@ -278,6 +278,12 @@ bindsym $mod+ctrl+s exec spotify
 bindsym $mod+ctrl+v exec $(sh ~/.utility/common/volume.sh)
 bindsym $mod+ctrl+0 exec $(sh ~/.utility/common/change_sink.sh)
 bindsym $mod+ctrl+9 exec $(sh ~/.utility/common/switch_sink.sh)
+bindsym $mod+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
+bindsym $mod+ctrl+KP_End exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
+bindsym $mod+ctrl+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
+bindsym $mod+ctrl+KP_Down exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
+bindsym $mod+ctrl+KP_3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
+bindsym $mod+ctrl+KP_Next exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
 #bindsym $mod+ctrl+a exec $(arandr) # bind for launching arandr display controller
 #bindsym $mod+ctrl+p exec $(sh pseint.sh) # command to exec pseint
 #bindsym Mod1+r exec playerctl play-pause & notify-send --hint=int:transient:1 -t 600 --icon=media-playback-start --urgency=critical "Reproducir/Pausar" # play/pause music player
