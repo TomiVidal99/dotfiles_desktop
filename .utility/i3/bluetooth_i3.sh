@@ -1,8 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
-# Auto detect interfaces
-
-(while :
-do
-  echo "HELLO" || exit 1
-done)
+echo "HELLO"
