@@ -1,0 +1,21 @@
+# Ignore all files but the README, .gitignore, and the onces specified below
+/*
+.config/*
+!.config/
+!README.md
+!.gitignore
+
+# won't ignore the following files
+# i3 config
+!i3/
+!i3status/
+
+# neovim config
+!nvim/
+
+# shell utility scripts
+!.utility/
+
+# octave config
+!.octave/
+!.octaverc

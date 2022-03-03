@@ -1,0 +1,7 @@
+# inital config
+clc
+addpath("~/.octave")
+disp("Welcome to Octave!");
+disp("Current Scripts: plotPhasor, bhaskara, cart, phasor.");
+
+# variables
