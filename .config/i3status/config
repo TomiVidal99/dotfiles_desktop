@@ -13,8 +13,8 @@ general {
 }
 
 #order += "ipv6"
-order += "wireless _first_"
-#order += "ethernet _first_"
+#order += "wireless _first_"
+order += "ethernet _first_"
 #order += "battery all"
 #order += "disk /"
 #order += "load"
@@ -29,8 +29,8 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_up = "🌐 <%ip><%speed>"
+        format_down = "N/C"
 }
 
 battery all {
