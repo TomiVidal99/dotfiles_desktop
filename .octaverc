@@ -1,7 +1,8 @@
 # inital config
-clc
-addpath("~/.octave")
-disp("Welcome to Octave!");
-disp("Current Scripts: plotPhasor, bhaskara, cart, phasor.");
+clc # clear initial shit
+addpath("~/.octave");
+printf([char(27), '[94mWelcome to Octave!', char(27), '[0m\n']);
+printf([char(27), '[94mCustom scripts: ', char(27), '[0m']);
+printf([char(27), '[92mplotPhasor, bhaskara, cart, phasor.', char(27), '[0m\n']);
 
 # variables

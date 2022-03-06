@@ -6,7 +6,7 @@
 set $primary_monitor HDMI-A-0
 set $secondary_monitor HDMI-A-1
 
-set $mod Mod4
+set $mod Mod4 
 set $alt Mod1
 
 # remove borders
@@ -238,12 +238,12 @@ for_window [class="Screenkey"] floating enable
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+    tray_output $primary_monitor
     status_command exec /home/tomii/.utility/i3/bandwidth_script_i3.sh
     separator_symbol " | "
     position top
-    font pango: Ligconsolata condensed SemiBold 15
+    font pango: Ligconsolata condensed SemiBold 18
     colors {
-      #separator #9c1ad8
       separator #ffffff
       background #000000
       statusline #c0c0c0
@@ -257,15 +257,16 @@ assign [class="Brave"] $ws2
 #assign [class="Qutebrowser"] $ws2
 for_window [class="qutebrowser"] move container to workspace number $ws2
 # to workspace 3
-assign [class="Octave"] $ws3
 assign [class="okular"] $ws3
 # to workspace 4
 assign [class="dolphin"] $ws4
 # to workspace 5
 # for spotify specifically
 for_window [class="Spotify"] move container to workspace number $ws5
-# move LTSpiceXVIII to workspace 4
+# to workspace 6
 for_window [class="LTspice XVIII"] move container to workspace number $ws4
+# to workspace 7
+assign [class="Octave"] $ws7
 
 # custom keybindings!
 bindsym $mod+ctrl+p exec $(sh ~/.utility/i3/connect_bluetooth.sh) # exec bluetooth find devices
