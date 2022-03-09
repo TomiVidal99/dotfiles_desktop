@@ -19,3 +19,6 @@
 # octave config
 !.octave/
 !.octaverc
+
+# zsh oh-my-zsh with powerlevel10k
+!.zshrc

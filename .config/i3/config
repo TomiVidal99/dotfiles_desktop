@@ -317,6 +317,9 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # -- Startup programs -- #
 
+# start mail
+exec --no-startup-id thundernbird
+
 # Set the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
 

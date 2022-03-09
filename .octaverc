@@ -5,4 +5,16 @@ printf([char(27), '[94mWelcome to Octave!', char(27), '[0m\n']);
 printf([char(27), '[94mCustom scripts: ', char(27), '[0m']);
 printf([char(27), '[92mplotPhasor, bhaskara, cart, phasor.', char(27), '[0m\n']);
 
-# variables
+# DEFINICIÓN VARIABLES
+# impermeabilidad electrica del medio [F/m]
+E0 = 8.854e-12;
+# constante de fuerzas coulombianas.
+K = 1 / (4*pi*E0);
+# radio de bohr [m]
+R0 = 0.53e-10;
+# masa electrón [kg]
+Me = 9.1e-31;
+# carga del protón [C]
+Qp = 1.602176634e-19;
+# carga del electrón [C]
+Qe = -Qp;
