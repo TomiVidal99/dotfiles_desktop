@@ -12,6 +12,7 @@
 
 # neovim config
 !nvim/
+!.config/nvim/vimModeStateDiagram.svg
 
 # shell utility scripts
 !.utility/
