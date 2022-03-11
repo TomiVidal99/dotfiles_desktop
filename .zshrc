@@ -75,7 +75,7 @@ alias ll="colorls -l"
 alias grep='grep --colour=auto'                                   # Get colored outputs
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias o='octave -W'
+alias o='octave --traditional'
 alias datos='cd /mnt/DATOS/'
 alias docs='cd /mnt/DATOS/Documentos'
 alias ass='cd /mnt/DATOS/Documentos/Analisis\ de\ Sistemas\ y\ Señales'
