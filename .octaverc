@@ -18,3 +18,13 @@ Me = 9.1e-31;
 Qp = 1.602176634e-19;
 # carga del electrón [C]
 Qe = -Qp;
+# constante de Boltzmann [eV/°K]
+Kb = 8.617333262145e-5;
+# constante de Planck [eV*s]
+Hp = 4.135667696e-15;
+# Velocidad de la luz [m/s]
+C = 299792458;
+
+# DEFINICION DE FUNCIONES COMUNES.
+# Fermi-Dirac distribución de probabilidad de que un estado cuántico esté ocupado [unidad de volumen por unidad de energía].
+FNFD = @(E, Ef, T) 1 / (1 + exp( (E-Ef) / (Kb*T) ));
