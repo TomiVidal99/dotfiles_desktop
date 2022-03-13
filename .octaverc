@@ -17,6 +17,10 @@ function configPlot(Figure = 1, Title = "Gráfico 1", limits = "auto", step = 1,
   set(gca, "xtick", xbounds(1):step:xbounds(2));
 endfunction
 
+function configPlotArgs()
+  disp("function configPlot(Figure, Title, limits, step, fontsize, linewidth)");
+endfunction
+
 # DEFINICIÓN VARIABLES
 # Magnitudes físicas.
 E0 = 8.854e-12; # impermeabilidad electrica del medio [F/m]
