@@ -27,6 +27,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'daeyun/vim-matlab'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

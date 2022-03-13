@@ -151,4 +151,15 @@ endif
 set exrc
 "}}}
 
+" Octave Configuration{{{
+autocmd FileType octave setlocal keywordprg=konsole\ -e\ info\ octave\ --vi-keys\ --index-search"
+" activate matchit
+set nocompatible
+filetype plugin on
+runtime macros/matchit.vim
+" set matchit for octave sytanx
+let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
+autocmd FileType octave let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
+       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd"}}}
+
 " vim: set foldmethod=marker foldlevel=0:

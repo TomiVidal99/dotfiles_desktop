@@ -77,3 +77,7 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+" Matlab/Octave
+let g:matlab_auto_mappings = 1 "automatic mappings enabled
+let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
+let g:matlab_server_split = 'horizontal' "launch the server in a horizontal split
