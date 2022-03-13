@@ -273,6 +273,10 @@ for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="LTspice XVIII"] move container to workspace number $ws4
 # to workspace 7
 assign [class="Octave"] $ws7
+# to workspace 8
+assign [class="discord"] $ws8
+# to workspace 9
+assign [class="Thunderbird"] $ws9
 
 # custom keybindings!
 bindsym $mod+ctrl+p exec $(sh ~/.utility/i3/connect_bluetooth.sh) # exec bluetooth find devices
@@ -325,6 +329,9 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 
 # start mail
 exec --no-startup-id thundernbird
+
+# start discord
+exec --no-startup-id discord
 
 # Set the wallpaper
 exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
