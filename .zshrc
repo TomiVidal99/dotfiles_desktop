@@ -82,6 +82,32 @@ alias docs='cd /mnt/DATOS/Documentos'
 alias ass='cd /mnt/DATOS/Documentos/Analisis\ de\ Sistemas\ y\ Señales'
 alias ea='cd /mnt/DATOS/Documentos/Electromagnetismo\ Aplicado/'
 alias de='cd /mnt/DATOS/Documentos/Dispositivos\ Electronicos/'
+alias n="nvim ."
+
+## Shortcuts/Hotkeys
+function gitpull() { echo "git pull"; git pull; zle reset-prompt; zle redisplay}
+zle -N gitpull
+bindkey '^gg' gitpull
+
+function gitstatus() { echo "git status"; git status; zle reset-prompt; zle redisplay}
+zle -N gitstatus
+bindkey '^gs' gitstatus
+
+function gitpush() { echo "git push"; git push; zle reset-prompt; zle redisplay}
+zle -N gitpush
+bindkey '^gp' gitpush
+
+function gitadd() { echo "git add"; git add . && gitstatus; zle reset-prompt; zle redisplay}
+zle -N gitadd
+bindkey '^ga' gitadd
+
+function listdirectory() { echo "ls ."; ls; zle reset-prompt; zle redisplay}
+zle -N listdirectory
+bindkey '^h' listdirectory
+
+function openneovim() { echo "nvim ."; n; zle reset-prompt; zle redisplay}
+zle -N openneovim
+bindkey '^n' openneovim 
 
 # Theming section  
 autoload -U compinit colors zcalc
