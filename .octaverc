@@ -6,8 +6,9 @@ printf([char(27), '[94mCustom scripts: ', char(27), '[0m']);
 printf([char(27), '[92mplotPhasor, bhaskara, cart, phasor.', char(27), '[0m\n']);
 
 # Defino una función utilitaria para configurar los plots.
-function configPlot(figureNumber = 1, limits = "auto", step = 1, fontsize = 14, linewidth = 2);
-  figure(figureNumber);
+function configPlot(Figure = 1, Title = "Gráfico 1", limits = "auto", step = 1, fontsize = 14, linewidth = 2);
+  figure(Figure);
+  title(Title);
   grid on;
   hold on;
   axis(limits);
@@ -20,7 +21,7 @@ endfunction
 # Magnitudes físicas.
 E0 = 8.854e-12; # impermeabilidad electrica del medio [F/m]
 K = 1 / (4*pi*E0); # constante de fuerzas coulombianas.
-R0 = 0.53e-10; # radio de bohr [m]
+R0 = 0.53e-10; # radio de Bohr [m]
 Me = 9.1e-31; # masa electrón [kg]
 Qp = 1.602176634e-19; # carga del protón [C]
 Qe = -Qp; # carga del electrón [C]
