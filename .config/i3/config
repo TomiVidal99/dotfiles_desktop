@@ -248,7 +248,7 @@ bar {
     status_command exec /home/tomii/.utility/i3/bandwidth_script_i3.sh
     separator_symbol " | "
     position top
-    font pango: Ligconsolata condensed SemiBold 18
+    font pango: Ligconsolata condensed SemiBold 14
     colors {
       separator #ffffff
       background #000000
