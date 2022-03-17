@@ -4,6 +4,7 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 # TODO
 - [ ] Fix octave syntax highlight.
 - [ ] Add more plugs for octave.
+- [ ] Improve string2interval.
 
 # Contributors
 - [Tomás Vidal](https://github.com/TomiVidal99)
