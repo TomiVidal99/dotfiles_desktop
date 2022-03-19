@@ -2,6 +2,10 @@ if has("nvim")
   let g:plug_home = stdpath('data') . '/plugged'
 endif
 
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
@@ -16,9 +20,14 @@ if has("nvim")
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
+
+  " completion
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-nvim-lua'
+
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'onsails/lspkind-nvim'
@@ -27,11 +36,10 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'daeyun/vim-matlab'
+  Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()
-

@@ -1,9 +1,9 @@
-# inital config
-clc # clear initial shit
+% inital config
+clc % clear initial shit
 addpath("~/.octave");
 printf([char(27), '[94mWelcome to Octave!', char(27), '[0m\n']);
 printf([char(27), '[94mCustom scripts: ', char(27), '[0m']);
 printf([char(27), '[92mplotPhasor, bhaskara, cart, phasor.', char(27), '[0m\n']);
 
-# get constanst from the file
+% get constanst from the file
 constants

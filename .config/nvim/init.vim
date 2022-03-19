@@ -1,6 +1,9 @@
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
 
+" get current number of line
+set number!
+
 " init autocmd
 autocmd!
 " set script encoding
@@ -12,7 +15,7 @@ set nocompatible
 set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
-set encoding=utf-8
+set encoding=UTF-8
 set title
 set autoindent
 set background=dark
@@ -24,7 +27,7 @@ set laststatus=2
 set scrolloff=10
 set expandtab
 "let loaded_matchparen = 1
-set shell=fish
+set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
 
 " incremental substitution (neovim)
@@ -152,14 +155,17 @@ set exrc
 "}}}
 
 " Octave Configuration{{{
-autocmd FileType octave setlocal keywordprg=konsole\ -e\ info\ octave\ --vi-keys\ --index-search"
+autocmd FileType matlab setlocal keywordprg=konsole\ -e\ info\ octave\ --vi-keys\ --index-search"
 " activate matchit
 set nocompatible
 filetype plugin on
 runtime macros/matchit.vim
 " set matchit for octave sytanx
 let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
-autocmd FileType octave let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
-       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd"}}}
+autocmd FileType matlab let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
+       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd"
 
-" vim: set foldmethod=marker foldlevel=0:
+" Matlab plugin
+let g:matlab_auto_mappings = 0 "automatic mappings enabled
+let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
+let g:matlab_server_split = 'horizontal' "launch the server in a horizontal split}}}
