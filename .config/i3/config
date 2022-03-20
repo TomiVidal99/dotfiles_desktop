@@ -269,6 +269,7 @@ assign [class="dolphin"] $ws4
 # to workspace 5
 # for spotify specifically
 for_window [class="Spotify"] move container to workspace number $ws5
+for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
 for_window [class="LTspice XVIII"] move container to workspace number $ws4
 # to workspace 7

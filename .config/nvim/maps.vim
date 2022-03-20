@@ -1,5 +1,8 @@
 " Description: Keymaps
 
+" when yanking directly copy all words
+set clipboard+=unnamedplus
+
 " Save file
 map <C-s> :w <CR>
 
