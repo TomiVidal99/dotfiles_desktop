@@ -1,7 +1,10 @@
-function string = interval2string(int, txt = '', hasPi = 0)
+function string = interval2string(int, txt = '')
 
   len = length(int);
   step = int(2)-int(1);
+  hasPi = pidivisibles(step);
+
+  %dispc(strcat("is divisible: ", num2str(hasPi), "\n"), "red");
 
   for (i = 1:len)
     if (hasPi == 1)
@@ -9,7 +12,6 @@ function string = interval2string(int, txt = '', hasPi = 0)
     else
       number = int(i);
     end
-    disp(num2str(number));
     string{i} = strcat(num2str(number), txt);
   end
 
