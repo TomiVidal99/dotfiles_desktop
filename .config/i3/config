@@ -260,6 +260,7 @@ bar {
 # to workspace 1
 # to workspace 2
 assign [class="Brave"] $ws2
+assign [class="firefox"] $ws2
 #assign [class="Qutebrowser"] $ws2
 for_window [class="qutebrowser"] move container to workspace number $ws2
 # to workspace 3
@@ -285,7 +286,7 @@ bindsym $mod+ctrl+b exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth
 bindsym $mod+ctrl+q exec qutebrowser
 #bindsym $mod+ctrl+l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
 bindsym $mod+ctrl+o exec octave --gui
-bindsym $mod+ctrl+c exec brave 
+bindsym $mod+ctrl+c exec firefox
 bindsym $mod+ctrl+x exec dolphin # changed from nautilus
 bindsym $mod+ctrl+s exec spotify
 bindsym $mod+ctrl+v exec $(sh ~/.utility/common/volume.sh)
