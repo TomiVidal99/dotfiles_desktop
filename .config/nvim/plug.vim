@@ -37,6 +37,8 @@ if has("nvim")
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
+
+  Plug 'andymass/vim-matchup'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

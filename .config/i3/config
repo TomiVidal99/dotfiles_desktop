@@ -289,6 +289,7 @@ bindsym $mod+ctrl+o exec octave --gui
 bindsym $mod+ctrl+c exec firefox
 bindsym $mod+ctrl+x exec dolphin # changed from nautilus
 bindsym $mod+ctrl+s exec spotify
+bindsym $mod+ctrl+m exec clementine
 bindsym $mod+ctrl+v exec $(sh ~/.utility/common/volume.sh)
 bindsym $mod+ctrl+0 exec $(sh ~/.utility/common/change_sink.sh)
 bindsym $mod+ctrl+9 exec $(sh ~/.utility/common/switch_sink.sh)
