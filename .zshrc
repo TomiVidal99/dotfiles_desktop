@@ -107,7 +107,7 @@ bindkey '^h' listdirectory
 
 function openneovim() { echo "nvim ."; n; zle reset-prompt; zle redisplay}
 zle -N openneovim
-bindkey '^n' openneovim 
+bindkey '^v' openneovim 
 
 # Theming section  
 autoload -U compinit colors zcalc

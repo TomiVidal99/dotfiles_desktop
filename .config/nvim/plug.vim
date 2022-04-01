@@ -21,6 +21,9 @@ if has("nvim")
   Plug 'folke/lsp-colors.nvim'
   Plug 'L3MON4D3/LuaSnip'
 
+  " comments
+  Plug 'numToStr/Comment.nvim'
+
   " completion
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-buffer'
