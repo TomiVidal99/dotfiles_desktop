@@ -105,7 +105,7 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 " Fish
 au BufNewFile,BufRead *.fish set filetype=fish
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.m,.cpp,.c
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -128,6 +128,7 @@ if has('win32')
 endif
 
 runtime ./maps.vim
+runtime ./octave.rc.vim
 "}}}
 
 " Syntax theme "{{{
@@ -153,35 +154,3 @@ endif
 " ---------------------------------------------------------------------
 set exrc
 "}}}
-
-" Octave Configuration{{{
-" ideally this hole thing goes in it's own file, and it's executed when a .m
-" file it's detected.
-let g:loaded_matchit = 1
-" activate matchit
-set nocompatible
-"runtime macros/matchit.vim
-" enables search keyword in octave's documentation
-autocmd FileType matlab setlocal keywordprg=konsole\ -e\ info\ octave\ --vi-keys\ --index-search"
-" set matchit for octave sytanx
-autocmd FileType matlab setlocal comments=s:%{,m:\ ,e:%},s:#{,m:\ ,e:#},:%,:#
-autocmd FileType matlab setlocal commentstring=#\ %s
-autocmd FileType matlab setlocal formatoptions-=t formatoptions+=croql
-autocmd FileType matlab let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
-autocmd FileType matlab let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
-       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd"
-
-autocmd FileType matlab let b:match_words ..= ',' ..
-                    \ '\<\%(classdef\|enumeration\|events\|for\|function\|if\|methods\|parfor\|properties\|switch\|while\|try\)\>' ..
-                    \ ':' ..
-                    \ '\<\%(elseif\|else\|case\|otherwise\|break\|continue\|catch\)\>' ..
-                    \ ':' ..
-                    \ '\<end\>'
-" only match in statement position
-autocmd FileType matlab let s:statement_start = escape('\%(\%(^\|;\)\s*\)\@<=', '\')
-autocmd FileType matlab let b:match_words = substitute(b:match_words, '\\<', s:statement_start, 'g') 
-
-" Matlab plugin
-let g:matlab_auto_mappings = 0 "automatic mappings enabled
-let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
-let g:matlab_server_split = 'horizontal' "launch the server in a horizontal split}}}

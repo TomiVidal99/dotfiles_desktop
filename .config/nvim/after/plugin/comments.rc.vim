@@ -76,5 +76,6 @@ local ft = require('Comment.ft')
 ft({'go', 'rust'}, {'//%s', '/*%s*/'})
 ft({'toml', 'graphql'}, '#%s')
 ft({'matlab'}, {'%%s', '%{%s%}'})
+ft({'lua'}, {'--%s'})
 
 EOF
