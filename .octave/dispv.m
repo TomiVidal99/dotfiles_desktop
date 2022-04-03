@@ -25,9 +25,9 @@ function msg = dispv(varargin)
   for (i = 1:length(varargin))
     arg = varargin{i};
     if (ischar(arg))
-      msg = strcat(msg, arg);
+      msg = cstrcat(msg, arg);
     elseif (isnumeric(arg))
-      msg = strcat(msg, num2str(arg));
+      msg = cstrcat(msg, num2str(arg));
     else 
       errorMsg = "You have entered an argument that is NOT text and NOT numeric. \n";
       handleError(errorMsg);
