@@ -40,3 +40,6 @@ Qe = -Qp; % carga del electrón [C]
 Kb = 8.617333262145e-5; % constante de Boltzmann [eV/°K]
 Hp = 4.135667696e-15; % constante de Planck [eV*s]
 C = 299792458; % Velocidad de la luz [m/s]
+
+% constants eléctricas/electrónicas
+Es = 11.7 * (8.85e-14); % Permitividad eléctrica del silicio.
