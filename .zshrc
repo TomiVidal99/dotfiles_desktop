@@ -33,7 +33,6 @@ SAVEHIST=500
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
-
 ## Keybindings section
 bindkey -e
 bindkey '^[[7~' beginning-of-line                               # Home key
@@ -62,52 +61,11 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 ## Alias section 
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
-alias add='git add .'
-alias com='git commit -m'
-alias status='git status'
-alias push='git push'
-alias pull='git pull'
-alias ls="colorls"                                                # Better formBetter formatted ls
-alias ll="colorls -l"
-alias grep='grep --colour=auto'                                   # Get colored outputs
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
-alias o='octave --traditional'
-alias datos='cd /mnt/DATOS/'
-alias docs='cd /mnt/DATOS/Documentos'
-alias ass='cd /mnt/DATOS/Documentos/Analisis\ de\ Sistemas\ y\ Señales'
-alias ea='cd /mnt/DATOS/Documentos/Electromagnetismo\ Aplicado/'
-alias de='cd /mnt/DATOS/Documentos/Dispositivos\ Electronicos/'
-alias n="nvim ."
+source $HOME/.config/.zsh/.aliases # global aliases
+source $HOME/.config/.zsh/.system_aliases # system specific aliases
 
 ## Shortcuts/Hotkeys
-function gitpull() { echo "git pull"; git pull; zle reset-prompt; zle redisplay}
-zle -N gitpull
-bindkey '^gg' gitpull
-
-function gitstatus() { echo "git status"; git status; zle reset-prompt; zle redisplay}
-zle -N gitstatus
-bindkey '^gs' gitstatus
-
-function gitpush() { echo "git push"; git push; zle reset-prompt; zle redisplay}
-zle -N gitpush
-bindkey '^gp' gitpush
-
-function gitadd() { echo "git add"; git add . && gitstatus; zle reset-prompt; zle redisplay}
-zle -N gitadd
-bindkey '^ga' gitadd
-
-function listdirectory() { echo "ls ."; ls; zle reset-prompt; zle redisplay}
-zle -N listdirectory
-bindkey '^h' listdirectory
-
-function openneovim() { echo "nvim ."; n; zle reset-prompt; zle redisplay}
-zle -N openneovim
-bindkey '^v' openneovim 
+source $HOME/.config/.zsh/.shortcuts # hotkeys for when we're in the terminal
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -239,12 +197,12 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
 #     ;;
   *)
         RPROMPT='$(git_prompt_string)'
-		# Use autosuggestion
-		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-    ;;
 esac
+
+# Use autosuggestion
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/powerlevel10k/powerlevel10k.zsh-theme

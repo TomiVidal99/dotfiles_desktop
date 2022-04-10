@@ -21,9 +21,9 @@ require('Comment').setup({
     ---@type table
     toggler = {
         ---Line-comment toggle keymap
-        line = 'gcc',
+        line = ',,',
         ---Block-comment toggle keymap
-        block = 'gbc',
+        block = '..',
     },
 
     ---LHS of operator-pending mappings in NORMAL + VISUAL mode
