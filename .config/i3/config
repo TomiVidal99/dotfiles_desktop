@@ -300,6 +300,7 @@ bindsym $mod+ctrl+KP_Down exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/
 bindsym $mod+ctrl+KP_3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
 bindsym $mod+ctrl+KP_Next exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
 bindsym $mod+ctrl+i exec --no-startup-id $(spectacle -r)
+bindsym $mod+Shift+p exec $(echo -n "" | xclip -selection clipboard )
 #bindsym $mod+ctrl+a exec $(arandr) # bind for launching arandr display controller
 #bindsym $mod+ctrl+p exec $(sh pseint.sh) # command to exec pseint
 #bindsym Mod1+r exec playerctl play-pause & notify-send --hint=int:transient:1 -t 600 --icon=media-playback-start --urgency=critical "Reproducir/Pausar" # play/pause music player
