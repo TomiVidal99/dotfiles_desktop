@@ -24,11 +24,13 @@ set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
+set scrolloff=8
 set expandtab
 "let loaded_matchparen = 1
 set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
+set noswapfile
+set incsearch
 
 " incremental substitution (neovim)
 if has('nvim')
