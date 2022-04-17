@@ -1,0 +1,8 @@
+\.git
+README.md
+install_desktop.sh
+install_laptop.sh
+
+\.gitignore
+\.stow-local-ignore
+^/.*\.org

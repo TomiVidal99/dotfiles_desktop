@@ -5,6 +5,10 @@
 !README.md
 !.gitignore
 
+# Don't ignore stow related files
+!install*
+!.stow*
+
 # won't ignore the following files
 # i3 config
 !i3/
