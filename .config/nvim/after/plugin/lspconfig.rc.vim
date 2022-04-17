@@ -89,10 +89,10 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-nvim_lsp.flow.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+--nvim_lsp.flow.setup {
+--  on_attach = on_attach,
+--  capabilities = capabilities
+--}
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
@@ -106,7 +106,7 @@ nvim_lsp.clangd.setup {
   capabilities = capabilities,
 }
 
---nvim_lsp.mlang.setup {
+--nvim_lsp.server.setup {
 --  on_attach = on_attach,
 --  filetypes = { "m", "matlab", "octave" },
 --  capabilities = capabilities,

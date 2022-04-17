@@ -6,7 +6,9 @@
 #fi
 
 export PATH=$PATH:/home/tomii/.local/share/gem/ruby/3.0.0/bin
-export PATH=$PATH:/home/tomii/programming/cpp/mLangLSP/bin/
+#export PATH=$PATH:/home/tomii/programming/cpp/mLangLSP/bin/
+export PATH=$PATH:/home/tomii/programming/typescript/lsp-sample/server/out
+
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
