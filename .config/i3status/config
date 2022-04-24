@@ -69,7 +69,7 @@ volume master {
         #format = "🔊%volume"
         format = "墳 %volume"
         #format_muted = "🔈: muted (%volume)"
-        format_muted = "ﱝ  MUTED (%volume)"
+        format_muted = "婢 %volume (MUTED)"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
