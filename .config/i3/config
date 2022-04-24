@@ -246,9 +246,13 @@ for_window [class="Screenkey"] floating enable
 bar {
     tray_output $primary_monitor
     status_command exec /home/tomii/.utility/i3/bandwidth_script_i3.sh
-    separator_symbol " | "
+    #separator_symbol " | "
+    #separator_symbol "  "
+    #separator_symbol "  "
+    #separator_symbol "  "
+    separator_symbol " ⏽ "
     position top
-    font pango: Ligconsolata condensed SemiBold 14
+    font pango: NotoMono Nerd Font Mono 18, Ligconsolata condensed SemiBold 14
     colors {
       separator #ffffff
       background #000000
