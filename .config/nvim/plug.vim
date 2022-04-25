@@ -52,7 +52,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
 
   " octave/matlab
-  Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
+  "Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
   Plug 'mstanciu552/cmp-matlab'
   Plug 'mstanciu552/cmp-octave'
 
