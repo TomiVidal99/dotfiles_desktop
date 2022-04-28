@@ -16,3 +16,4 @@ alias fgrep='fgrep --colour=auto'
 alias o='octave --traditional'
 alias n="nvim ."
 alias cwp="cd ~/programming/typescript/mLangLSP/"
+alias df="cd ~/.dotfiles/"

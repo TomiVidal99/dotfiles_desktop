@@ -91,8 +91,8 @@ vnoremap <silent> # :<C-U>
 " Tabs
 
 " Open current directory
-"nmap te :tabedit 
-"nmap tt :tabnew 
+nmap te :tabedit 
+nmap tt :tabnew 
 nmap <S-Tab> :tabprev<Return>
 nmap <Tab> :tabnext<Return>
 

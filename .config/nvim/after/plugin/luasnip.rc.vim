@@ -1,5 +1,5 @@
 lua << EOF
-require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } }) -- Load snippets from my-snippets folder
+--require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } }) -- Load snippets from my-snippets folder
 
 -- Define some snippets
 --require("luasnip").snippets = {
