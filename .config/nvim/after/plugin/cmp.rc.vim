@@ -28,6 +28,8 @@ lua << EOF
     },
 
     mapping = {
+      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item()),
+      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item()),
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -56,7 +58,7 @@ lua << EOF
           buffer = "[text]",
           nvim_lua = "[api]",
           nvim_lsp = "[LSP]",
-          luasnip = "[snip]",
+          --luasnip = "[snip]",
           path = "[path]",
           cmp_matlab = "[matlab]",
           cmp_octave = "[octave]",
