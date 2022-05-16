@@ -220,7 +220,7 @@ bindsym $mod+minus scratchpad show
 
 # Take a screenshot and save it in ~/tmp/screenshots
 # TODO: change this to my own script.
-bindsym --release Print exec --no-startup-id flameshot gui 
+bindsym --release Print exec $(sh ~/.utility/i3/screenshot.sh)
 
 # Default colors ...        border   backgr.  text      indicator
 #client.focused              #4c7899  #00a5ff  #ffffff   #2e9ef4
