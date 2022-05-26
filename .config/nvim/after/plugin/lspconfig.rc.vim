@@ -102,6 +102,12 @@ nvim_lsp.clangd.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.texlab.setup {
+  on_attach = on_attach,
+  filetypes = { "tex" },
+  capabilities = capabilities,
+}
+
 --nvim_lsp.server.setup {
 --  on_attach = on_attach,
 --  filetypes = { "m", "matlab", "octave" },

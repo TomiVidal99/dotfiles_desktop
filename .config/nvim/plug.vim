@@ -59,6 +59,9 @@ if has("nvim")
   " c and cpp
   Plug 'p00f/clangd_extensions.nvim'
 
+  " latex
+  Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
