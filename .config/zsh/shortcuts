@@ -1,0 +1,29 @@
+# Custom shortcuts to execute when we're on the shell.
+
+function gitpull() { echo "git pull"; git pull; zle reset-prompt; zle redisplay}
+zle -N gitpull
+bindkey '^gg' gitpull
+
+function gitstatus() { echo "git status"; git status; zle reset-prompt; zle redisplay}
+zle -N gitstatus
+bindkey '^gs' gitstatus
+
+function gitpush() { echo "git push"; git push; zle reset-prompt; zle redisplay}
+zle -N gitpush
+bindkey '^gp' gitpush
+
+function gitadd() { echo "git add"; git add . && gitstatus; zle reset-prompt; zle redisplay}
+zle -N gitadd
+bindkey '^ga' gitadd
+
+function listdirectory() { echo "ls ."; ls; zle reset-prompt; zle redisplay}
+zle -N listdirectory
+bindkey '^h' listdirectory
+
+function openneovim() { echo "nvim ."; n; zle reset-prompt; zle redisplay}
+zle -N openneovim
+bindkey '^v' openneovim 
+
+function opencurrentworkingproject() { echo "Open neovim in current working directory (cwp: setit in aliases)"; cwp && openneovim; zle reset-prompt; zle redisplay}
+zle -N opencurrentworkingproject
+bindkey '^w' opencurrentworkingproject

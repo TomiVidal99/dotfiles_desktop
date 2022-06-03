@@ -1,0 +1,19 @@
+## Alias section 
+alias cp="cp -i"                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias gitu='git add . && git commit && git push'
+alias add='git add .'
+alias com='git commit -m'
+alias status='git status'
+alias push='git push'
+alias pull='git pull'
+alias ls="colorls"                                                # Better formBetter formatted ls
+alias ll="colorls -l"
+alias grep='grep --colour=auto'                                   # Get colored outputs
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+alias o='octave --traditional'
+alias n="nvim ."
+alias cwp="cd ~/programming/typescript/mLangLSP/"
+alias df="cd ~/.dotfiles/"
