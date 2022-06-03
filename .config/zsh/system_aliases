@@ -5,6 +5,7 @@ alias docs='cd /mnt/DATOS/Documentos'
 alias ass='cd /mnt/DATOS/Documentos/Analisis\ de\ Sistemas\ y\ Señales'
 alias ea='cd /mnt/DATOS/Documentos/Electromagnetismo\ Aplicado/'
 alias de='cd /mnt/DATOS/Documentos/Dispositivos\ Electronicos/'
+alias cwp='cd /mnt/DATOS/Documentos/Analisis de Sistemas y Señales/TPN1/'
 
 # some recurrent icons
 alias piicon=''
