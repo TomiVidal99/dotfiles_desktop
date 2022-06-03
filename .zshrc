@@ -64,11 +64,11 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 ## Alias section 
-source $HOME/.config/.zsh/.aliases # global aliases
-source $HOME/.config/.zsh/.system_aliases # system specific aliases
+source $HOME/.config/zsh/aliases # global aliases
+source $HOME/.config/zsh/system_aliases # system specific aliases
 
 ## Shortcuts/Hotkeys
-source $HOME/.config/.zsh/.shortcuts # hotkeys for when we're in the terminal
+source $HOME/.config/zsh/shortcuts # hotkeys for when we're in the terminal
 
 # Theming section  
 autoload -U compinit colors zcalc
