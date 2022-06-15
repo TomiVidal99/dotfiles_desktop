@@ -118,5 +118,8 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
+" Open the maps for all keys in the current filetype.
+map <F2> <cmd> map <CR>
+
 " Open a new terminal with the current path
 map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
