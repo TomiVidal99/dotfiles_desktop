@@ -90,18 +90,21 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 --  capabilities = capabilities
 --}
 
+# Initialize Typescript server provider.
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   capabilities = capabilities
 }
 
+# Initialize C and C++ server provider.
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
   filetypes = { "cpp", "c", "h" },
   capabilities = capabilities,
 }
 
+# Initialize Latex server provider.
 nvim_lsp.texlab.setup {
   on_attach = on_attach,
   filetypes = { "tex" },
