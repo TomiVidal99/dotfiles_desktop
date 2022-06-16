@@ -3,6 +3,12 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
+
+-- Automatically install lsp server.
+require("nvim-lsp-installer").setup {
+  automatic_installation = true
+}
+
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
