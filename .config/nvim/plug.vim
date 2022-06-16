@@ -44,8 +44,11 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
   Plug 'andymass/vim-matchup'
 
-  " File management
+  " Highlight and indentation
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  Plug 'p00f/nvim-ts-rainbow'
+
+  " File management
   Plug 'preservim/nerdtree'
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
@@ -60,7 +63,8 @@ if has("nvim")
   Plug 'p00f/clangd_extensions.nvim'
 
   " latex
-  Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+  "Plug 'donRaphaco/neotex', { 'for': 'tex' }
+  Plug 'lervag/vimtex'
 
 endif
 
