@@ -31,6 +31,9 @@ set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
 set noswapfile
 set incsearch
+" open new split panes to right and below
+set splitright
+set splitbelow
 
 " incremental substitution (neovim)
 if has('nvim')

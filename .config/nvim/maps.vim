@@ -113,13 +113,23 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 " Resize window
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+nmap <a-l> <C-w><
+nmap <a-h> <C-w>>
+nmap <a-k> <C-w>+
+nmap <a-j> <C-w>-
 
 " Open the maps for all keys in the current filetype.
 map <F2> <cmd> map <CR>
 
 " Open a new terminal with the current path
-map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
+map <F8> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
+
+" Terminals inside nvim.
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+function! OpenTerminalBottom()
+  split term://zsh
+  resize 10
+endfunction
+nnoremap <leader>tb <cmd> call OpenTerminalBottom() <CR>
+nnoremap <leader>tr <cmd> vsplit term://zsh <CR>

@@ -23,8 +23,6 @@ map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(
 
 EOF
 
-nnoremap <silent> <C-j> <cmd>Lspsaga diagnostic_jump_next<CR>
-nnoremap <silent> U <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-nnoremap <silent> <C-k> <cmd>Lspsaga code_action<CR>
-nnoremap <silent> gh <cmd>Lspsaga lsp_finder<CR>
-nnoremap <silent> gp <cmd>Lspsaga preview_definition<CR>
+"nnoremap <silent> <C-k> <cmd>Lspsaga code_action<CR>
+"nnoremap <silent> gh <cmd>Lspsaga lsp_finder<CR>
+"nnoremap <silent> gp <cmd>Lspsaga preview_definition<CR>

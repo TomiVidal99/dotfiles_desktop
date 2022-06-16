@@ -7,7 +7,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-    disable = { "" },
+    disable = { "latex" },
   },
   indent = {
     enable = true,
