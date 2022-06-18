@@ -65,6 +65,11 @@ if has("nvim")
   " latex
   Plug 'lervag/vimtex'
 
+  " Debugger
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'nvim-telescope/telescope-dap.nvim'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

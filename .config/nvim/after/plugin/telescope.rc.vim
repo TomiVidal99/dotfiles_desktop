@@ -1,19 +1,20 @@
 if !exists('g:loaded_telescope') | finish | endif
 
-nnoremap  <silent> <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap  <silent> <leader>s <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap  <silent> <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap  <silent> <leader>m <cmd>lua require('telescope.builtin').marks()<cr>
-nnoremap  <silent> <leader>q <cmd>lua require('telescope.builtin').quickfixlist()<cr>
-nnoremap  <silent> <leader>j <cmd>lua require('telescope.builtin').jumplist()<cr>
-nnoremap  <silent> gr <cmd>lua require('telescope.builtin').lsp_references()<cr>
-nnoremap  <silent> gd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
-nnoremap  <silent> ga <cmd>lua require('telescope.builtin').lsp_code_actions()<cr>
-nnoremap  <silent> gi <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
-nnoremap  <silent> ,c <cmd>lua require('telescope.builtin').git_commits()<cr>
-nnoremap  <silent> ,l <cmd>lua require('telescope.builtin').git_bcommits()<cr>
-nnoremap  <silent> ,b <cmd>lua require('telescope.builtin').git_branches()<cr>
-nnoremap  <silent> ,s <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap  <silent> <leader>T <CMD>Telescope<CR>
+nnoremap  <silent> <leader>g <CMD>lua require('telescope.builtin').live_grep()<CR>
+nnoremap  <silent> <leader>s <CMD>lua require('telescope.builtin').grep_string()<CR>
+nnoremap  <silent> <leader>f <CMD>lua require('telescope.builtin').find_files()<CR>
+nnoremap  <silent> <leader>m <CMD>lua require('telescope.builtin').marks()<CR>
+nnoremap  <silent> <leader>q <CMD>lua require('telescope.builtin').quickfixlist()<CR>
+nnoremap  <silent> <leader>j <CMD>lua require('telescope.builtin').jumplist()<CR>
+nnoremap  <silent> gr <CMD>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap  <silent> gd <CMD>lua require('telescope.builtin').lsp_definitions()<CR>
+nnoremap  <silent> ga <CMD>lua require('telescope.builtin').lsp_code_actions()<CR>
+nnoremap  <silent> gi <CMD>lua require('telescope.builtin').lsp_implementations()<CR>
+nnoremap  <silent> ,c <CMD>lua require('telescope.builtin').git_commits()<CR>
+nnoremap  <silent> ,l <CMD>lua require('telescope.builtin').git_bcommits()<CR>
+nnoremap  <silent> ,b <CMD>lua require('telescope.builtin').git_branches()<CR>
+nnoremap  <silent> ,s <CMD>lua require('telescope.builtin').git_status()<CR>
 
 lua << EOF
 function telescope_buffer_dir()
@@ -22,10 +23,8 @@ end
 
 function delete_all_marks() 
   -- deletes marks in the range p to z
-	--return lua delm! | delm A-Z0-9     
-	--delm! | delm A-Z0-9     
-  --print("Marks deleted! :)")
-  print("TODO :)")
+	vim.api.nvim_command('delm! | delm A-Z0-9 | delm \"<>')
+  print("Marks deleted! :)")
 end
 
 local telescope = require('telescope')
