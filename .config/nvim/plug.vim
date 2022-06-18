@@ -70,6 +70,9 @@ if has("nvim")
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'nvim-telescope/telescope-dap.nvim'
 
+  " Grammar check
+  Plug 'rhysd/vim-grammarous'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
