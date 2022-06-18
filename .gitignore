@@ -1,7 +1,7 @@
 # Ignore all files but the README, .gitignore, and the onces specified below
 /*
-.config/*
-!.config/
+!.config
+!.config/*
 !README.md
 !.gitignore
 
