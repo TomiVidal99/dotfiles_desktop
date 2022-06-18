@@ -1,0 +1,5 @@
+List of system dependencies required for all the plugs to work properly.
+
+lldb-vscode
+vim-latexsuite
+latexmk
