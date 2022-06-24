@@ -1,6 +1,9 @@
 " PLUGIN FROM: https://github.com/neovim/nvim-lspconfig
 " SYSTEM DEPENDENCIES: vim-latexsuite, latexmk.
 
+" Disable all default vimtex maps.
+let g:vimtex_mappings_enabled = 0
+
 "" This is necessary for VimTeX to load properly. The "indent" is optional.
 " Note that most plugin managers will do this automatically.
 filetype plugin indent on
@@ -29,3 +32,7 @@ let g:vimtex_compiler_method = 'latexmk'
 " Most VimTeX mappings rely on localleader and this can be changed with the
 " following line. The default is usually fine and is the symbol "\".
 let maplocalleader = " "
+
+" MAPS
+nmap <leader>lc <CMD>VimtexCompile<CR>
+nmap <leader>li <CMD>VimtexInfo<CR>
