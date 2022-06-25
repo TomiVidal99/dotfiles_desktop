@@ -5,7 +5,6 @@ nnoremap  <silent> <leader>g <CMD>lua require('telescope.builtin').live_grep()<C
 nnoremap  <silent> <leader>s <CMD>lua require('telescope.builtin').grep_string()<CR>
 nnoremap  <silent> <leader>f <CMD>lua require('telescope.builtin').find_files()<CR>
 nnoremap  <silent> <leader>m <CMD>lua require('telescope.builtin').marks()<CR>
-nnoremap  <silent> <leader>q <CMD>lua require('telescope.builtin').quickfixlist()<CR>
 nnoremap  <silent> <leader>j <CMD>lua require('telescope.builtin').jumplist()<CR>
 nnoremap  <silent> gr <CMD>lua require('telescope.builtin').lsp_references()<CR>
 nnoremap  <silent> gd <CMD>lua require('telescope.builtin').lsp_definitions()<CR>

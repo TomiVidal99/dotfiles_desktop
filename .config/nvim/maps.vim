@@ -133,3 +133,10 @@ function! OpenTerminalBottom()
 endfunction
 nnoremap <leader>tb <cmd> call OpenTerminalBottom() <CR>
 nnoremap <leader>tr <cmd> vsplit term://zsh <CR>
+
+" Quickfixlist
+nmap <leader>qo <cmd>copen<cr>
+nmap <leader>qc <cmd>cclose<cr>
+nmap <leader>qn <cmd>cnext<cr>
+nmap <leader>qp <cmd>cprev<cr>
+nmap <leader>qh <cmd>chistory<cr>
