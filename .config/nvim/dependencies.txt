@@ -1,5 +1,10 @@
-List of system dependencies required for all the plugs to work properly.
+-- List of system dependencies required for all the plugs to work properly.
 
 lldb-vscode
 vim-latexsuite
 latexmk
+
+-- To install python debugger:
+python -m venv /home/tomii/.virtualenvs/debugpy
+/home/tomii/.virtualenvs/debugpy/bin/python -m pip install --upgrade pip
+/home/tomii/.virtualenvs/debugpy/bin/python -m pip install debugpy

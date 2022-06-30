@@ -100,6 +100,8 @@ nmap <Tab> :tabnext<Return>
 " Windows
 
 " Split window
+" move window to new tab
+nmap st <C-w>T
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 " Move window
@@ -122,7 +124,7 @@ nmap <a-j> <C-w>-
 map <F2> <cmd> map <CR>
 
 " Open a new terminal with the current path
-map <F8> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
+map <F12> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
 
 " Terminals inside nvim.
 " start terminal in insert mode
