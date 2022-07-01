@@ -44,10 +44,6 @@ set clipboard+=unnamedplus
 " Save file
 map <C-s> :w <CR>
 
-" Telescope rebinding
-map <A-f> :Telescope <CR>
-map <A-b> :Texplore <CR>
-
 " Escape with Alt+a
 imap <A-a> <Esc>
 
