@@ -1,6 +1,7 @@
 # Ignore all files but the README, .gitignore, and the onces specified below
 /*
-.config
+!.config/
+!.config/*
 !README.md
 !.gitignore
 
@@ -27,5 +28,6 @@
 !.octave/
 !.octaverc
 
-# zsh oh-my-zsh with powerlevel10k
+# zsh
 !zsh
+!.zshrc
