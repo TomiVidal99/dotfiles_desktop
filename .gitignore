@@ -26,7 +26,4 @@
 !.octaverc
 
 # zsh oh-my-zsh with powerlevel10k
-!.zshrc
-!.config/zsh/
-!.config/zsh/aliases
-!.config/zsh/shortcuts
+!zsh
