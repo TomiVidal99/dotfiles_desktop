@@ -26,3 +26,8 @@ function fzfkill_() {echo "FZF KILL\n"; fzf-kill}; zle -N fzfkill_
 bindkey -M vicmd '^k' fzfkill_
 function fzf_() {zle -I; find . -type d | fzf > selected | xargs -L 1 zsh -c 'cd "$0" && pwd'}; zle -N fzf_
 bindkey -M vicmd '^f' fzf_
+
+# Switch between working directories.
+# TODO: 
+function switch_working_directory_() {zle -I; echo "Changing to working directory\n"; switch_working_directory}; zle -N switch_working_directory_
+bindkey -M vicmd '^w' switch_working_directory_

@@ -31,7 +31,17 @@ function is_git_directory() {
 
 # prompt the user for a commit message
 function get_commit_message() {
-  zle -I
   read "msg?Commit message: "
   git commit -m "${msg}"
+}
+
+# switch between the defined working directories.
+function switch_working_directory() {
+  echo "\ncalled from function\n"
+  cat ./directories
+}
+
+# switch between the local defined working directories.
+function switch_local_working_directory() {
+
 }
