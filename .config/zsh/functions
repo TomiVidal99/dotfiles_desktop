@@ -1,0 +1,37 @@
+#!/bin/sh
+# Some utility functions for zsh shit
+
+# Source files if they exist
+function zsh_add_file() {
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+# add plugin, download it if needed
+function zsh_add_plugin() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    if [ -d "$ZDOTDIR/plugins_dependencies/$PLUGIN_NAME" ]; then 
+        # For plugins
+        zsh_add_file "plugins_dependencies/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+        zsh_add_file "plugins_dependencies/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins_dependencies/$PLUGIN_NAME"
+    fi
+}
+
+# check if the current directory is a GIT directory
+function is_git_directory() {
+  if git tag > /dev/null 2>&1; then
+  else
+      clear
+      RED='\033[0;31m'
+      RESET='\033[0m'
+      echo -e "${RED}NO REPOSITORY!${RESET}"
+  fi
+}
+
+# prompt the user for a commit message
+function get_commit_message() {
+  zle -I
+  read "msg?Commit message: "
+  git commit -m "${msg}"
+}

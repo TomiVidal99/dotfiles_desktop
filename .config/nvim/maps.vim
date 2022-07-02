@@ -45,7 +45,7 @@ set clipboard+=unnamedplus
 map <C-s> :w <CR>
 
 " Escape with Alt+a
-"imap <A-a> <Esc>
+imap <A-a> <Esc>
 
 " Map ff (rapidly) to Enter
 nmap ff <Return>
