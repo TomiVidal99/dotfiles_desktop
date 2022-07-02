@@ -12,7 +12,7 @@ fi
 #   - vi mode
 #   - aliases
 #   - custom functions
-#   - custom name bar shit TODO
+#   - custom name bar shit
 #   - completion TODO (need to complete add arguments yet)
 #   - custom keybinds TODO
 #   - 'cd' to custom paths from function TODO
