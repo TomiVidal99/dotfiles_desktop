@@ -1,12 +1,19 @@
 #!/bin/sh
 # Shortcuts for zsh
+# TODO: improve this hole thing with only one function and a switch statement maybe?
+
+# Nvim 
+function nvim_() {zle -I; nvim .}; zle -N nvim_
+bindkey -M vicmd '^i' nvim_
+function octave_() {zle -I; o}; zle -N octave_
+bindkey -M vicmd '^o' octave_
 
 # Git
 function gaddall_() {zle -I; echo "\nGIT: add\n"; gaddall; echo "\n"; gstatus; is_git_directory}; zle -N gaddall_
 bindkey -M vicmd 'ga' gaddall_
 function gpush_() {zle -I; echo "\nGIT: push\n"; gpush; is_git_directory}; zle -N gpush_
 bindkey -M vicmd 'gp' gpush_
-function gcheckout_() {zle -I; echo "\nGIT: checkout\n "; gbranch | fzf --cycle --layout=reverse > selected | xargs -I % git checkout %; is_git_directory}; zle -N gcheckout_
+function gcheckout_() {zle -I; echo "\nGIT: checkout\n "; gbranch | fzf --cycle --layout=reverse | xargs -I % git checkout %; is_git_directory}; zle -N gcheckout_
 bindkey -M vicmd 'gc' gcheckout_
 function gdiff_() {zle -I; echo "\nGIT: diff\n "; gdiff; is_git_directory}; zle -N gdiff_
 bindkey -M vicmd 'gd' gdiff_
@@ -16,9 +23,11 @@ bindkey -M vicmd 'gb' gbranch_
 #function gcom_() {zle -I; echo "\nGIT: commit\n"; echo "\n\n"; get_commit_message; is_git_directory}; zle -N gcom_
 #bindkey -M vicmd 'gc' gcom_
 
-# Nvim 
-function nvim_() {nvim .}; zle -N nvim_
-bindkey -M vicmd '^i' nvim_
+# list the directory 
+function ls_() {zle -I; ls}; zle -N ls_
+bindkey -M vicmd 'l' ls_
+function lsa_() {zle -I; ll}; zle -N lsa_
+bindkey -M vicmd '^a' lsa_
 
 # Fzf
 # TODO: improve these shits
@@ -28,6 +37,5 @@ function fzf_() {zle -I; find . -type d | fzf > selected | xargs -L 1 zsh -c 'cd
 bindkey -M vicmd '^f' fzf_
 
 # Switch between working directories.
-# TODO: 
-function switch_working_directory_() {zle -I; echo "Changing to working directory\n"; switch_working_directory}; zle -N switch_working_directory_
+function switch_working_directory_() {zle -I; switch_working_directory; ls}; zle -N switch_working_directory_
 bindkey -M vicmd '^w' switch_working_directory_

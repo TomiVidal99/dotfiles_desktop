@@ -14,6 +14,10 @@ alias rm='rm -i'
 alias df='df -h'     # human-readable sizes
 alias free='free -m' # show sizes in MB
 
+# list
+alias ls='colorls --color=always --hyperlink .'
+alias ll='colorls -la --color=always --hyperlink .'
+
 # git
 alias gcom='git commit -m '
 alias gpush='git push'
@@ -23,3 +27,7 @@ alias gstatus='git status'
 alias gcheckout='git checkout '
 alias gbranch='git branch'
 alias gdiff='git diff'
+alias acp='git_add_commit_push'
+
+# octave
+alias o='octave --traditional'
