@@ -51,18 +51,45 @@ function switch_working_directory() {
 
 # add the current directory to the working directories list
 function add_to_working_directory() {
-  echo "you've entered ${DIR_NAME}"
-  #if ! [ -z "$dir_name" ]; then
-  #  echo "The name is empty"
-  #fi
-  #current_dir=$(pwd)
-  #echo $current_dir
+  # TODO: check if the name picked doesn't actually exist.
+  read "DIR_NAME?What should i call this directory? "
+  if [ -z "$DIR_NAME" ]; then
+    echo "ERROR: enter a valid directory name"
+    break
+  fi
+  DIR=$(pwd)
+  FULLPATH="${DIR_NAME}=${DIR}"
+  echo $FULLPATH >> /home/tomii/.dotfiles/.config/zsh/working_directories
+}
+
+# remove current directory from the working directory list
+function remove_from_working_directory() {
+  zle -I
+  DIRECTORIES=$(cat /home/tomii/.dotfiles/.config/zsh/working_directories)
+  if [ -z $DIRECTORIES ]; then
+    # exit if the are no working directories
+    clear
+    echo "No working directories"
+    return 
+  fi
+  DIR=$(echo $DIRECTORIES | cut -d'=' -f1 | fzf)
+  FULLPATH=$(echo $DIRECTORIES | grep $DIR)
+  PATTERN_TO_REMOVE="/$(echo $FULLPATH | sed 's/\//\\\//g')/d"
+  while true; do
+      read "yn?Remove '$FULLPATH' [y/n]: "
+      case $yn in
+          [Yy]*) echo "Deleted" ; break;;
+          [Nn]*) echo "Aborted" ; return  1;;
+      esac
+  done
+  sed -i $PATTERN_TO_REMOVE /home/tomii/.dotfiles/.config/zsh/working_directories
 }
 
 # git add all, commit with a given argument and push changes
 function git_add_commit_push() {
   if [ "${1}" ]; then
     git add .
+    git status
     git commit -m $1
     git push
   else
