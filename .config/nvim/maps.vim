@@ -121,6 +121,7 @@ map <F2> <cmd> map <CR>
 
 " Open a new terminal with the current path
 map <F12> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
+tnoremap <A-a> <C-\><C-n>
 
 " Terminals inside nvim.
 " start terminal in insert mode

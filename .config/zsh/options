@@ -18,6 +18,10 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 unsetopt BEEP
 
+if ! [ -z $NVIM_LISTEN_ADDRESS ]; then
+  return
+fi
+
 # Vi mode, from plugin: https://github.com/softmoth/zsh-vim-mode
 # Bind for escape
 VIM_MODE_VICMD_KEY='^[a'
