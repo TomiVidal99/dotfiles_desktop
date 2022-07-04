@@ -18,13 +18,11 @@ stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 unsetopt BEEP
 
-if ! [ -z $NVIM_LISTEN_ADDRESS ]; then
-  return
-fi
-
 # Vi mode, from plugin: https://github.com/softmoth/zsh-vim-mode
-# Bind for escape
-VIM_MODE_VICMD_KEY='^[a'
+# Bind for escape, except when i enter nvim
+if [ -z $NVIM_LISTEN_ADDRESS ]; then
+  VIM_MODE_VICMD_KEY='^[a'
+fi
 # Remove delay when changing between modes
 KEYTIMEOUT=1
 # Enable <Esc>-prefixed bindings that should rarely conflict with NORMAL mode
