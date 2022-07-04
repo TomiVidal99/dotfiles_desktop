@@ -2,13 +2,13 @@
 
 # Tomas Vidal's zsh configuration file
 # Features:
-#   - vi mode
+#   - vi mode (works well within nvim as well)
 #   - aliases
 #   - custom functions
 #   - custom name bar shit
+#   - custom keybinds
+#   - 'cd' to custom paths from function
 #   - completion TODO (need to complete add arguments yet)
-#   - custom keybinds TODO
-#   - 'cd' to custom paths from function TODO
 
 HISTFILE=~/.zsh_history
 

@@ -1,6 +1,11 @@
 #!/bin/sh
 # Some utility functions for zsh shit
 
+# reseteo la barra de p10k
+function update_status() {
+  p10k display show
+}
+
 # Source files if they exist
 function zsh_add_file() {
     [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
@@ -44,6 +49,7 @@ function switch_working_directory() {
   FULLPATH=$(echo $WDIRS | grep $DIR | cut -d'=' -f2)
   if [ -d $FULLPATH ]; then
     cd $FULLPATH
+    update_status
   else
     echo "'${FULLPATH}' doesn't exist."
   fi
