@@ -12,7 +12,8 @@ export BROWSER="firefox"
 export FZF_DEFAULT_OPTS='--layout=reverse --cycle --border'
 
 # Some commmon options
-setopt autocd extendedglob nomatch menucomplete
+export SAVEHIST=1 # will save commands in the HISTFILE
+setopt autocd extendedglob nomatch menucomplete appendhistory
 setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')

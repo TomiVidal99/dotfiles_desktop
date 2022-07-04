@@ -10,7 +10,8 @@
 #   - 'cd' to custom paths from function
 #   - completion TODO (need to complete add arguments yet)
 
-HISTFILE=~/.zsh_history
+# save commands used.
+HISTFILE=~/.cache/zsh_history
 
 # Load the other files, some options need to be executed before some plugins.
 source "$ZDOTDIR/functions"

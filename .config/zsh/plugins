@@ -7,5 +7,6 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "softmoth/zsh-vim-mode"
 zsh_add_plugin "unixorn/fzf-zsh-plugin" # more info in: https://github.com/unixorn/fzf-zsh-plugin
+zsh_add_plugin "joshskidmore/zsh-fzf-history-search" # more info in: https://github.com/joshskidmore/zsh-fzf-history-search
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
