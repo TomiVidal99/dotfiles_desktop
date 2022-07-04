@@ -34,9 +34,9 @@ bindkey -M viins '^a' lsa_
 # TODO: improve these shits
 function fzfkill_() {echo "FZF KILL\n"; fzf-kill}; zle -N fzfkill_
 bindkey -M vicmd '^k' fzfkill_
-function fzf_() {zle -I; find . -type d | fzf | xargs -L 1 zsh -c 'cd "$0" && pwd'}; zle -N fzf_
+function fzf_() {zle -I; find . -type d | fzf | xargs -L 1 zsh -c 'cd "$0"'}; zle -N fzf_
 bindkey -M vicmd '^f' fzf_
-function fzfall_() {zle -I; {find /mnt/ -type d & find $HOME -type d} | fzf | xargs -L 1 zsh -c 'cd "$0" && pwd'}; zle -N fzfall_
+function fzfall_() {zle -I; {find /mnt/ -type d & find $HOME -type d} | fzf | xargs -L 1 zsh -c 'cd "$0"'}; zle -N fzfall_
 bindkey -M vicmd '^t' fzfall_
 function fzf_cmd_history_() {zle -I; cat $HISTFILE | sed "s/\\//g" | fzf | xclip -sel clip; clear}; zle -N fzf_cmd_history_
 bindkey -M vicmd '^r' fzf_cmd_history_
