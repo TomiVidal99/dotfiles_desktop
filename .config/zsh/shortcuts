@@ -12,8 +12,8 @@ bindkey -M vicmd '^i' nvim_
 # Git
 function gaddall_() {zle -I; echo "GIT: add\n"; gaddall; echo "\n"; gstatus; is_git_directory}; zle -N gaddall_
 bindkey -M vicmd 'ga' gaddall_
-function gpush_() {zle -I; echo "GIT: push\n"; gpush; is_git_directory}; zle -N gpush_
-bindkey -M vicmd 'gp' gpush_
+function gpull_() {zle -I; echo "GIT: pull\n"; gpull; is_git_directory}; zle -N gpull_
+bindkey -M vicmd 'gp' gpull_
 function gcheckout_() {zle -I; echo "GIT: checkout\n "; gbranch | fzf --cycle --layout=reverse | xargs -I % git checkout %; is_git_directory}; zle -N gcheckout_
 bindkey -M vicmd 'gc' gcheckout_
 function gdiff_() {zle -I; echo "GIT: diff\n "; gdiff; is_git_directory}; zle -N gdiff_
