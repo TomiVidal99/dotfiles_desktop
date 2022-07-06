@@ -15,8 +15,8 @@ alias df='df -h'     # human-readable sizes
 alias free='free -m' # show sizes in MB
 
 # List
-alias ls='colorls --color=always --hyperlink .'
-alias ll='colorls -la --color=always --hyperlink .'
+alias ls='colorls --color=always --hyperlink'
+alias ll='colorls -la --color=always --hyperlink'
 
 # Git
 alias gcom='git commit -m '
