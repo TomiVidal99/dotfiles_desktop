@@ -246,6 +246,7 @@ for_window [class="Screenkey"] floating enable
 bar {
     tray_output $primary_monitor
     font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
+    position top
 
     # Run the bumblebee-status
     status_command bumblebee-status \
@@ -259,22 +260,28 @@ bar {
         #-t nord-powerline
         #-t iceberg-powerline
 
-    position top
-
-    # i3-status: previous status bar.
-    #status_command exec /home/tomii/.utility/i3/bandwidth_script_i3.sh
-    #separator_symbol " | "
-    #separator_symbol "  "
-    #separator_symbol "  "
-    #separator_symbol "  "
-    #separator_symbol " ⏽ "
-    #colors {
-    #  separator #ffffff
-    #  background #000000
-    #  statusline #c0c0c0
-    #}
-
+    # Solarized-powerline alike Theme
+    colors {
+      background #011318
+      statusline #eeeeee
+      separator #666666
+      #                   Bord        Back        Text
+      focused_workspace   #011318     #586e75     #002b36
+      active_workspace    #011318     #002b36     #a9a9a9
+      inactive_workspace  #011318     #002b36     #a9a9a9
+      urgent_workspace    #011318     #b58900     #002b36
+    }
 }
+
+# TODO: make this better
+# Window decorations colors
+# class                 border    bg color    text      indicator
+client.placeholder      #011318   #b58900     #a9a9a9   #a9a9a9
+client.background       #011318   #b58900     #a9a9a9   #a9a9a9
+client.focused          #011318   #b58900     #a9a9a9   #a9a9a9
+client.unfocused        #011318   #011318     #a9a9a9   #a9a9a9
+client.focused_inactive #011318   #011318     #a9a9a9   #a9a9a9
+client.urgent           #011318   #002b36     #002b36   #a9a9a9
 
 # i assing specific workspaces for common applications
 # to workspace 1

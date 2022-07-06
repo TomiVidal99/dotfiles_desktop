@@ -2,6 +2,7 @@
 __This is my personal configuration for my Arch installation in my desktop. Includes configuration for i3, i3status, neovim, and some custom scripts for Arch (volume control, connect to all paired bluetooth devices, etc.)__
 
 # TODO
+- [ ] Add plugin to see colors in nvim.
 - [ ] Improve fzf functions.
 - [ ] Make the shortcut for making commits en zsh/shortcuts.
 - [ ] Look up defx, and cofigure it.
