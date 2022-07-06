@@ -1,0 +1,3 @@
+DOTFILES=/home/tomii/.dotfiles
+documents=/home/tomii/Documents
+nvim=/home/tomii/.dotfiles/.config/nvim

@@ -24,13 +24,16 @@ order += "tztime local_date"
 order += "tztime local_time"
 
 wireless _first_ {
-        format_up = "📡 %essid <%quality><%ip>"
-        format_down = "NO WLAN"
+        #format_up = "📡 %essid <%quality><%ip>"
+        format_up = "泌 %essid <%quality><%ip>"
+        format_down = " N/WLAN"
 }
 
 ethernet _first_ {
-        format_up = "🌐 <%ip><%speed>"
-        format_down = "N/C"
+        #format_up = "🌐 <%ip><%speed>"
+        format_up = "  <%ip><%speed>"
+        #format_down = "N/C"
+        format_down = " N/C"
 }
 
 battery all {
@@ -46,22 +49,27 @@ load {
 }
 
 memory {
-        format = "🧠 %used/%total"
+        #format = "🧠 %used/%total"
+        format = " %used/%total"
         threshold_degraded = "600mb"
         format_degraded = "%used/%total"
 }
 
 tztime local_date {
-        format = "📅 %A %d/%m/%Y"
+        #format = "📅 %A %d/%m/%Y"
+        format = "  %A %d/%m/%Y"
 }
 
 tztime local_time {
-        format = "🕔 %H:%M   "
+        #format = "🕔 %H:%M   "
+        format = " %H:%M   "
 }
 
 volume master {
-        format = "🔊%volume"
-        format_muted = "🔈: muted (%volume)"
+        #format = "🔊%volume"
+        format = "墳 %volume"
+        #format_muted = "🔈: muted (%volume)"
+        format_muted = "婢 %volume (MUTED)"
         device = "default"
         mixer = "Master"
         mixer_idx = 0

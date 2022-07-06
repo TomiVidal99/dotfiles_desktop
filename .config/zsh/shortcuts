@@ -1,0 +1,46 @@
+#!/bin/sh
+# Shortcuts for zsh
+# TODO: improve this hole thing with only one function and a switch statement maybe?
+
+# Nvim 
+function nvim_() {zle -I; nvim .}; zle -N nvim_
+bindkey -M vicmd '^i' nvim_
+# TODO: make this work?.
+#function octave_() {zle -I; o}; zle -N octave_
+#bindkey -M vicmd '^o' octave_
+
+# Git
+function gaddall_() {zle -I; echo "GIT: add\n"; gaddall; echo "\n"; gstatus; is_git_directory}; zle -N gaddall_
+bindkey -M vicmd 'ga' gaddall_
+function gpush_() {zle -I; echo "GIT: push\n"; gpush; is_git_directory}; zle -N gpush_
+bindkey -M vicmd 'gp' gpush_
+function gcheckout_() {zle -I; echo "GIT: checkout\n "; gbranch | fzf --cycle --layout=reverse | xargs -I % git checkout %; is_git_directory}; zle -N gcheckout_
+bindkey -M vicmd 'gc' gcheckout_
+function gdiff_() {zle -I; echo "GIT: diff\n "; gdiff; is_git_directory}; zle -N gdiff_
+bindkey -M vicmd 'gd' gdiff_
+function gbranch_() {zle -I; echo "GIT: branch\n "; gbranch; is_git_directory}; zle -N gbranch_
+bindkey -M vicmd 'gb' gbranch_
+# TODO: find a way to make this work.
+#function gcom_() {zle -I; echo "GIT: commit\n"; is_git_directory}; zle -N gcom_
+#bindkey -M vicmd 'gc' gcom_
+
+# list the directory 
+function ls_() {zle -I; ls}; zle -N ls_
+bindkey -M viins '^l' ls_
+function lsa_() {zle -I; ll}; zle -N lsa_
+bindkey -M viins '^a' lsa_
+
+# Fzf
+# TODO: improve these shits
+function fzfkill_() {echo "FZF KILL\n"; fzf-kill}; zle -N fzfkill_
+bindkey -M vicmd '^k' fzfkill_
+function fzf_() {zle -I; find . -type d | fzf | xargs -L 1 zsh -c 'cd "$0"'}; zle -N fzf_
+bindkey -M vicmd '^f' fzf_
+function fzfall_() {zle -I; {find /mnt/ -type d & find $HOME -type d} | fzf | xargs -L 1 zsh -c 'cd "$0"'}; zle -N fzfall_
+bindkey -M vicmd '^t' fzfall_
+function fzf_cmd_history_() {zle -I; cat $HISTFILE | sed "s/\\//g" | fzf | xclip -sel clip; clear}; zle -N fzf_cmd_history_
+bindkey -M vicmd '^r' fzf_cmd_history_
+
+# Switch between working directories.
+function switch_working_directory_() {zle -I; switch_working_directory}; zle -N switch_working_directory_
+bindkey -M vicmd '^w' switch_working_directory_

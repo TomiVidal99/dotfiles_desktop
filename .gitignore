@@ -1,9 +1,16 @@
 # Ignore all files but the README, .gitignore, and the onces specified below
 /*
-.config/*
 !.config/
+!.config/*
 !README.md
 !.gitignore
+
+# Personal setup file
+!.xprofile
+
+# Don't ignore stow related files
+!install*
+!.stow*
 
 # won't ignore the following files
 # i3 config
@@ -21,5 +28,7 @@
 !.octave/
 !.octaverc
 
-# zsh oh-my-zsh with powerlevel10k
+# zsh
+!zsh
 !.zshrc
+plugins_dependencies

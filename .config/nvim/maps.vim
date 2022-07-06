@@ -1,14 +1,48 @@
 " Description: Keymaps
 
+" map leader
+let mapleader = " " " map leader to Space
+
+" copy from the cursor to the end of the line.
+nnoremap Y y$
+
+" alaways keep the cursor in the center when searching and using N and J to
+" bind strings
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ'z
+
+" only undo by break points, don't remove the entire line that you've written.
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+inoremap ( (<c-g>u
+inoremap ) )<c-g>u
+inoremap [ [<c-g>u
+inoremap ] ]<c-g>u
+
+" jumpt list mutations, basically add more points to jump when moving around.
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" replace highlighted text with prompted input hotkey
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <S-r> :s//gc<left><left><left>
+
+" move entire text up and down, by lines or by selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==
+inoremap <C-k> <esc>:m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+
 " when yanking directly copy all words
 set clipboard+=unnamedplus
 
 " Save file
 map <C-s> :w <CR>
-
-" Telescope rebinding
-map <A-f> :Telescope <CR>
-map <A-b> :Texplore <CR>
 
 " Escape with Alt+a
 imap <A-a> <Esc>
@@ -62,6 +96,8 @@ nmap <Tab> :tabnext<Return>
 " Windows
 
 " Split window
+" move window to new tab
+nmap st <C-w>T
 nmap ss :split<Return><C-w>w
 nmap sv :vsplit<Return><C-w>w
 " Move window
@@ -75,10 +111,31 @@ map sk <C-w>k
 map sj <C-w>j
 map sl <C-w>l
 " Resize window
-nmap <C-w><left> <C-w><
-nmap <C-w><right> <C-w>>
-nmap <C-w><up> <C-w>+
-nmap <C-w><down> <C-w>-
+nmap <a-l> <C-w><
+nmap <a-h> <C-w>>
+nmap <a-k> <C-w>+
+nmap <a-j> <C-w>-
+
+" Open the maps for all keys in the current filetype.
+map <F2> <cmd> map <CR>
 
 " Open a new terminal with the current path
-map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
+map <F12> <cmd> exec '!konsole '.shellescape('%:p')' & disown' <CR>
+tnoremap <A-a> <C-\><C-n>
+
+" Terminals inside nvim.
+" start terminal in insert mode
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+function! OpenTerminalBottom()
+  split term://zsh
+  resize 10
+endfunction
+nnoremap <leader>tb <cmd> call OpenTerminalBottom() <CR>
+nnoremap <leader>tr <cmd> vsplit term://zsh <CR>
+
+" Quickfixlist
+nmap <leader>qo <cmd>copen<cr>
+nmap <leader>qc <cmd>cclose<cr>
+nmap <leader>qn <cmd>cnext<cr>
+nmap <leader>qp <cmd>cprev<cr>
+nmap <leader>qh <cmd>chistory<cr>

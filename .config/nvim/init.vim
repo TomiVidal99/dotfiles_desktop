@@ -24,11 +24,16 @@ set hlsearch
 set showcmd
 set cmdheight=1
 set laststatus=2
-set scrolloff=10
+set scrolloff=8
 set expandtab
 "let loaded_matchparen = 1
 set shell=zsh
 set backupskip=/tmp/*,/private/tmp/*
+set noswapfile
+set incsearch
+" open new split panes to right and below
+set splitright
+set splitbelow
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -105,7 +110,7 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 " Fish
 au BufNewFile,BufRead *.fish set filetype=fish
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.m,.cpp,.c
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -115,7 +120,7 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 
 " Imports "{{{
 " ---------------------------------------------------------------------
-runtime ./plug.vim
+runtime ./plugs.vim
 if has("unix")
   let s:uname = system("uname -s")
   " Do Mac stuff
@@ -128,6 +133,7 @@ if has('win32')
 endif
 
 runtime ./maps.vim
+runtime ./octave.rc.vim
 "}}}
 
 " Syntax theme "{{{
@@ -153,19 +159,3 @@ endif
 " ---------------------------------------------------------------------
 set exrc
 "}}}
-
-" Octave Configuration{{{
-autocmd FileType matlab setlocal keywordprg=konsole\ -e\ info\ octave\ --vi-keys\ --index-search"
-" activate matchit
-set nocompatible
-filetype plugin on
-runtime macros/matchit.vim
-" set matchit for octave sytanx
-let s:conditionalEnd = '\(([^()]*\)\@!\<end\>\([^()]*)\)\@!'
-autocmd FileType matlab let b:match_words = '\<if\>\|\<while\>\|\<for\>\|\<switch\>:' .
-       \ s:conditionalEnd . ',\<if\>:\<elseif\>:\<else\>:' . s:conditionalEnd"
-
-" Matlab plugin
-let g:matlab_auto_mappings = 0 "automatic mappings enabled
-let g:matlab_server_launcher = 'vim'  "launch the server in a Neovim terminal buffer
-let g:matlab_server_split = 'horizontal' "launch the server in a horizontal split}}}

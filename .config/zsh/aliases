@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# Easier to read disk
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+
+# List
+alias ls='colorls --color=always --hyperlink'
+alias ll='colorls -la --color=always --hyperlink'
+
+# Git
+alias gcom='git commit -m '
+alias gpush='git push'
+alias gpull='git pull'
+alias gaddall='git add .'
+alias gstatus='git status'
+alias gcheckout='git checkout '
+alias gbranch='git branch'
+alias gdiff='git diff'
+alias acp='git_add_commit_push'
+
+# Custom functions
+alias awd='add_to_working_directory'
+alias rwd='remove_from_working_directory'
+
+# Octave
+alias o='octave --traditional'

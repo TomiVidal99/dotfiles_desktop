@@ -2,11 +2,24 @@ if !exists('g:loaded_cmp') | finish | endif
 
 set completeopt=menuone,noinsert,noselect
 
-lua <<EOF
+lua << EOF
   local cmp = require'cmp'
   local lspkind = require'lspkind'
 
   cmp.setup({
+
+    sorting = {
+        comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+        },
+    },
 
     snippet = {
       expand = function(args)
@@ -15,8 +28,10 @@ lua <<EOF
     },
 
     mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item()),
+      ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item()),
+      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-d>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
       ['<C-x>'] = cmp.mapping.confirm({
@@ -25,23 +40,34 @@ lua <<EOF
       }),
     },
 
-    sources = cmp.config.sources(
-    {
+    sources = cmp.config.sources({
+      { name = 'luasnip' },
       { name = 'nvim_lsp' },
       { name = 'nvim_lua' },
       { name = 'path' },
-      { name = 'buffer', keyword_length = 0 },
+      { name = 'buffer', keyword_length = 3 },
+      --{ name = 'cmp_matlab' },
+      --{ name = 'cmp_octave' },
     }),
 
     formatting = {
       format = lspkind.cmp_format({
-        with_text = true,
+        with_text = false,
         maxwidth = 50,
+        menu = {
+          buffer = "[text]",
+          nvim_lua = "[api]",
+          nvim_lsp = "[LSP]",
+          --luasnip = "[snip]",
+          path = "[path]",
+          cmp_matlab = "[matlab]",
+          cmp_octave = "[octave]",
+        },
       })
     },
 
     experimental = {
-      native_menu = false,
+      native = true,
       ghost_text = true,
     }
 

@@ -1,11 +1,18 @@
 % inital config
-clc % clear initial shit
-addpath("~/.octave");
+defaultFontname = 'NotoMono Nerd Font';
+addpath('~/.octave');
 
 % diplay welcome message
-dispc("Welcome to Octave! \n", "cyan");
-dispc("Custom scripts: ", "blue");
-dispc(" plotPhasor, bhaskara, cart, phasor. \n", "red");
+clc % clear initial shit
+dispc('Welcome to Octave! \n', 'cyan');
+dispc('Custom scripts: ', 'blue');
+dispc(' plotPhasor, bhaskara, cart, phasor. \n', 'red');
 
 % get constanst from the file
 constants
+
+% alias to quickly close all properly and quit the environment
+function q() 
+  close all;
+  exit;
+endfunction

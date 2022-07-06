@@ -1,6 +1,6 @@
 function dispc(varargin)
   % function to print strings with a color.
-  % dispc(text, color);
+  % Usage example: dispc(text, color);
 
   % ----- COLORS -----
   Default='[39m';  %	Default	Colors in the bash

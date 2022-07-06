@@ -10,11 +10,19 @@ saga.init_lsp_saga {
   infor_sign = '',
   border_style = "round",
 }
+saga.setup {
+  finder_action_keys = {
+    scroll_down = "<C-p>",
+    scroll_up = "<C-n>",
+  }
+}
+
+local map = vim.api.nvim_buf_set_keymap
+map(0, "n", "<C-r>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+map(0, "n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 
 EOF
 
-nnoremap <silent> <C-j> :Lspsaga diagnostic_jump_next<CR>
-"nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
-nnoremap <silent> gh :Lspsaga lsp_finder<CR>
-nnoremap <silent> gp :Lspsaga preview_definition<CR>
-
+"nnoremap <silent> <C-k> <cmd>Lspsaga code_action<CR>
+"nnoremap <silent> gh <cmd>Lspsaga lsp_finder<CR>
+"nnoremap <silent> gp <cmd>Lspsaga preview_definition<CR>

@@ -1,0 +1,105 @@
+#!/bin/sh
+# Some utility functions for zsh shit
+
+# reseteo la barra de p10k
+function update_status() {
+  p10k display show
+}
+
+# Source files if they exist
+function zsh_add_file() {
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+# add plugin, download it if needed
+function zsh_add_plugin() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    if [ -d "$ZDOTDIR/plugins_dependencies/$PLUGIN_NAME" ]; then 
+        # For plugins
+        zsh_add_file "plugins_dependencies/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+        zsh_add_file "plugins_dependencies/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins_dependencies/$PLUGIN_NAME"
+    fi
+}
+
+# check if the current directory is a GIT directory
+function is_git_directory() {
+  if git tag > /dev/null 2>&1; then
+  else
+      clear
+      RED='\033[0;31m'
+      RESET='\033[0m'
+      echo -e "${RED}NO REPOSITORY!${RESET}"
+  fi
+}
+
+# prompt the user for a commit message
+function get_commit_message() {
+  read "msg?Commit message: "
+  git commit -m "${msg}"
+}
+
+# switch between the defined working directories.
+function switch_working_directory() {
+  DIRECTORIES=~/.dotfiles/.config/zsh/directories
+  WORKING_DIRECTORIES=~/.dotfiles/.config/zsh/working_directories
+  WDIRS=$(cat $DIRECTORIES $WORKING_DIRECTORIES)
+  DIR=$(echo $WDIRS | cut -d'=' -f1 | fzf)
+  FULLPATH=$(echo $WDIRS | grep $DIR | cut -d'=' -f2)
+  if [ -d $FULLPATH ]; then
+    cd $FULLPATH
+    update_status
+  else
+    echo "'${FULLPATH}' doesn't exist."
+  fi
+}
+
+# add the current directory to the working directories list
+function add_to_working_directory() {
+  # TODO: check if the name picked doesn't actually exist.
+  read "DIR_NAME?What should i call this directory? "
+  if [ -z "$DIR_NAME" ]; then
+    echo "ERROR: enter a valid directory name"
+    break
+  fi
+  DIR=$(pwd)
+  FULLPATH="${DIR_NAME}=${DIR}"
+  echo $FULLPATH >> /home/tomii/.dotfiles/.config/zsh/working_directories
+}
+
+# remove current directory from the working directory list
+function remove_from_working_directory() {
+  zle -I
+  DIRECTORIES=$(cat /home/tomii/.dotfiles/.config/zsh/working_directories)
+  if [ -z $DIRECTORIES ]; then
+    # exit if the are no working directories
+    clear
+    echo "No working directories"
+    return 
+  fi
+  DIR=$(echo $DIRECTORIES | cut -d'=' -f1 | fzf)
+  FULLPATH=$(echo $DIRECTORIES | grep $DIR)
+  PATTERN_TO_REMOVE="/$(echo $FULLPATH | sed 's/\//\\\//g')/d"
+  while true; do
+      read "yn?Remove '$FULLPATH' [y/n]: "
+      case $yn in
+          [Yy]*) echo "Deleted" ; break;;
+          [Nn]*) echo "Aborted" ; return  1;;
+      esac
+  done
+  sed -i $PATTERN_TO_REMOVE /home/tomii/.dotfiles/.config/zsh/working_directories
+}
+
+# git add all, commit with a given argument and push changes
+function git_add_commit_push() {
+  if [ "${1}" ]; then
+    git add .
+    git status
+    git commit -m $1
+    git push
+  else
+    echo "ERROR: no commit message."
+    echo "Usage: acp 'this is a commit message.'"
+  fi
+}
