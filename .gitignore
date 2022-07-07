@@ -32,3 +32,4 @@
 !zsh
 !.zshrc
 plugins_dependencies
+plugins_dependencies/*
