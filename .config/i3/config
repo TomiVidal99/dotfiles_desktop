@@ -251,7 +251,7 @@ bar {
     # Run the bumblebee-status
     status_command bumblebee-status \
         -m spotify redshift bluetooth traffic arch-update pasink pasource weather datetime date \
-        -p datetime.format="%-H:%-M:%-S" \
+        -p datetime.format="%H:%M:%S" \
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
            traffic.format='{:.2f}' \
