@@ -250,7 +250,7 @@ bar {
 
     # Run the bumblebee-status
     status_command bumblebee-status \
-        -m spotify redshift bluetooth traffic arch-update pasink pasource weather datetime date \
+        -m spotify bluetooth traffic arch-update pasink pasource weather datetime date \
         -p datetime.format="%H:%M:%S" \
            date.format="%A, %-d/%-m/%-Y" \
            traffic.showname=False \
@@ -372,7 +372,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
 exec_always --no-startup-id compton -c -I 1 -D 15 -O 1 --menu-opacity=1 --frame-opacity=1 --active-opacity=1 --inactive-opacity=1 --no-fading-openclose
 
 # Start redshift
-exec_always --no-startup-id redshift
+exec_always --no-startup-id "~/.utility/i3/redshift.sh"
 
 # Start tray icons
-exec_always --no-startup-id "~/.config/i3/tray.sh"
+exec_always --no-startup-id "~/.utility/i3/tray.sh"
