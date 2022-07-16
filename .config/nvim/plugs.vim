@@ -78,6 +78,9 @@ if has("nvim")
   " Grammar check
   Plug 'rhysd/vim-grammarous'
 
+  " Colors display (RGB, HEX, HSL) and modifier
+  Plug 'ziontee113/color-picker.nvim'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

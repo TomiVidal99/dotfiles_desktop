@@ -1,4 +1,3 @@
-# - - - - - - - - - - SHORTCUTS - - - - - - - - - -
 # TODO set up this properly to adjust to all previous shortcuts.
 # Press $mod+o followed by either f, t, Escape or Return to launch firefox,
 # thunderbird or return to the default mode, respectively.
@@ -40,5 +39,3 @@ bindsym $mod+Shift+p exec $(echo -n "" | xclip -selection clipboard )
 #bindsym Mod1+r exec playerctl play-pause & notify-send --hint=int:transient:1 -t 600 --icon=media-playback-start --urgency=critical "Reproducir/Pausar" # play/pause music player
 #bindsym Mod1+e exec playerctl next # reproduce next song
 #bindsym Mod1+q exec playerctl previous # reproduce previous song
-
-# | | | | | | | | | | SHORTCUTS | | | | | | | | | |

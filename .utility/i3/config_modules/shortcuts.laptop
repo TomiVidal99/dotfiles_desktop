@@ -1,0 +1,41 @@
+# TODO set up this properly to adjust to all previous shortcuts.
+# Press $mod+o followed by either f, t, Escape or Return to launch firefox,
+# thunderbird or return to the default mode, respectively.
+#set $mode_launcher Launch: [f]irefox [t]hunderbird
+#bindsym $mod+o mode "$mode_launcher"
+#
+#mode "$mode_launcher" {
+#    bindsym f exec firefox
+#    bindsym t exec thunderbird
+#
+#    bindsym Escape mode "default"
+#    bindsym Return mode "default"
+#}
+
+# custom keybindings!
+bindsym $mod+ctrl+p exec $(sh ~/.utility/i3/connect_bluetooth.sh) # exec bluetooth find devices
+bindsym $mod+ctrl+b exec $(sh ~/.utility/i3/connect_headset.sh) # exec bluetooth find devices
+bindsym $mod+ctrl+q exec qutebrowser
+bindsym $mod+ctrl+l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
+bindsym $mod+ctrl+o exec octave --gui
+bindsym $mod+ctrl+c exec firefox
+bindsym $mod+ctrl+x exec dolphin # changed from nautilus
+bindsym $mod+ctrl+s exec spotify
+bindsym $mod+ctrl+m exec clementine
+bindsym $mod+ctrl+v exec $(sh ~/.utility/common/volume.sh)
+bindsym $mod+ctrl+0 exec $(sh ~/.utility/common/change_sink.sh)
+bindsym $mod+ctrl+9 exec $(sh ~/.utility/common/switch_sink.sh)
+bindsym $mod+ctrl+k exec $(sh ~/.utility/common/change_rgb_colors.sh)
+bindsym $mod+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
+bindsym $mod+ctrl+KP_End exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
+bindsym $mod+ctrl+KP_1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
+bindsym $mod+ctrl+KP_Down exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
+bindsym $mod+ctrl+KP_3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
+bindsym $mod+ctrl+KP_Next exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
+bindsym $mod+ctrl+i exec --no-startup-id $(spectacle -r)
+bindsym $mod+Shift+p exec $(echo -n "" | xclip -selection clipboard )
+#bindsym $mod+ctrl+a exec $(arandr) # bind for launching arandr display controller
+#bindsym $mod+ctrl+p exec $(sh pseint.sh) # command to exec pseint
+#bindsym Mod1+r exec playerctl play-pause & notify-send --hint=int:transient:1 -t 600 --icon=media-playback-start --urgency=critical "Reproducir/Pausar" # play/pause music player
+#bindsym Mod1+e exec playerctl next # reproduce next song
+#bindsym Mod1+q exec playerctl previous # reproduce previous song

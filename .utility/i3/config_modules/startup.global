@@ -1,0 +1,14 @@
+# start mail
+exec --no-startup-id sh /home/tomii/.startup.sh
+
+# Set the wallpaper
+exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
+
+# excute xcompmgr to render back shadow drop (enable transparency on terminal)
+exec_always --no-startup-id compton -c -I 1 -D 15 -O 1 --menu-opacity=1 --frame-opacity=1 --active-opacity=1 --inactive-opacity=1 --no-fading-openclose
+
+# Start redshift
+exec_always --no-startup-id "~/.utility/i3/redshift.sh"
+
+# Start tray icons
+exec_always --no-startup-id "~/.utility/i3/tray.sh"
