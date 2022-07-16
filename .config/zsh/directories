@@ -1,3 +1,5 @@
-DOTFILES=/home/tomii/.dotfiles
-documents=/home/tomii/Documents
-nvim=/home/tomii/.dotfiles/.config/nvim
+DOTFILES=/home/tomii/.dotfiles/
+documents=/home/tomii/Documents/
+nvim=/home/tomii/.dotfiles/.config/nvim/
+AnSyS=/mnt/DATOS/Documentos/Analisis de Sistemas y Señales/
+Dispositivos Electronicos=/mnt/DATOS/Documentos/Dispositivos Electronicos/
