@@ -21,16 +21,16 @@ function create_config_file() {
     file_content=$(cat $f)
     title_divier="# - - - - - - - - - - $(echo $filename | cut -d'.' -f1) ($1) - - - - - - - - - - "
     title_end="# - - - - - - - - - - - - - - - - - - - - "
-    printf '%s \n %s \n %s \n\n' "$title_divier" "$file_content" "$title_end" >> $CONFIG_FILE
+    printf '%s\n%s\n%s\n\n' "$title_divier" "$file_content" "$title_end" >> $CONFIG_FILE
   done
 }
 
 create_config_file "global"
-#IS_DESKTOP=$(uname -a | grep desktop)
-#if ! [ -z IS_DESKTOP ]; then
-#  # DESKTOP
-#  create_config_file "desktop"
-#else
-#  # LAPTOP
-#  create_config_file "laptop"
-#fi
+IS_DESKTOP=$(uname -a | grep desktop)
+if ! [ -z IS_DESKTOP ]; then
+  # DESKTOP
+  create_config_file "desktop"
+else
+  # LAPTOP
+  create_config_file "laptop"
+fi

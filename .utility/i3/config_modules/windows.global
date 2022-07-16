@@ -63,3 +63,27 @@ for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
 for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
+
+# i assing specific workspaces for common applications
+# to workspace 1
+# to workspace 2
+assign [class="Brave"] $ws2
+assign [class="firefox"] $ws2
+#assign [class="Qutebrowser"] $ws2
+for_window [class="qutebrowser"] move container to workspace number $ws2
+# to workspace 3
+assign [class="okular"] $ws3
+# to workspace 4
+assign [class="dolphin"] $ws4
+# to workspace 5
+# for spotify specifically
+for_window [class="Spotify"] move container to workspace number $ws5
+for_window [class="Clementine"] move container to workspace number $ws5
+# to workspace 6
+for_window [class="LTspice XVIII"] move container to workspace number $ws4
+# to workspace 7
+assign [class="Octave"] $ws7
+# to workspace 8
+assign [class="discord"] $ws8
+# to workspace 9
+assign [class="Thunderbird"] $ws9
