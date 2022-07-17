@@ -63,7 +63,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Bindings for the windows
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec dmenu_run -i -p 'EXECUTE' -fn 'Ligconsolata condensed:semibold:pixelsize=18' -nb '#000000' -nf '#ffffff' -sf '#d0d0d0' -sb '#2f2f2f'
+bindsym --release $mod+d exec $(sh ~/.utility/i3/execute_rofi.sh)
 bindsym $mod+Shift+q kill
 
 # Switch windows with cursor keys ...
