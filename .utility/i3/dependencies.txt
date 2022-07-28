@@ -10,3 +10,5 @@ feh
 playerctl
 spectacle
 flameshot
+rofi
+rofimoji

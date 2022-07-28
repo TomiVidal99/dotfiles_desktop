@@ -2,6 +2,7 @@
 __This is my personal configuration for my Arch installation in my desktop. Includes configuration for i3, i3status, neovim, and some custom scripts for Arch (volume control, connect to all paired bluetooth devices, etc.)__
 
 # TODO
+- [ ] Change how working directories work. Make a file for different computers.
 - [ ] Add plugin to see colors in nvim.
 - [ ] Improve fzf functions.
 - [ ] Make the shortcut for making commits en zsh/shortcuts.
@@ -14,7 +15,15 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
 
 # Dependencies
+- rofi
+- rofimoji
 - fzf
+- dmenu
+- xcompmgr
+- feh
+- playerctl
+- spectacle
+- flameshot
 
 # Contributors
 - [Tomás Vidal](https://github.com/TomiVidal99)

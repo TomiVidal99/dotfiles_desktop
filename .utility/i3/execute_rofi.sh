@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rofi -show run -modi run,filebrowser -showicons -matching fuzzy
+rofi -show drun -modi "drun,run,filebrowser,emoji:/usr/bin/rofimoji" -show emoji -showicons -matching fuzzy
