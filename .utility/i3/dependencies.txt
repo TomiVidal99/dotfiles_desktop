@@ -12,3 +12,6 @@ spectacle
 flameshot
 rofi
 rofimoji
+xdotool
+xsel
+xcopy

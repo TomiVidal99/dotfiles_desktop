@@ -8,8 +8,8 @@ configuration {
   show-icons: true;
   icon-theme: "Papirus-Dark";
   kb-cancel: "Escape,Alt+a,Control+c";
-  kb-mode-next: "Control+Tab,Alt+Tab";
-  kb-mode-previous: "Control+Shift+Tab,Alt+Shift+Tab";
+  kb-mode-next: "Alt+Tab";
+  kb-mode-previous: "Control+Tab";
 }
 
 @theme "/dev/null"

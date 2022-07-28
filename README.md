@@ -15,6 +15,9 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
 
 # Dependencies
+- xdotool
+- xsel
+- xcopy
 - rofi
 - rofimoji
 - fzf
