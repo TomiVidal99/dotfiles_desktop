@@ -2,6 +2,7 @@
 __This is my personal configuration for my Arch installation in my desktop. Includes configuration for i3, i3status, neovim, and some custom scripts for Arch (volume control, connect to all paired bluetooth devices, etc.)__
 
 # TODO
+- [ ] Automatically run resetHDDs when mounting DATOS and APPS on startup.
 - [ ] Add a way to switch to custom workspaces with rofi, i.e: DISCORD workspace, MAIL workspace.
 - [ ] Add a function to open folders based on the working directories.
 - [ ] Change how working directories work. Make a file for different computers.
