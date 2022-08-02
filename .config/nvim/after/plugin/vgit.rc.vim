@@ -1,3 +1,4 @@
+" Check https://github.com/tanvirtin/vgit.nvim
 lua << EOF
 require('vgit').setup({
 --  keymaps = {
@@ -206,8 +207,9 @@ require('vgit').setup({
 --        },
 --      },
 --    },
---    symbols = {
---      void = '⣿',
+      symbols = {
+        void = '⣿',
+      }
     },
   }
 })
