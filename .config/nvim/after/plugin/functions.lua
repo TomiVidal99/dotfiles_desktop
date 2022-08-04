@@ -8,5 +8,6 @@ function add_commit_current_file()
   os.execute("git add " .. filepath)
   commit_message = vim.fn.input("Commit msg: ")
   os.execute("git commit -m " .. "\"" .. commit_message .. "\"")
+  print("")
 end
 vim.keymap.set("n", "<leader>Gc", add_commit_current_file, {expr = true})
