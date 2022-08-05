@@ -1,0 +1,30 @@
+bar {
+    tray_output $primary_monitor
+    font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
+    position top
+
+    # Run the bumblebee-status
+    status_command bumblebee-status \
+        -m spotify traffic arch-update pasink pasource weather datetime date \
+        -p interval=.5s \
+           datetime.format="%H:%M:%S" \
+           date.format="%A, %-d/%-m/%-Y" \
+           traffic.showname=False \
+           traffic.format='{:.2f}' \
+        -t solarized-powerline
+        # some other themes that are very cool! ;)
+        #-t nord-powerline
+        #-t iceberg-powerline
+
+    # Solarized-powerline alike Theme
+    colors {
+      background #011318
+      statusline #eeeeee
+      separator #666666
+      #                   Bord        Back        Text
+      focused_workspace   #011318     #586e75     #002b36
+      active_workspace    #011318     #002b36     #a9a9a9
+      inactive_workspace  #011318     #002b36     #a9a9a9
+      urgent_workspace    #011318     #b58900     #002b36
+    }
+}

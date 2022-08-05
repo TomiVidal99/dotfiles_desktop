@@ -1,0 +1,28 @@
+# web navigator
+bindsym $mod+Shift+f exec firefox
+# files
+bindsym $mod+Shift+x exec dolphin
+
+# Launch some interesting programs
+bindsym $mod+a mode "$APPS"
+mode "$APPS" {
+    bindsym t exec thunderbird
+    bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
+    bindsym s exec spotify
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+
+bindsym $mod+d mode "$DIRECTORIES"
+mode "$DIRECTORIES" {
+    bindsym 1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
+    bindsym 2 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
+    bindsym 3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}

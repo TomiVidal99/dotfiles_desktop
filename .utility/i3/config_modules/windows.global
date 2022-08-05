@@ -1,0 +1,89 @@
+# Define names for default workspaces
+# for which we configure key bindings later on.  We use variables to avoid repeating the names in multiple places.  
+# Windows for the first and primary monitor
+set $ws1 "1:TERM "
+set $ws2 "2:WWW "
+set $ws3 "3:PDF "
+set $ws4 "4:FILES "
+set $ws5 "5:MUSIC "
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8:DISCORD "
+set $ws9 "9:MAIL "
+set $ws10 "10"
+# Windows for the second monitor
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
+# Assing workspaces for each monitor
+# Windows for the first and primary monitor
+workspace $ws1 output $primary_monitor
+workspace $ws2 output $primary_monitor
+workspace $ws3 output $primary_monitor
+workspace $ws4 output $primary_monitor
+workspace $ws5 output $primary_monitor
+workspace $ws6 output $primary_monitor
+workspace $ws7 output $primary_monitor
+workspace $ws8 output $primary_monitor
+workspace $ws9 output $primary_monitor
+workspace $ws10 output $primary_monitor
+# Windows for the second monitor
+workspace $ws11 output $secondary_monitor
+workspace $ws12 output $secondary_monitor
+workspace $ws13 output $secondary_monitor
+workspace $ws14 output $secondary_monitor
+workspace $ws15 output $secondary_monitor
+workspace $ws16 output $secondary_monitor
+workspace $ws17 output $secondary_monitor
+workspace $ws18 output $secondary_monitor
+workspace $ws19 output $secondary_monitor
+workspace $ws20 output $secondary_monitor
+
+# Enable floating mode for pop-up windows
+for_window [window_role="pop-up"] floating enable
+# Enable floating mode for Chrome Notifications
+for_window [window_role="bubble"] floating enable
+for_window [class="Screenkey"] floating enable
+# Steam windows
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
+# i assing specific workspaces for common applications
+# to workspace 1
+# to workspace 2
+assign [class="Brave"] $ws2
+assign [class="firefox"] $ws2
+#assign [class="Qutebrowser"] $ws2
+for_window [class="qutebrowser"] move container to workspace number $ws2
+# to workspace 3
+assign [class="okular"] $ws3
+# to workspace 4
+assign [class="dolphin"] $ws4
+# to workspace 5
+# for spotify specifically
+for_window [class="Spotify"] move container to workspace number $ws5
+for_window [class="Clementine"] move container to workspace number $ws5
+# to workspace 6
+for_window [class="LTspice XVIII"] move container to workspace number $ws4
+# to workspace 7
+assign [class="Octave"] $ws7
+# to workspace 8
+assign [class="discord"] $ws8
+# to workspace 9
+assign [class="Thunderbird"] $ws9

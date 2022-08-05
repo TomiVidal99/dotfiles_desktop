@@ -4,6 +4,9 @@
 " get current number of line
 set number!
 
+" set the left columns of icons always on to avoid moving letters
+set signcolumn=yes
+
 " init autocmd
 autocmd!
 " set script encoding

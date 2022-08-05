@@ -45,7 +45,11 @@ function switch_working_directory() {
   DIRECTORIES=~/.dotfiles/.config/zsh/directories
   WORKING_DIRECTORIES=~/.dotfiles/.config/zsh/working_directories
   WDIRS=$(cat $DIRECTORIES $WORKING_DIRECTORIES)
-  DIR=$(echo $WDIRS | cut -d'=' -f1 | fzf)
+  DIR=""; DIR=$(echo $WDIRS | cut -d'=' -f1 | fzf)
+  if [ "$DIR" = "" ]; then
+    echo "No directory selected. Did not switch."
+    return
+  fi
   FULLPATH=$(echo $WDIRS | grep $DIR | cut -d'=' -f2)
   if [ -d $FULLPATH ]; then
     cd $FULLPATH

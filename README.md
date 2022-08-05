@@ -2,6 +2,13 @@
 __This is my personal configuration for my Arch installation in my desktop. Includes configuration for i3, i3status, neovim, and some custom scripts for Arch (volume control, connect to all paired bluetooth devices, etc.)__
 
 # TODO
+- [ ] Pull dependencies from README.rst maybe?.
+- [ ] Checkout global statusline for nvim.
+- [ ] Add funtion to run automatically when testing on matlab projects, to add error lines to the quickfix list.
+- [ ] Automatically run resetHDDs when mounting DATOS and APPS on startup.
+- [ ] Add a way to switch to custom workspaces with rofi, i.e: DISCORD workspace, MAIL workspace.
+- [ ] Add a function to open folders based on the working directories.
+- [ ] Change how working directories work. Make a file for different computers.
 - [ ] Add plugin to see colors in nvim.
 - [ ] Improve fzf functions.
 - [ ] Make the shortcut for making commits en zsh/shortcuts.
@@ -14,7 +21,18 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
 
 # Dependencies
+- xdotool
+- xsel
+- xcopy
+- rofi
+- rofimoji
 - fzf
+- dmenu
+- xcompmgr
+- feh
+- playerctl
+- spectacle
+- flameshot
 
 # Contributors
 - [Tomás Vidal](https://github.com/TomiVidal99)

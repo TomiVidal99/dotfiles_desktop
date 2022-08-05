@@ -1,0 +1,10 @@
+# Monitors
+set $primary_monitor HDMI-A-0
+set $secondary_monitor HDMI-A-1
+# Windows and Alt key
+set $mod Mod4 
+set $alt Mod1
+# Remove borders
+default_border none
+# Turn off focus follows mouse
+focus_follows_mouse no

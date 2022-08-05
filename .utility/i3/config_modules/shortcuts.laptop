@@ -1,0 +1,37 @@
+# Custom shortcuts to most used apps
+bindsym $mod+Shift+f exec firefox
+
+# Custom shortcuts to apps
+bindsym $mod+a mode "$apps_mode"
+mode "$apps_mode" {
+    bindsym t exec thunderbird
+    bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
+    bindsym d exec dolphin # changed from nautilus
+    bindsym s exec spotify
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# Custom Utility Scripts
+bindsym $mod+s mode "$scripts_mode"
+mode "$scripts_mode" {
+    bindsym b exec $(sh ~/.utility/i3/connect_headset.sh) # find and connect to known devices
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+# Custom Paths
+bindsym $mod+d mode "$directories_mode"
+mode "$directories_mode" {
+    bindsym d exec --no-startup-id $(dolphin "Documents")
+    bindsym i exec --no-startup-id $(dolphin "Pictures")
+    bindsym p exec --no-startup-id $(dolphin "programming")
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}

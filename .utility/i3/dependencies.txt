@@ -1,0 +1,17 @@
+# i3 Dependencies
+
+-- SCRIPTS
+.utility/i3 scripts
+
+-- PROGRAMS
+dmenu
+xcompmgr
+feh
+playerctl
+spectacle
+flameshot
+rofi
+rofimoji
+xdotool
+xsel
+xcopy

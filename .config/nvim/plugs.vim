@@ -23,11 +23,11 @@ if has("nvim")
   Plug 'onsails/lspkind-nvim'
   Plug 'williamboman/nvim-lsp-installer'
 
-  " UI
+  " UI, TODO: check this plugs and change them accordingly.
   Plug 'hoob3rt/lualine.nvim'
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'kyazdani42/nvim-web-devicons'
 
   " snippets
@@ -77,6 +77,18 @@ if has("nvim")
 
   " Grammar check
   Plug 'rhysd/vim-grammarous'
+
+  " Colors display (RGB, HEX, HSL) and modifier
+  Plug 'ziontee113/color-picker.nvim'
+
+  " Utility Functions as dependencies for other packages
+  Plug 'nvim-lua/plenary.nvim'
+
+  " Git status on files 
+  Plug 'tanvirtin/vgit.nvim'
+  Plug 'kyazdani42/nvim-web-devicons'
+
+  Plug 'mfussenegger/nvim-lint'
 
 endif
 

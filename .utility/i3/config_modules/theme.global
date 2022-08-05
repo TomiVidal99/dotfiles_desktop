@@ -1,0 +1,26 @@
+# FONT
+#font pango:DejaVu Sans Mono 8
+font pango:Noto Mono 16 
+
+# TODO: make this better
+# Window decorations colors
+# class                 border    bg color    text      indicator
+client.placeholder      #011318   #b58900     #a9a9a9   #a9a9a9
+client.background       #011318   #b58900     #a9a9a9   #a9a9a9
+client.focused          #011318   #b58900     #a9a9a9   #a9a9a9
+client.unfocused        #011318   #011318     #a9a9a9   #a9a9a9
+client.focused_inactive #011318   #011318     #a9a9a9   #a9a9a9
+client.urgent           #011318   #002b36     #002b36   #a9a9a9
+
+# Solarized-powerline alike Theme
+#    TODO: check how can i get this palette of the bar in this file
+#    colors {
+#      background #011318
+#      statusline #eeeeee
+#      separator #666666
+#      #                   Bord        Back        Text
+#      focused_workspace   #011318     #586e75     #002b36
+#      active_workspace    #011318     #002b36     #a9a9a9
+#      inactive_workspace  #011318     #002b36     #a9a9a9
+#      urgent_workspace    #011318     #b58900     #002b36
+#    }
