@@ -88,6 +88,8 @@ if has("nvim")
   Plug 'tanvirtin/vgit.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
 
+  Plug 'mfussenegger/nvim-lint'
+
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
