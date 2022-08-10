@@ -105,7 +105,7 @@ assign [class="Thunderbird"] $ws9
 
 # - - - - - - - - - - bar (global) - - - - - - - - - - 
 bar {
-    tray_output $primary_monitor
+    #tray_output $primary_monitor
     font pango: Ligconsolata condensed SemiBold 13, NotoMono Nerd Font Mono 13
     position top
 

@@ -158,6 +158,9 @@ endif
 
 "}}}
 
+" Auto formatting on save
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+
 " Extras "{{{
 " ---------------------------------------------------------------------
 set exrc
