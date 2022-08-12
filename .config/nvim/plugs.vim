@@ -3,7 +3,7 @@ if has("nvim")
 endif
 
 " Update plugins if this file changes.
-autocmd BufWritePost plugs.vim source <afile> | PlugInstall
+"autocmd BufWritePost plugs.vim source <afile> | PlugInstall
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -22,6 +22,7 @@ if has("nvim")
   Plug 'folke/lsp-colors.nvim'
   Plug 'onsails/lspkind-nvim'
   Plug 'williamboman/nvim-lsp-installer'
+  "Plug 'mhartington/formatter.nvim' " autoformatting code when saving (uses LSP)
 
   " UI, TODO: check this plugs and change them accordingly.
   Plug 'hoob3rt/lualine.nvim'
@@ -58,7 +59,6 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
 
   " octave/matlab
-  "Plug 'daeyun/vim-matlab', { 'do': function('DoRemote') }
   Plug 'mstanciu552/cmp-matlab'
   Plug 'mstanciu552/cmp-octave'
 
