@@ -90,6 +90,14 @@ if has("nvim")
 
   Plug 'mfussenegger/nvim-lint'
 
+  " Prettier
+  Plug 'jose-elias-alvarez/null-ls.nvim'
+  Plug 'MunifTanjim/prettier.nvim'
+
+  " More support for libraries and languages with LSPs
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+  
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
