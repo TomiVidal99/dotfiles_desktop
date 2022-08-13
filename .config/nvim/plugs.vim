@@ -97,6 +97,9 @@ if has("nvim")
   " More support for libraries and languages with LSPs
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
+
+  " Close html tags
+  Plug 'windwp/nvim-ts-autotag'
   
 endif
 
