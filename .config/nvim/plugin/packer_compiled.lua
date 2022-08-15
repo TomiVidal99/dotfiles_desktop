@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/home/tomii/.local/share/nvim/site/pack/packer/start/NeoSolarized",
     url = "https://github.com/overcache/NeoSolarized"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/tomii/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/tomii/.local/share/nvim/site/pack/packer/start/packer.nvim",
