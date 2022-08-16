@@ -10,7 +10,7 @@
 
 -- Some helper variables
 local opts = {noremap = true, silent = true}
-local km = vim.api.nvim_set_keymap
+local km = vim.keymap.set
 
 -- Helper function to set a normal keymap.
 kmn = function(key, func)
@@ -118,19 +118,19 @@ kmb("K", ":m '<-2<CR>gv-gv")
 kmb("<A-j>", ":m '>+1<CR>gv-gv")
 kmb("<A-k>", ":m '<-2<CR>gv-gv")
 
+---------- TELESCOPE ----------
+-- All type of search: files, keywords, maps, etc.
+kmn("<leader>F", "<CMD>Telescope find_files<CR>")
+kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
 
-
-  -- TODO: maps to open things should go somewhere else
---" Open a new terminal with the current path
---map <F12> <CMD> exec '!konsole '.shellescape('%:p')' & disown' <CR>
---tnoremap <A-a> <C-\><C-n> TODO: check this
---
---" Terminals inside nvim.
---" start terminal in insert mode
---au BufEnter * if &buftype == 'terminal' | :startinsert | endif
---function! OpenTerminalBottom()
---  split term://zsh
---  resize 10
---endfunction
---nnoremap <leader>tb <CMD> call OpenTerminalBottom() <CR>
---nnoremap <leader>tr <CMD> vsplit term://zsh <CR>
+---------- OPEN THINGS ----------
+-- Open a new terminal with the current path
+kmn("<leader>T", "<CMD>tabedit term://zsh<CR>") -- starts a new terminal in a new tab
+vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
+vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
+kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
+-- TODO: kmn("<leader>tr", "<CMD>vsplit term://zsh<CR>")
+--vimp.noremap("<leader>tb", function()
+--  vim.cmd "<CMD>split term://zsh<CR>"
+--  vim.cmd "<CMD>resize 10<CR>"
+--end)

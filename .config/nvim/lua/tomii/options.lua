@@ -2,6 +2,7 @@
 
 local o = vim.opt
 
+o.laststatus = 3
 o.splitright = true
 o.splitbelow = true
 o.shell = "zsh"
@@ -42,6 +43,7 @@ o.guifont = "monospace:h17"
 
 o.shortmess:append "c"
 
+vim.cmd "highlight WinSeparator guibg=None"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
