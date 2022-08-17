@@ -36,7 +36,7 @@ end
 packer.init {
   display = {
     open_fn = function()
-      return require("packer.util").float {border = "rounded"}
+      return require("packer.util").float { border = "rounded" }
     end,
   }
 }
@@ -44,24 +44,59 @@ packer.init {
 -- Install and configurate plugins
 return packer.startup(function(use)
 
-  -- ALL PLUGINS GOES HERE!
+  -- BASE PLUGINS
   use "wbthomason/packer.nvim" -- The packer manager itself
   use "nvim-lua/popup.nvim" --An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua function used in lots of plugins
 
   -- THEME
-  use "overcache/NeoSolarized"
+  use {
+    "svrana/neosolarized.nvim", -- actual theme
+    requires = { "tjdevries/colorbuddy.nvim" }
+  }
+  use {
+    "nvim-lualine/lualine.nvim", -- status line down below
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  }
 
   -- LSP
-  use "neovim/nvim-lspconfig"
+  use { -- general config for the LSP
+    "williamboman/nvim-lsp-installer",
+    "neovim/nvim-lspconfig",
+  }
+  use { "glepnir/lspsaga.nvim", branch = "main" } -- better UI for LSP related
+
+  -- COMPLETION
+  use { "hrsh7th/nvim-cmp",
+    requires = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline" }
+  }
+  use "hrsh7th/cmp-nvim-lua" -- completion for lua inside nvim
+
+  -- SPELL CHECKING
+  use "f3fora/cmp-spell"
+  -- use "uga-rosa/cmp-dictionary" -- dictionary
+
+  -- SNIPPETS
+  use { "L3MON4D3/LuaSnip", requires = { "saadparwaiz1/cmp_luasnip" } } -- snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Navigation
-  use {'nvim-telescope/telescope.nvim', tag = '0.1.0'}
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.0" } -- general navigation
+
+  -- Latex
+  use {
+    "kdheepak/cmp-latex-symbols",
+    requires = {
+      { "hrsh7th/nvim-cmp" },
+    },
+  }
+
+  -- UTILS: utility plugins to make my life easier :)
+  use "norcalli/nvim-colorizer.lua" -- Color display (shows the color when the text it's #ff0000 and so on)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
-
 end)

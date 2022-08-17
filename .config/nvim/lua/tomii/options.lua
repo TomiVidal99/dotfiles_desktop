@@ -2,6 +2,9 @@
 
 local o = vim.opt
 
+o.spell = false
+o.spelllang = { "en_us", "es_la" }
+o.spellsuggest = {"best", "3"}
 o.laststatus = 3
 o.splitright = true
 o.splitbelow = true
@@ -10,7 +13,7 @@ o.title = true
 o.backup = false
 o.clipboard = "unnamedplus"
 o.cmdheight = 2
-o.completeopt = {"menuone", "noselect"}
+o.completeopt = { "menuone", "noselect" }
 o.conceallevel = 0
 o.fileencoding = "utf-8"
 o.hlsearch = true
@@ -36,7 +39,7 @@ o.number = true
 o.relativenumber = true
 o.numberwidth = 4
 o.signcolumn = "yes"
-o.wrap = true
+o.wrap = false
 o.scrolloff = 8
 o.sidescrolloff = 8
 o.guifont = "monospace:h17"

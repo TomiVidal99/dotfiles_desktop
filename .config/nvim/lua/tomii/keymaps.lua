@@ -9,20 +9,20 @@
 --  command_mode = "c",
 
 -- Some helper variables
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local km = vim.keymap.set
 
 -- Helper function to set a normal keymap.
-kmn = function(key, func)
+local kmn = function(key, func)
   km("n", key, func, opts)
 end
-kmi = function(key, func)
-  km("i", key, func, opts)
-end
-kmv = function(key, func)
+--local kmi = function(key, func)
+--  km("i", key, func, opts)
+--end
+local kmv = function(key, func)
   km("v", key, func, opts)
 end
-kmb = function(key, func)
+local kmb = function(key, func)
   km("x", key, func, opts)
 end
 
@@ -32,6 +32,27 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 ---------- NORMAL ----------
+---------- TELESCOPE ----------
+-- All type of search: files, keywords, maps, etc.
+kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
+kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
+
+---------- TERMINALS ----------
+kmn("<leader>T", "<CMD>tabedit term://zsh | tabmove 0<CR>") -- starts a new terminal in a new tab
+kmn("<leader>tr", "<CMD>vsplit term://zsh<CR>") -- starts a new terminal in the right side of the screen
+kmn("<leader>tb", "<CMD>split term://zsh | resize 10<CR>") -- starts a new terminal in the bottom of the screen
+vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
+vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
+kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
+
+-- Change spell check
+kmn("<F10>", "<CMD>set spell!<CR>")
+
+-- DIAGNOSTICS MAPS
+kmn("<leader>D", "<CMD>Telescope diagnostics<CR>")
+kmn("<C-n>", vim.diagnostic.goto_next)
+kmn("<C-p>", vim.diagnostic.goto_prev)
+
 -- Save with root permission.
 vim.cmd "command! W w !sudo tee > /dev/null %"
 
@@ -85,6 +106,10 @@ kmn("sv", "<CMD>wincmd v<CR>")
 -- Navigate tabs.
 kmn("<C-l>", "<CMD>tabnext<CR>")
 kmn("<C-h>", "<CMD>tabprevious<CR>")
+kmn("Th", "<CMD>-tabmove<CR>") -- move the current window to the next left tab
+kmn("Tl", "<CMD>+tabmove<CR>") -- move the current window to the next left tab
+kmn("T0", "<CMD>tabmove 0<CR>") -- move the current window to the beginning tab
+kmn("T$", "<CMD>tabmove<CR>") -- move the current window to the end tab
 
 -- Edit tabs.
 vim.cmd "nmap te :tabedit "
@@ -105,8 +130,8 @@ kmv("p", '"_dP')
 vim.cmd "vmap <A-a> <Esc>"
 
 -- Stay in indent mode.
-  kmv("<", "<gv")
-  kmv(">", ">gv")
+kmv("<", "<gv")
+kmv(">", ">gv")
 
 -- Move entire selected lines up and down.
 vim.cmd "vnoremap K :m '<-2<CR>gv=gv"
@@ -117,20 +142,3 @@ kmb("J", ":m '>+1<CR>gv-gv")
 kmb("K", ":m '<-2<CR>gv-gv")
 kmb("<A-j>", ":m '>+1<CR>gv-gv")
 kmb("<A-k>", ":m '<-2<CR>gv-gv")
-
----------- TELESCOPE ----------
--- All type of search: files, keywords, maps, etc.
-kmn("<leader>F", "<CMD>Telescope find_files<CR>")
-kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
-
----------- OPEN THINGS ----------
--- Open a new terminal with the current path
-kmn("<leader>T", "<CMD>tabedit term://zsh<CR>") -- starts a new terminal in a new tab
-vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
-vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
-kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
--- TODO: kmn("<leader>tr", "<CMD>vsplit term://zsh<CR>")
---vimp.noremap("<leader>tb", function()
---  vim.cmd "<CMD>split term://zsh<CR>"
---  vim.cmd "<CMD>resize 10<CR>"
---end)

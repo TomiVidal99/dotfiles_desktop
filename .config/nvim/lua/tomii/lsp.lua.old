@@ -1,0 +1,66 @@
+-- All LSP related configuration.
+
+
+--local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+--
+--local opts = { noremap = true, silent = true }
+--local function keymap(key, fn) vim.keymap.set("n", key, fn, opts) end
+--
+--
+---- ATTACH
+---- Use an on_attach function to only map the following keys
+---- after the language server attaches to the current buffer
+--local on_attach = function(client, bufnr)
+--  local buffer_opts = { noremap = true, silent = true, buffer = bufnr }
+--  local function keymap_buf(key, fn) vim.keymap.set("n", key, fn, buffer_opts) end
+--
+--  -- Enable completion triggered by <c-x><c-o>
+--  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+--
+--  -- Mappings.
+--  -- See `:help vim.lsp.*` for documentation on any of the below functions
+--  keymap_buf('gr', '<CMD>lua vim.lsp.buf.references()<CR>')
+--  keymap_buf('gD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
+--  keymap_buf('gd', '<CMD>lua vim.lsp.buf.definition()<CR>')
+--  keymap_buf('gi', '<CMD>lua vim.lsp.buf.implementation()<CR>')
+--  keymap_buf('<leader>dd', '<CMD>lua vim.lsp.buf.type_definition()<CR>')
+--  keymap_buf('<leader>rr', '<CMD>lua vim.lsp.buf.rename()<CR>')
+--  keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.formatting()<CR>")
+--
+--  -- formatting
+--  if client.resolved_capabilities.document_formatting then
+--    vim.api.nvim_command [[augroup Format]]
+--    vim.api.nvim_command [[autocmd! * <buffer>]]
+--    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+--    vim.api.nvim_command [[augroup END]]
+--  end
+--end
+
+
+-- LSP SAGA -- better UI for LSP stuff
+--local saga_ok, saga = pcall(require, "lspsaga")
+--if not saga_ok then
+--  print "ERRROR: saga it's not loaded. Called in lsp.lua"
+--  return
+--end
+--saga.init_lsp_saga({
+--  --  diagnostic_header = {
+--  --    error_sign = "",
+--  --    warn_sign = "",
+--  --    hint_sign = "",
+--  --    infor_sign = "",
+--  --  },
+--  --  border_style = "double",
+--})
+----saga.setup({
+----  finder_action_keys = {
+----    scroll_down = "<C-p>",
+----    scroll_up = "<C-n>",
+----  }
+----})
+---- Better color for the UI
+--vim.cmd "highlight link LspSagaFinderSelection Search"
+----vim.cmd "highlight link LspSagaFinderSelection guifg='#ff0000' guibg='#00ff00' gui='bold'"
+--
+--keymap('K', '<CMD>Lspsaga hover_doc<CR>')
+--keymap('<leader>ca', '<CMD>Lspsaga code_action<CR>')
