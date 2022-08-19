@@ -59,19 +59,14 @@ return packer.startup(function(use)
     "nvim-lualine/lualine.nvim", -- status line down below
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
+  use "fgheng/winbar.nvim" -- winbar
 
   -- LSP
   use { -- general config for the LSP
     "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
   }
-  use {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    run = function() 
-      require("lspsaga").init_lsp_saga()
-    end
-  } -- better UI for LSP related
+  use { "glepnir/lspsaga.nvim", branch = "main" } -- better UI for LSP related
   use { -- Type checking
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate"

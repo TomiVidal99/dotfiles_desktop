@@ -45,10 +45,10 @@ kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 
 ---------- TELESCOPE ----------
 -- All type of search: files, keywords, maps, etc.
+kmn("gr", "<CMD>Telescope lsp_references<CR>")
+kmn("gi", "<CMD>Telescope lsp_implementations<CR>")
 kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
 kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
-kmn("<leader>gr", "<CMD>Telescope lsp_references<CR>")
-kmn("<leader>gi", "<CMD>Telescope lsp_implementations<CR>")
 kmn("<leader>mm", "<CMD>Telescope marks<CR>")
 kmn("<leader>jj", "<CMD>Telescope marks<CR>")
 kmn("<leader>gC", "<CMD>Telescope git_commits<CR>")
