@@ -44,6 +44,19 @@ HANDLERS.setup = function()
   })
 end
 
+local function lsp_color_provider(client, bufnr)
+  if client.server_capabilities.colorProvider then
+    -- Attach document colour support
+    local dc_ok, dc = pcall(require, "document-color")
+    if not dc_ok then
+      print "ERROR: lsp_color_provider failed to require 'document-color'. Called from handlers.lua"
+      print(dc)
+      return
+    end
+    dc.buf_attach(bufnr)
+  end
+end
+
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
@@ -84,6 +97,7 @@ HANDLERS.on_attach = function(client, bufnr)
   --end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
+  lsp_color_provider(client, bufnr) -- for tailwindcss
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -94,5 +108,6 @@ if not status_ok then
 end
 
 HANDLERS.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+HANDLERS.capabilities.textDocument.colorProvider = true -- this is to enable the tailwindcss plugin
 
 return HANDLERS

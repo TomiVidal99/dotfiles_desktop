@@ -54,6 +54,7 @@ return packer.startup(function(use)
     "svrana/neosolarized.nvim", -- actual theme
     requires = { "tjdevries/colorbuddy.nvim" }
   }
+  use "lukas-reineke/indent-blankline.nvim" -- identation lines
   use {
     "nvim-lualine/lualine.nvim", -- status line down below
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
@@ -65,6 +66,11 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
   }
   use { "glepnir/lspsaga.nvim", branch = "main" } -- better UI for LSP related
+  use { -- Type checking
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate"
+  }
+  use "nvim-treesitter/playground"
 
   -- COMPLETION
   use { "hrsh7th/nvim-cmp",
@@ -82,8 +88,10 @@ return packer.startup(function(use)
 
   -- Navigation
   use { "nvim-telescope/telescope.nvim", tag = "0.1.0" } -- general navigation
+  use "preservim/nerdtree" -- file explorer
 
   -- Latex
+  use "lervag/vimtex"
   use {
     "kdheepak/cmp-latex-symbols",
     requires = {
@@ -93,6 +101,33 @@ return packer.startup(function(use)
 
   -- UTILS: utility plugins to make my life easier :)
   use "norcalli/nvim-colorizer.lua" -- Color display (shows the color when the text it's #ff0000 and so on)
+  use { -- closing ts tags automatically
+    "windwp/nvim-ts-autotag",
+    config = function() require("nvim-ts-autotag").setup() end
+  }
+  use { -- visual indicator for git repositories
+    "tanvirtin/vgit.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons" }
+    }
+  }
+  use { -- brackets and parenthesis and so on indicators
+    "p00f/nvim-ts-rainbow",
+    requires = {
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  }
+
+  -- REACT, TSX, ETC
+  use {  -- tailwind completion
+    'mrshmllow/document-color.nvim',
+    config = function()
+      require("document-color").setup {
+      -- Default options
+      mode = "background", -- "background" | "foreground" | "single"
+  }
+  end
+}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

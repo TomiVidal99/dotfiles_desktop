@@ -29,9 +29,20 @@ end
 -- Remap leader to space.
 km("", "<space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 ---------- NORMAL ----------
+-- Lspsaga 
+kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
+
+-- LATEX
+kmn("<localleader>lc", "<CMD>VimtexCompile<CR>")
+kmn("<localleader>li", "<CMD>VimtexInfo<CR>")
+
+-- NERDTree (file explorer)
+kmn("<C-b>", "<CMD>NERDTreeToggle | NERDTreeMirror<CR>")
+kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
+
 ---------- TELESCOPE ----------
 -- All type of search: files, keywords, maps, etc.
 kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
@@ -82,9 +93,6 @@ kmn("<C-h>", "<C-w>h")
 kmn("<C-j>", "<C-w>j")
 kmn("<C-k>", "<C-w>k")
 kmn("<C-l>", "<C-w>l")
-
--- File explorer.
-kmn("<C-b>", "<CMD>Lexplore 30<CR>")
 
 -- Resize with alt+(h,j,k,l).
 kmn("<a-k>", "<CMD>resize -2<CR>")

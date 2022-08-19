@@ -57,15 +57,13 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<Tab>'] = cmp.mapping(function(fallback) -- goto to next position in snip
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif lua_snip.expandable() then
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ["<Tab>"] = cmp.mapping(function(fallback) -- goto to next position in snip
+      if lua_snip.expandable() then
         lua_snip.expand()
       elseif lua_snip.expand_or_jumpable() then
         lua_snip.expand_or_jump()
@@ -75,10 +73,8 @@ cmp.setup({
         fallback()
       end
     end, { "i", "s" }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback) -- goto to previous position in snip
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif lua_snip.jumpable(-1) then
+    ["<S-Tab>"] = cmp.mapping(function(fallback) -- goto to previous position in snip
+      if lua_snip.jumpable(-1) then
         lua_snip.jump(-1)
       else
         fallback()

@@ -21,22 +21,23 @@ lsp_installer.setup({
 
 -- Define locallly the lsp
 local lsp = require("lspconfig")
+local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
 
 -- Server for javascript, typescript, react javascript and react typescript.
-lsp.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+lsp.tsserver.setup(lsps_opts)
 
 -- General diagnostics for most languages
-lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+lsp.diagnosticls.setup(lsps_opts)
+
+-- Tailwindcss support, shows colors and completion
+lsp.tailwindcss.setup(lsps_opts)
+
+-- For html kinda of snippets
+lsp.emmet_ls.setup(lsps_opts)
 
 -- Server language for lua.
-lsp.sumneko_lua.setup {
+lsp.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
-}
+})
