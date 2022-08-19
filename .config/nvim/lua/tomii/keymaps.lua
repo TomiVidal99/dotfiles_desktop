@@ -47,6 +47,14 @@ kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 -- All type of search: files, keywords, maps, etc.
 kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
 kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
+kmn("<leader>gr", "<CMD>Telescope lsp_references<CR>")
+kmn("<leader>gi", "<CMD>Telescope lsp_implementations<CR>")
+kmn("<leader>mm", "<CMD>Telescope marks<CR>")
+kmn("<leader>jj", "<CMD>Telescope marks<CR>")
+kmn("<leader>gC", "<CMD>Telescope git_commits<CR>")
+kmn("<leader>gc", "<CMD>Telescope git_bcommits<CR>")
+kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")
+kmn("<leader>gs", "<CMD>Telescope git_status<CR>")
 
 ---------- TERMINALS ----------
 kmn("<leader>T", "<CMD>tabedit term://zsh | tabmove 0<CR>") -- starts a new terminal in a new tab
@@ -118,10 +126,16 @@ kmn("Th", "<CMD>-tabmove<CR>") -- move the current window to the next left tab
 kmn("Tl", "<CMD>+tabmove<CR>") -- move the current window to the next left tab
 kmn("T0", "<CMD>tabmove 0<CR>") -- move the current window to the beginning tab
 kmn("T$", "<CMD>tabmove<CR>") -- move the current window to the end tab
+kmn("t1", "<CMD>tabfirst<CR>") -- change to the first tab
+kmn("t2", "<CMD>tabnext 2<CR>") -- change to the second tab
+kmn("t3", "<CMD>tabnext 3<CR>") -- change to the third tab
+kmn("t4", "<CMD>tabnext 4<CR>") -- change to the fourth tab
+kmn("t5", "<CMD>tabnext 5<CR>") -- change to the 5th tab
+kmn("t6", "<CMD>tabnext 6<CR>") -- change to the 6th tab
+kmn("tt", "<CMD>tablast<CR>") -- change to the fourth tab
 
 -- Edit tabs.
 vim.cmd "nmap te :tabedit "
-kmn("tt", "<CMD>tabnew<CR>")
 
 -- Remove highlight
 vim.cmd "map <A-a> <CMD>noh<CR>"

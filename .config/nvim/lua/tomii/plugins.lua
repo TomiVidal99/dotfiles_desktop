@@ -65,7 +65,13 @@ return packer.startup(function(use)
     "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
   }
-  use { "glepnir/lspsaga.nvim", branch = "main" } -- better UI for LSP related
+  use {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    run = function() 
+      require("lspsaga").init_lsp_saga()
+    end
+  } -- better UI for LSP related
   use { -- Type checking
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate"
