@@ -109,4 +109,12 @@ end
 HANDLERS.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 HANDLERS.capabilities.textDocument.colorProvider = true -- this is to enable the tailwindcss plugin
 
+-- native LSP completion
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cmp_nvim_lsp_ok then
+  print "ERRROR: cmp_nvim_lsp is not available. Called from handlers.lua"
+  return
+end
+HANDLERS.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 return HANDLERS

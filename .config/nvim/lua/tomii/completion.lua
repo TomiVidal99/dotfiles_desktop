@@ -98,6 +98,7 @@ cmp.setup({
     end,
   },
   sources = {
+    { name = 'nvim_lsp' },
     { name = "latex_symbols" },
     { name = "nvim_lua" },
     { name = "luasnip" },
