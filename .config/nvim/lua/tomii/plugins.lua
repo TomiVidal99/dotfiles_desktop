@@ -106,11 +106,18 @@ return packer.startup(function(use)
   }
 
   -- UTILS: utility plugins to make my life easier :)
+  use { -- Commenting, easily and smartly comment with some keymaps
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
   use "norcalli/nvim-colorizer.lua" -- Color display (shows the color when the text it's #ff0000 and so on)
-  use { -- closing ts tags automatically
+  use { -- Use treesitter to autoclose and autorename html tag. It work with html,tsx,vue,svelte,php,rescript. 
     "windwp/nvim-ts-autotag",
     config = function() require("nvim-ts-autotag").setup() end
   }
+  use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end } -- completion of (), [], {} and so on
   use { -- visual indicator for git repositories
     "tanvirtin/vgit.nvim",
     requires = {
@@ -128,12 +135,9 @@ return packer.startup(function(use)
   use {  -- tailwind completion
     'mrshmllow/document-color.nvim',
     config = function()
-      require("document-color").setup {
-      -- Default options
-      mode = "background", -- "background" | "foreground" | "single"
+      require("document-color").setup({mode = "background"})
+    end
   }
-  end
-}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
