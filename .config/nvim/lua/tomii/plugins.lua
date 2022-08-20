@@ -90,6 +90,11 @@ return packer.startup(function(use)
   -- Navigation
   use { "nvim-telescope/telescope.nvim", tag = "0.1.0" } -- general navigation
   use "preservim/nerdtree" -- file explorer
+  use { "Xuyuanp/nerdtree-git-plugin", requires = { {"preservim/nerdtree"} } } -- displays git status on nerdtree
+  use { "ryanoasis/vim-devicons", requires = { {"preservim/nerdtree"} } } -- display icons in nerdtree
+  use { "tiagofumo/vim-nerdtree-syntax-highlight", requires = { {"preservim/nerdtree"} } } -- display folders and files with diferent font colors and styles
+
+
 
   -- Latex
   use "lervag/vimtex"
