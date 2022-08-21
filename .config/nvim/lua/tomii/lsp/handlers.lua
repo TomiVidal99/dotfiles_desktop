@@ -81,7 +81,6 @@ local function lsp_keymaps(bufnr)
 
   -- I implement these two with Telescope
   keymap_buf('gD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
-  keymap_buf('gd', '<CMD>lua vim.lsp.buf.definition()<CR>')
   keymap_buf('<leader>dd', '<CMD>lua vim.lsp.buf.type_definition()<CR>')
   keymap_buf('<leader>rr', '<CMD>lua vim.lsp.buf.rename()<CR>')
   keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.formatting()<CR>")

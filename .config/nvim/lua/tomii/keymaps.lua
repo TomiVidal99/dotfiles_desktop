@@ -47,6 +47,7 @@ kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 -- All type of search: files, keywords, maps, etc.
 kmn("gr", "<CMD>Telescope lsp_references<CR>")
 kmn("gi", "<CMD>Telescope lsp_implementations<CR>")
+kmn("gd", "<CMD>Telescope lsp_definitions<CR>")
 kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
 kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
 kmn("<leader>mm", "<CMD>Telescope marks<CR>")
