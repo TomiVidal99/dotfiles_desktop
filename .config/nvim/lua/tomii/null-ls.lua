@@ -1,5 +1,5 @@
 -- More LSP stuff: formatting, completion, diagnostics, etc.
-local null_ok, null = pcall(require, "null-js")
+local null_ok, null = pcall(require, "null-ls")
 if not null_ok then
   print "ERROR: null-js not available. Called from null-js.lua"
   return

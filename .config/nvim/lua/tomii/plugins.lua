@@ -73,6 +73,12 @@ return packer.startup(function(use)
   }
   use "nvim-treesitter/playground" -- adds type checking and other things to treesitter
   use "jose-elias-alvarez/null-ls.nvim" -- more lsp stuff: completion, formatting and so one, that some lsp dont come with
+  use {  -- lets you manage external tools like LSPs, DAP servers, etc. without the need of you having to install the binaries independenlty.
+    "williamboman/mason.nvim",
+    config = function ()
+      require("mason").setup()
+    end
+  }
 
   -- COMPLETION
   use { "hrsh7th/nvim-cmp",
@@ -119,12 +125,8 @@ return packer.startup(function(use)
     config = function() require("nvim-ts-autotag").setup() end
   }
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end } -- completion of (), [], {} and so on
-  use { -- visual indicator for git repositories
-    "tanvirtin/vgit.nvim",
-    requires = {
-      { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons" }
-    }
-  }
+  use "lewis6991/gitsigns.nvim" -- visual indicator for git repositories
+
   use { -- brackets and parenthesis and so on indicators
     "p00f/nvim-ts-rainbow",
     requires = {
