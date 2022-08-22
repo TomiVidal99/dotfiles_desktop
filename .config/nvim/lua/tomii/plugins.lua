@@ -71,7 +71,8 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate"
   }
-  use "nvim-treesitter/playground"
+  use "nvim-treesitter/playground" -- adds type checking and other things to treesitter
+  use "jose-elias-alvarez/null-ls.nvim" -- more lsp stuff: completion, formatting and so one, that some lsp dont come with
 
   -- COMPLETION
   use { "hrsh7th/nvim-cmp",

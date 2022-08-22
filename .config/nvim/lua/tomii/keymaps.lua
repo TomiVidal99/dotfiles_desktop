@@ -44,6 +44,9 @@ kmn("<C-b>", "<CMD>NERDTreeToggle | NERDTreeMirror<CR>")
 kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 
 ---------- TELESCOPE ----------
+-- Format code with LSP
+kmn("<leader>F", "<CMD>lua vim.lsp.buf.format()<CR>")
+
 -- All type of search: files, keywords, maps, etc.
 kmn("gr", "<CMD>Telescope lsp_references<CR>")
 kmn("gi", "<CMD>Telescope lsp_implementations<CR>")
