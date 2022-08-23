@@ -60,6 +60,10 @@ return packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
   use "fgheng/winbar.nvim" -- winbar
+  use { -- tab theme
+    "kdheepak/tabline.nvim",
+    requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } }
+  }
 
   -- LSP
   use { -- general config for the LSP
@@ -73,9 +77,9 @@ return packer.startup(function(use)
   }
   use "nvim-treesitter/playground" -- adds type checking and other things to treesitter
   use "jose-elias-alvarez/null-ls.nvim" -- more lsp stuff: completion, formatting and so one, that some lsp dont come with
-  use {  -- lets you manage external tools like LSPs, DAP servers, etc. without the need of you having to install the binaries independenlty.
+  use { -- lets you manage external tools like LSPs, DAP servers, etc. without the need of you having to install the binaries independenlty.
     "williamboman/mason.nvim",
-    config = function ()
+    config = function()
       require("mason").setup()
     end
   }
@@ -97,9 +101,9 @@ return packer.startup(function(use)
   -- Navigation
   use { "nvim-telescope/telescope.nvim", tag = "0.1.0" } -- general navigation
   use "preservim/nerdtree" -- file explorer
-  use { "Xuyuanp/nerdtree-git-plugin", requires = { {"preservim/nerdtree"} } } -- displays git status on nerdtree
-  use { "ryanoasis/vim-devicons", requires = { {"preservim/nerdtree"} } } -- display icons in nerdtree
-  use { "tiagofumo/vim-nerdtree-syntax-highlight", requires = { {"preservim/nerdtree"} } } -- display folders and files with diferent font colors and styles
+  use { "Xuyuanp/nerdtree-git-plugin", requires = { { "preservim/nerdtree" } } } -- displays git status on nerdtree
+  use { "ryanoasis/vim-devicons", requires = { { "preservim/nerdtree" } } } -- display icons in nerdtree
+  use { "tiagofumo/vim-nerdtree-syntax-highlight", requires = { { "preservim/nerdtree" } } } -- display folders and files with diferent font colors and styles
 
 
 
@@ -120,7 +124,7 @@ return packer.startup(function(use)
     end
   }
   use "norcalli/nvim-colorizer.lua" -- Color display (shows the color when the text it's #ff0000 and so on)
-  use { -- Use treesitter to autoclose and autorename html tag. It work with html,tsx,vue,svelte,php,rescript. 
+  use { -- Use treesitter to autoclose and autorename html tag. It work with html,tsx,vue,svelte,php,rescript.
     "windwp/nvim-ts-autotag",
     config = function() require("nvim-ts-autotag").setup() end
   }
@@ -140,10 +144,10 @@ return packer.startup(function(use)
   }
 
   -- REACT, TSX, ETC
-  use {  -- tailwind completion
+  use { -- tailwind completion
     'mrshmllow/document-color.nvim',
     config = function()
-      require("document-color").setup({mode = "background"})
+      require("document-color").setup({ mode = "background" })
     end
   }
 

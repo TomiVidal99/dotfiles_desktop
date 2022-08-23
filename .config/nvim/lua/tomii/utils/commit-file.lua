@@ -3,7 +3,7 @@
 local function add_commit_current_file()
   local filepath = vim.fn.expand("%")
   local commit_message = vim.fn.input("Commit msg (or press 'q' to cancel): ")
-  if (commit_message == "q") then
+  if (commit_message == "q" or commit_message == "") then
     print "Commit cancel"
     return
   end
