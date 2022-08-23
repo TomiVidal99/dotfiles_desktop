@@ -127,6 +127,11 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup() end } -- completion of (), [], {} and so on
   use "lewis6991/gitsigns.nvim" -- visual indicator for git repositories
 
+  use { -- preview markdown files (useful when writting READMEs)
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  }
+
   use { -- brackets and parenthesis and so on indicators
     "p00f/nvim-ts-rainbow",
     requires = {
