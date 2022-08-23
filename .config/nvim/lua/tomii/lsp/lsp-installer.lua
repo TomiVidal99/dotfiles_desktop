@@ -40,7 +40,7 @@ lsp.emmet_ls.setup(lsps_opts)
 lsp.cssls.setup(lsps_opts)
 
 -- Python
-lsp.pyright.,setup(lsps_opts)
+lsp.pyright.setup(lsps_opts)
 
 -- Server language for lua.
 lsp.sumneko_lua.setup({
