@@ -39,6 +39,9 @@ lsp.emmet_ls.setup(lsps_opts)
 -- For css, scss and less
 lsp.cssls.setup(lsps_opts)
 
+-- Python
+lsp.pyright.,setup(lsps_opts)
+
 -- Server language for lua.
 lsp.sumneko_lua.setup({
   on_attach = on_attach,

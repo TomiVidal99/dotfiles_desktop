@@ -19,6 +19,8 @@ null.setup({
         formatting.prettier,
         diagnostics.eslint,
 
-        --completion.spell,
+        -- Python
+        diagnostics.pylint,
+        formatting.black,
     },
 })
