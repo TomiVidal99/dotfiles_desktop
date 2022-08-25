@@ -60,10 +60,10 @@ return packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
   use "fgheng/winbar.nvim" -- winbar
-  use { -- tab theme
-    "kdheepak/tabline.nvim",
-    requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } }
-  }
+  -- use { -- tab theme
+  --   "kdheepak/tabline.nvim",
+  --   requires = { { "hoob3rt/lualine.nvim", opt = true }, { "kyazdani42/nvim-web-devicons", opt = true } }
+  -- }
 
   -- LSP
   use { -- general config for the LSP
