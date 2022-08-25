@@ -1,5 +1,8 @@
 -- Styles and visual appearance 
 -- TODO: change the name of the tabs.
+-- TODO: migrate different config to different files.
+--require("tomii.tabs")
+
 local n_ok, n = pcall(require, "neosolarized")
 if (not n_ok) then
   print "ERROR: neosolarizd not found. Called from theme.lua"

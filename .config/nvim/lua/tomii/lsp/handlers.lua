@@ -1,5 +1,8 @@
 local HANDLERS = {}
 
+-- Don't use the following LSPs for formatting
+local PREVENT_LSPS_FROM_FORMATTING = {"tsserver"}
+
 HANDLERS.setup = function()
 
   local signs = {
@@ -81,7 +84,6 @@ local function lsp_keymaps(bufnr)
 
   -- I implement these two with Telescope
   keymap_buf('gD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
-  keymap_buf('gd', '<CMD>lua vim.lsp.buf.definition()<CR>')
   keymap_buf('<leader>dd', '<CMD>lua vim.lsp.buf.type_definition()<CR>')
   keymap_buf('<leader>rr', '<CMD>lua vim.lsp.buf.rename()<CR>')
   keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.formatting()<CR>")
@@ -90,10 +92,11 @@ local function lsp_keymaps(bufnr)
 end
 
 HANDLERS.on_attach = function(client, bufnr)
-  -- TODO: check if i keep this
-  --if client.name == "tsserver" then
-  --  client.resolved_capabilities.document_formatting = false
-  --end
+  for val, key in pairs(PREVENT_LSPS_FROM_FORMATTING) do
+    if client.name == key then
+      client.server_capabilities.document_formatting = false
+    end
+  end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
   lsp_color_provider(client, bufnr) -- for tailwindcss
