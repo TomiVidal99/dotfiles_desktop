@@ -19,6 +19,9 @@ lsp_installer.setup({
   }
 })
 
+-- Error that throws clangd
+capabilities.offsetEncoding = "utf-8"
+
 -- Define locallly the lsp
 local lsp = require("lspconfig")
 local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
