@@ -93,7 +93,9 @@ vim.cmd "nmap ff <return>"
 -- Save file.
 kmn("<C-s>", "<CMD>w<CR>")
 
+
 -- Quickfixlist.
+kmn("<leader>cc", "<CMD>make<CR>") -- Compile with make (takes the output to the Quickfixlist)
 kmn("<leader>qo", "<CMD>copen<CR>")
 kmn("<leader>qc", "<CMD>cclose<CR>")
 kmn("<leader>qn", "<CMD>cnext<CR>")

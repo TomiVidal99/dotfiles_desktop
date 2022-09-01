@@ -23,6 +23,9 @@ lsp_installer.setup({
 local lsp = require("lspconfig")
 local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
 
+-- Server for cpp/c
+lsp.clangd.setup(lsps_opts)
+
 -- Server for javascript, typescript, react javascript and react typescript.
 lsp.tsserver.setup(lsps_opts)
 
@@ -35,12 +38,17 @@ lsp.tailwindcss.setup(lsps_opts)
 -- For html kinda of snippets
 lsp.emmet_ls.setup(lsps_opts)
 
-
 -- For css, scss and less
 lsp.cssls.setup(lsps_opts)
 
 -- Python
 lsp.pyright.setup(lsps_opts)
+
+-- mlang
+vim.lsp.start({
+  name = "mlang",
+  cmd = {"/home/tomii/programming/lsp_mlang/mlang"}
+})
 
 -- Server language for lua.
 lsp.sumneko_lua.setup({
