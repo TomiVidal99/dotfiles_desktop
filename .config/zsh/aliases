@@ -2,6 +2,7 @@
 
 # Linux
 alias update='yay -Syyu --noconfirm'
+alias search='yay -Ss'
 alias install='yay -Sy'
 alias uninstall='yay -R'
 

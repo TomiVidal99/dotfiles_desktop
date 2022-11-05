@@ -1,5 +1,11 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
+  print "ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua"
+  return
+end
+local lsp_configs_ok, lsp_configs = pcall(require, "lspconfig/configs")
+if not lsp_configs_ok then
+  print "ERROR: lspconfig/configs not available. Called from lsp-installer.lua"
   return
 end
 
@@ -47,15 +53,20 @@ lsp.cssls.setup(lsps_opts)
 -- Python
 lsp.pyright.setup(lsps_opts)
 
--- mlang
-vim.lsp.start({
-  name = "mlang",
-  cmd = {"/home/tomii/programming/lsp_mlang/mlang"}
-})
-
 -- Server language for lua.
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
+})
+
+-- CUSTOM LSPS
+
+-- mlang
+vim.lsp.start({
+  name = "mlang",
+  cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
+  filetypes = { "matlab", "octave" },
+  root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
+  settings = {},
 })
