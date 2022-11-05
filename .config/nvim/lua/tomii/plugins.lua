@@ -83,6 +83,7 @@ return packer.startup(function(use)
       require("mason").setup()
     end
   }
+  use "dense-analysis/ale" -- linter engine (i use it for eslint)
 
   -- COMPLETION
   use { "hrsh7th/nvim-cmp",
