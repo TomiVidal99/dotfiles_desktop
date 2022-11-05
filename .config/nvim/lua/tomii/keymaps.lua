@@ -32,6 +32,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 ---------- NORMAL ----------
+-- TODO: find a way to fix this
+-- Treesitter enable all
+kmn("<leader>H", "<CMD>TSEnable highlight | TSEnable indent | TSEnable rainbow | TSEnable query_linter | TSEnable autotag<CR>")
+
 -- Lspsaga 
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 
