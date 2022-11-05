@@ -10,11 +10,12 @@ ts.setup({
   theme = "auto",
   highlight = {
     enable = true,
-    disable = {},
+    additional_vim_regex_highlighting = false,
+    --disable = {},
   },
   indent = {
     enable = true,
-    disable = {},
+    --disable = {},
   },
   ensure_installed = {
     "comment",

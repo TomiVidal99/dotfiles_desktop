@@ -63,10 +63,10 @@ lsp.sumneko_lua.setup({
 -- CUSTOM LSPS
 
 -- mlang
-vim.lsp.start({
-  name = "mlang",
-  cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
-  filetypes = { "matlab", "octave" },
-  root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
-  settings = {},
-})
+-- vim.lsp.start({
+--   name = "mlang",
+--   cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
+--   filetypes = { "matlab", "octave" },
+--   root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
+--   settings = {},
+-- })
