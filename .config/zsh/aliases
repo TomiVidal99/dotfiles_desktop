@@ -4,6 +4,7 @@
 alias update='yay -Syyu --noconfirm'
 alias search='yay -Ss'
 alias install='yay -Sy'
+alias install='yay -R'
 alias uninstall='yay -R'
 
 # Colorize grep output (good for log files)
