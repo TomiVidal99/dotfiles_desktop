@@ -346,6 +346,8 @@ client.urgent           #011318   #002b36     #002b36   #a9a9a9
 # - - - - - - - - - - - - - - - - - - - - 
 
 # - - - - - - - - - - shortcuts (desktop) - - - - - - - - - - 
+# Terminal
+bindsym Ctrl+$alt+t exec konsole
 # web navigator
 bindsym $mod+Shift+f exec firefox
 # files

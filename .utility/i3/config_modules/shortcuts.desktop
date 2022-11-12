@@ -1,3 +1,5 @@
+# Terminal
+bindsym Ctrl+$alt+t exec konsole
 # web navigator
 bindsym $mod+Shift+f exec firefox
 # files
