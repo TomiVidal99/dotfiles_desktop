@@ -304,7 +304,7 @@ bindsym --release Print exec $(sh ~/.utility/common/screenshot.sh)
 exec --no-startup-id sh /home/tomii/.startup.sh
 
 # Set the wallpaper
-exec --no-startup-id feh --bg-scale ~/Pictures/background.jpg
+exec --no-startup-id feh --bg-scale ~/Imágenes/backgrounds/pexels-visually-us-1643392.jpg
 
 # excute xcompmgr to render back shadow drop (enable transparency on terminal)
 exec_always --no-startup-id compton -c -I 1 -D 15 -O 1 --menu-opacity=1 --frame-opacity=1 --active-opacity=1 --inactive-opacity=1 --no-fading-openclose
