@@ -10,11 +10,11 @@ ts.setup({
   theme = "auto",
   highlight = {
     enable = true,
-    disable = {},
+    --disable = {},
   },
   indent = {
     enable = true,
-    disable = {},
+    --disable = {},
   },
   ensure_installed = {
     "comment",

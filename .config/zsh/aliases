@@ -2,7 +2,9 @@
 
 # Linux
 alias update='yay -Syyu --noconfirm'
+alias search='yay -Ss'
 alias install='yay -Sy'
+alias remove='yay -R'
 alias uninstall='yay -R'
 
 # Colorize grep output (good for log files)
