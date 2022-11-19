@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-DEFAULT_BACKGROUND=japanese-resto
+#DEFAULT_BACKGROUND=japanese-resto
+DEFAULT_BACKGROUND=forest
 SCRIPTS_DIRECTORY=/home/tomii/Imágenes/backgrounds/animated-background/scripts
 SCRIPTS_REPO=https://github.com/sdaveas/i3-animated-background
 
