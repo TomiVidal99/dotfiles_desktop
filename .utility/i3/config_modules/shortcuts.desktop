@@ -17,14 +17,6 @@ mode "$APPS" {
     bindsym Return mode "default"
 }
 
-
-bindsym $mod+d mode "$DIRECTORIES"
-mode "$DIRECTORIES" {
-    bindsym 1 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Electromagnetismo Aplicado")
-    bindsym 2 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Dispositivos Electronicos")
-    bindsym 3 exec --no-startup-id $(dolphin "/mnt/DATOS/Documentos/Analisis de Sistemas y Señales")
-
-    bindsym q mode "default"
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
-}
+# Some helpful scripts
+bindsym $mod+Shift+d exec $(sh ~/.utility/i3/launch_directories.sh)
+bindsym $mod+Shift+p exec $(sh ~/.utility/common/get_documents.sh)
