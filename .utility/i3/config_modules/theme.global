@@ -7,7 +7,7 @@ font pango:Noto Mono 16
 # class                 border    bg color    text      indicator
 client.placeholder      #011318   #b58900     #a9a9a9   #a9a9a9
 client.background       #011318   #b58900     #a9a9a9   #a9a9a9
-client.focused          #011318   #b58900     #a9a9a9   #a9a9a9
+client.focused          #011318   #586e75     #a9a9a9   #a9a9a9
 client.unfocused        #011318   #011318     #a9a9a9   #a9a9a9
 client.focused_inactive #011318   #011318     #a9a9a9   #a9a9a9
 client.urgent           #011318   #002b36     #002b36   #a9a9a9
