@@ -53,12 +53,37 @@ lsp.cssls.setup(lsps_opts)
 -- Python
 lsp.pyright.setup(lsps_opts)
 
--- Server language for lua.
+-- JSON
+lsp.jsonls.setup(lsps_opts)
+
+-- LUA
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
 })
+
+-- VHDL
+local lspconfig = require'lspconfig'
+-- Only define once
+if not lspconfig.hdl_checker then
+  require'lspconfig/configs'.hdl_checker = {
+    default_config = {
+    cmd = {"hdl_checker", "--lsp", };
+    filetypes = {"vhdl", "verilog", "systemverilog"};
+      root_dir = function(fname)
+        -- will look for a parent directory with a .git directory. If none, just
+        -- use the current directory
+        --return lspconfig.util.find_git_ancestor(fname) or lspconfig.util.path.dirname(fname)
+        -- or (not both)
+        -- Will look for the .hdl_checker.config file in a parent directory. If
+        -- none, will use the current directory
+        return lspconfig.util.root_pattern('.hdl_checker.config')(fname) or lspconfig.util.path.dirname(fname)
+      end;
+      settings = {};
+    };
+  }
+end
 
 -- CUSTOM LSPS
 

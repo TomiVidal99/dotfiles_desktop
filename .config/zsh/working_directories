@@ -1,8 +1,3 @@
-python projects=/home/tomii/programming/python
-lsp_mlang=/home/tomii/programming/lsp_mlang
-TP2 AnSyS=/mnt/DATOS/Documentos/Analisis de Sistemas y Señales/TPU 2
-DATOS documentos=/mnt/DATOS/Documentos
-react typescript boilerplate=/home/tomii/programming/typescript/react_typescript_boilerplate
-bibliotecario=/home/tomii/programming/bibliotecario
-my website=/home/tomii/programming/website
-React Router=/home/tomii/programming/gentleman-tuts/react-router
+DATOS DATOS=/mnt/DATOS
+programming=/mnt/DATOS/programming
+VHDL Practicas=/mnt/DATOS/Documentos/VHDL Programs
