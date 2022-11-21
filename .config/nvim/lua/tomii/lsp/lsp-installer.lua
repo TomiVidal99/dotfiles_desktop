@@ -1,11 +1,5 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-  print "ERROR: nvim-lsp-installer not available. Called from lsp-installer.lua"
-  return
-end
-local lsp_configs_ok, lsp_configs = pcall(require, "lspconfig/configs")
-if not lsp_configs_ok then
-  print "ERROR: lspconfig/configs not available. Called from lsp-installer.lua"
   return
 end
 
@@ -25,15 +19,9 @@ lsp_installer.setup({
   }
 })
 
--- Error that throws clangd
-capabilities.offsetEncoding = "utf-8"
-
 -- Define locallly the lsp
 local lsp = require("lspconfig")
 local lsps_opts = {on_attach = on_attach, capabilities = capabilities}
-
--- Server for cpp/c
-lsp.clangd.setup(lsps_opts)
 
 -- Server for javascript, typescript, react javascript and react typescript.
 lsp.tsserver.setup(lsps_opts)
@@ -47,51 +35,51 @@ lsp.tailwindcss.setup(lsps_opts)
 -- For html kinda of snippets
 lsp.emmet_ls.setup(lsps_opts)
 
+
 -- For css, scss and less
 lsp.cssls.setup(lsps_opts)
 
 -- Python
 lsp.pyright.setup(lsps_opts)
 
--- JSON
-lsp.jsonls.setup(lsps_opts)
-
--- LUA
+-- Server language for lua.
 lsp.sumneko_lua.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("tomii.lsp.settings.sumneko_lua"),
 })
 
+-- C#
+local pid = vim.fn.getpid()
+local omnisharp_executable = "omnisharp"
+lsp.omnisharp.setup({
+  -- TODO: move all this config to a different directory
+  capabilities = capabilities,
+  on_attach = on_attach,
+  cmd = { omnisharp_executable, "--languageserver" , "--hostPID", tostring(pid) },
+  enable_editorconfig_support = true,
+  enable_ms_build_load_projects_on_demand = false,
+  enable_roslyn_analyzers = false,
+  organize_imports_on_format = false,
+  enable_import_completion = false,
+  sdk_include_prereleases = true,
+  analyze_open_documents_only = false,
+})
+
 -- VHDL
-local lspconfig = require'lspconfig'
--- Only define once
-if not lspconfig.hdl_checker then
-  require'lspconfig/configs'.hdl_checker = {
+if not require'lspconfig.configs'.hdl_checker then
+  require'lspconfig.configs'.hdl_checker = {
     default_config = {
     cmd = {"hdl_checker", "--lsp", };
     filetypes = {"vhdl", "verilog", "systemverilog"};
       root_dir = function(fname)
-        -- will look for a parent directory with a .git directory. If none, just
-        -- use the current directory
-        --return lspconfig.util.find_git_ancestor(fname) or lspconfig.util.path.dirname(fname)
-        -- or (not both)
-        -- Will look for the .hdl_checker.config file in a parent directory. If
-        -- none, will use the current directory
-        return lspconfig.util.root_pattern('.hdl_checker.config')(fname) or lspconfig.util.path.dirname(fname)
+        -- will look for the .hdl_checker.config file in parent directory, a
+        -- .git directory, or else use the current directory, in that order.
+        local util = require'lspconfig'.util
+        return util.root_pattern('.hdl_checker.config')(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
       end;
       settings = {};
     };
   }
 end
-
--- CUSTOM LSPS
-
--- mlang
--- vim.lsp.start({
---   name = "mlang",
---   cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
---   filetypes = { "matlab", "octave" },
---   root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
---   settings = {},
--- })
+require'lspconfig'.hdl_checker.setup{}

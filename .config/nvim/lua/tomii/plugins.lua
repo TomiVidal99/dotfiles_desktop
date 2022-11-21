@@ -83,7 +83,6 @@ return packer.startup(function(use)
       require("mason").setup()
     end
   }
-  use "dense-analysis/ale" -- linter engine (i use it for eslint)
 
   -- COMPLETION
   use { "hrsh7th/nvim-cmp",
@@ -100,7 +99,13 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- Navigation
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.0" } -- general navigation
+  use {  -- general navigation
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.0",
+    config = function ()
+      require('telescope').setup({ defaults = { file_ignore_patterns = { "node_modules", ".git" } } })
+    end
+  }
   use "preservim/nerdtree" -- file explorer
   use { "Xuyuanp/nerdtree-git-plugin", requires = { { "preservim/nerdtree" } } } -- displays git status on nerdtree
   use { "ryanoasis/vim-devicons", requires = { { "preservim/nerdtree" } } } -- display icons in nerdtree
