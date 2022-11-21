@@ -66,17 +66,14 @@ lsp.omnisharp.setup({
 })
 
 -- VHDL
-if not require("lspconfig.configs").ghdl_ls then
-	require("lspconfig.configs").ghdl_ls= {
-		default_config = {
-			cmd = { "ghdl-ls",  },
-			filetypes = { "vhdl", "verilog", "systemverilog" },
-			root_dir = function(fname)
-			  local util = require'lspconfig'.util
-			  return util.root_pattern('.hdl-prj.json')(fname) or util.path.dirname(fname)
-			end;
-			settings = {},
-		},
-	}
-end
-require("lspconfig").ghdl_ls.setup(lsps_opts)
+require("lspconfig").ghdl_ls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "hdl_checker", "--lsp" },
+	filetypes = { "vhdl", "verilog", "systemverilog" },
+	root_dir = function(fname)
+		local util = require("lspconfig").util
+		return util.root_pattern(".hdl-prj.json")(fname) or util.path.dirname(fname)
+	end,
+	settings = {},
+})
