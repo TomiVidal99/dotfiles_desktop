@@ -9,7 +9,7 @@ DIRECTORIES=~/.dotfiles/.utility/common/documents_dir
 
 # sets the folder icon by applying an echo pattern
 function apply_folder_pattern() {
-  xargs -I '{}' echo -en "{}\0icon\x1ffolder\n"
+  xargs -I '{}' echo -en "{}\x00icon\x1fapplication-pdf\n"
 }
 
 function rofi_command() {
