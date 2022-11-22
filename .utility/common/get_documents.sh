@@ -4,7 +4,6 @@
 # file and lets you (with rofi) open them in your file manager
 
 
-LS_COMMAND=/usr/bin/ls
 DOCUMENTS_READER=okular
 DIRECTORIES=~/.dotfiles/.utility/common/documents_dir
 
@@ -17,20 +16,19 @@ function rofi_command() {
   apply_folder_pattern | rofi -dmenu -i -markup-rows -p "Seleccione un documento"
 }
 
-function get_documents() {
-  xargs -I '{}' fd -p '.pdf' '{}'
-}
-
 function parse_documents() {
   xargs -I '{}' basename -s .pdf {}
 }
 
-SELECTED_DOCUMENT=$(cat $DIRECTORIES | get_documents | parse_documents | rofi_command)
-SELECTED_DOCUMENT_PATH=$(cat $DIRECTORIES | get_documents | grep "$SELECTED_DOCUMENT")
+DOCUMENTS=$(cat $DIRECTORIES | xargs -I '{}' fd -e pdf . {})
+SELECTED_DOCUMENT_NAME=$(echo "$DOCUMENTS" | parse_documents | rofi_command)
+SELECTED_DOCUMENT_PATH=$(echo "$DOCUMENTS" | grep "$SELECTED_DOCUMENT_NAME")
 
-if [[ "$SELECTED_DOCUMENT" = "" ]]; then
+if [[ "$SELECTED_DOCUMENT_NAME" = "" || "$SELECTED_DOCUMENT_PATH" = "" ]]; then
   #rofi -e "You didn't select a document!\n"
   exit
 fi
 
-$DOCUMENTS_READER "$SELECTED_DOCUMENT_PATH" & disown
+echo "Path: $SELECTED_DOCUMENT_PATH"
+
+$DOCUMENTS_READER "${SELECTED_DOCUMENT_PATH}" & disown
