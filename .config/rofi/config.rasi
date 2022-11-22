@@ -6,7 +6,7 @@ configuration {
   terminal: "konsole";
   font: "Hack 14";
   show-icons: true;
-  icon-theme: "Papirus-Dark";
+  icon-theme: "Nordic-bluish";
   kb-cancel: "Escape,Alt+a,Control+c";
   kb-mode-next: "Alt+Tab";
   kb-mode-previous: "Control+Tab";
