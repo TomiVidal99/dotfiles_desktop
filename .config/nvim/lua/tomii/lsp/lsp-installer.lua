@@ -51,16 +51,20 @@ lsp.sumneko_lua.setup({
 -- C#
 local pid = vim.fn.getpid()
 local omnisharp_executable = "omnisharp"
+local root_pattern = require('lspconfig.util').root_pattern
 lsp.omnisharp.setup({
 	-- TODO: move all this config to a different directory
 	capabilities = capabilities,
 	on_attach = on_attach,
+  root_dir = function (path)
+    return root_pattern('*.sln')(path) or root_pattern('*.csproj')(path)
+  end,
 	cmd = { omnisharp_executable, "--languageserver", "--hostPID", tostring(pid) },
 	enable_editorconfig_support = true,
 	enable_ms_build_load_projects_on_demand = false,
-	enable_roslyn_analyzers = false,
-	organize_imports_on_format = false,
-	enable_import_completion = false,
+	enable_roslyn_analyzers = true,
+	organize_imports_on_format = true,
+	enable_import_completion = true,
 	sdk_include_prereleases = true,
 	analyze_open_documents_only = false,
 })
