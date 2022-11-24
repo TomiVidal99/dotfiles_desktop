@@ -32,10 +32,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 ---------- NORMAL ----------
--- TODO: find a way to fix this
--- Treesitter enable all
-kmn("<leader>H", "<CMD>TSEnable highlight | TSEnable indent | TSEnable rainbow | TSEnable query_linter | TSEnable autotag<CR>")
-
 -- Lspsaga 
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 
@@ -50,7 +46,6 @@ kmn("<A-b>", "<CMD>NERDTreeFind<CR>")
 ---------- TELESCOPE ----------
 -- Format code with LSP
 kmn("<leader>F", "<CMD>lua vim.lsp.buf.format()<CR>")
-kmn("K", "<CMD>lua vim.lsp.buf.hover()<CR>")
 
 -- All type of search: files, keywords, maps, etc.
 kmn("gr", "<CMD>Telescope lsp_references<CR>")
@@ -98,9 +93,7 @@ vim.cmd "nmap ff <return>"
 -- Save file.
 kmn("<C-s>", "<CMD>w<CR>")
 
-
 -- Quickfixlist.
-kmn("<leader>cc", "<CMD>make<CR>") -- Compile with make (takes the output to the Quickfixlist)
 kmn("<leader>qo", "<CMD>copen<CR>")
 kmn("<leader>qc", "<CMD>cclose<CR>")
 kmn("<leader>qn", "<CMD>cnext<CR>")
