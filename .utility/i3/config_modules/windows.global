@@ -1,20 +1,20 @@
 # Define names for default workspaces
 # for which we configure key bindings later on.  We use variables to avoid repeating the names in multiple places.  
 # Windows for the first and primary monitor
-set $ws1 "1:TERM "
-set $ws2 "2:WWW "
-set $ws3 "3:PDF "
-set $ws4 "4:FILES "
-set $ws5 "5:MUSIC "
+set $ws1 "1:🖥️"
+set $ws2 "2:@"
+set $ws3 "3:📄"
+set $ws4 "4:📁"
+set $ws5 "5:💽"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8:DISCORD "
-set $ws9 "9:MAIL "
+set $ws8 "8:💬"
+set $ws9 "9:📨"
 set $ws10 "10"
 # Windows for the second monitor
-set $ws11 "11"
-set $ws12 "12"
-set $ws13 "13"
+set $ws11 "11:Quartus|Spice"
+set $ws12 "12:RTL"
+set $ws13 "13:🎨"
 set $ws14 "14"
 set $ws15 "15"
 set $ws16 "16"
@@ -73,7 +73,6 @@ assign [class="firefox"] $ws2
 for_window [class="qutebrowser"] move container to workspace number $ws2
 # to workspace 3
 assign [class="okular"] $ws3
-assign [title="RTL Viewer"] $ws3
 # to workspace 4
 assign [class="dolphin"] $ws4
 # to workspace 5
@@ -81,12 +80,16 @@ assign [class="dolphin"] $ws4
 for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
-for_window [class="LTspice XVIII"] move container to workspace number $ws6
-assign [class="quartus.exe"] $ws6
+for_window [class="LTspice XVIII"] move container to workspace number $ws4
 # to workspace 7
-assign [class="Octave"] $ws7
 # to workspace 8
 assign [class="discord"] $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
+# to workspace 11
+assign [class="quartus.exe"] $ws11
+# to workspace 12
+for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws12
+# to workspace 13
+assign [class="Octave"] $ws13
