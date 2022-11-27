@@ -8,7 +8,7 @@ DIRECTORIES=~/.dotfiles/.utility/common/documents_dir
 
 # opens rofi with the right flags
 function rofi_command() {
-  rofi -dmenu -i -markup -markup-rows -p "Seleccione un documento"
+  rofi -dmenu -i -markup -markup-rows -mesg "Se encontraron $(echo "$DOCUMENTS" | wc -l) pdfs" -p "Seleccione un documento"
 }
 
 # returns the line parsed with the data
