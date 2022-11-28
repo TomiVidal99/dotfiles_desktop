@@ -112,7 +112,7 @@ if not cmp_nvim_lsp_ok then
 end
 
 HANDLERS.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-HANDLERS.capabilities.textDocument.colorProvider = true -- this is to enable the tailwindcss plugin
+HANDLERS.capabilities.textDocument.colorProvider = {true} -- this is to enable the tailwindcss plugin
 
 
 return HANDLERS
