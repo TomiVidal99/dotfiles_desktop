@@ -4,7 +4,7 @@ local o = vim.opt
 
 o.spell = false
 o.spelllang = { "en_us", "es_la" }
-o.spellsuggest = {"best", "3"}
+o.spellsuggest = { "best", "3" }
 o.laststatus = 3
 o.splitright = true
 o.splitbelow = true
@@ -44,9 +44,9 @@ o.scrolloff = 8
 o.sidescrolloff = 8
 o.guifont = "monospace:h17"
 
-o.shortmess:append "c"
+o.shortmess:append("c")
 
-vim.cmd "highlight WinSeparator guibg=None"
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd("highlight WinSeparator guibg=None")
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

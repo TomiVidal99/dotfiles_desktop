@@ -51,14 +51,14 @@ lsp.sumneko_lua.setup({
 -- C#
 local pid = vim.fn.getpid()
 local omnisharp_executable = "omnisharp"
-local root_pattern = require('lspconfig.util').root_pattern
+local root_pattern = require("lspconfig.util").root_pattern
 lsp.omnisharp.setup({
 	-- TODO: move all this config to a different directory
 	capabilities = capabilities,
 	on_attach = on_attach,
-  root_dir = function (path)
-    return root_pattern('*.sln')(path) or root_pattern('*.csproj')(path)
-  end,
+	root_dir = function(path)
+		return root_pattern("*.sln")(path) or root_pattern("*.csproj")(path)
+	end,
 	cmd = { omnisharp_executable, "--languageserver", "--hostPID", tostring(pid) },
 	enable_editorconfig_support = true,
 	enable_ms_build_load_projects_on_demand = false,
@@ -69,15 +69,39 @@ lsp.omnisharp.setup({
 	analyze_open_documents_only = false,
 })
 
--- VHDL
-require("lspconfig").ghdl_ls.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	cmd = { "hdl_checker", "--lsp" },
-	filetypes = { "vhdl", "verilog", "systemverilog" },
-	root_dir = function(fname)
-		local util = require("lspconfig").util
-		return util.root_pattern(".hdl-prj.json")(fname) or util.path.dirname(fname)
-	end,
-	settings = {},
-})
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+-- VHDL: Manual add rust_hdl server
+if not configs.rust_hdl then
+	configs.rust_hdl = {
+		default_config = {
+			cmd = { "vhdl_ls" },
+			filetypes = { "vhdl" },
+			root_dir = function(fname)
+				return lspconfig.util.root_pattern("vhdl_ls.toml")(fname) or vim.fn.getcwd()
+			end,
+			settings = {},
+		},
+	}
+end
+
+-- VHDL: hdl_checker
+if not require("lspconfig.configs").hdl_checker then
+	require("lspconfig.configs").hdl_checker = {
+		default_config = {
+			cmd = { "hdl_checker", "--lsp" },
+			filetypes = { "vhdl", "verilog", "systemverilog" },
+			root_dir = function(fname)
+				-- will look for the .hdl_checker.config file in parent directory, a
+				-- .git directory, or else use the current directory, in that order.
+				local util = require("lspconfig").util
+				return util.root_pattern(".hdl_checker.config")(fname)
+					or util.find_git_ancestor(fname)
+					or util.path.dirname(fname)
+			end,
+			settings = {},
+		},
+	}
+end
+require("lspconfig").hdl_checker.setup(lsps_opts)
