@@ -77,10 +77,11 @@ if not configs.rust_hdl then
 		default_config = {
 			cmd = { "vhdl_ls" },
 			filetypes = { "vhdl" },
-			root_dir = function(fname)
-				return configs.util.root_pattern("vhdl_ls.toml")(fname) or vim.fn.getcwd()
-			end,
 			settings = {},
+      root_dir = function(fname)
+        local util = lsp.util
+        return util.root_pattern('vhdl_ls.toml')(fname)
+      end;
 		},
 	}
 end
