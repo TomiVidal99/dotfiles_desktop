@@ -1,0 +1,58 @@
+theme = "solarized-dark"
+icons = "awesome"
+icons_format = " <span font='18'>{icon}</span> "
+
+[[block]]
+block = "net"
+interval = 1
+[block.theme_overrides]
+idle_bg = "#a9a9a9"
+idle_fg = "#011318"
+
+[[block]]
+block = "bluetooth"
+mac = "90:7A:58:C6:73:CF"
+format = "{percentage}"
+hide_disconnected = true
+icons_format = " <span font='12'>🎧</span> "
+
+[[block]]
+block = "weather"
+format = "{weather} {temp}C   {humidity}%"
+service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
+
+[[block]]
+block = "pacman"
+interval = 600
+format = "{pacman}"
+format_singular = "{pacman}"
+format_up_to_date = "Updated"
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
+icons_format = " <span font='20'>󱧘</span> "
+# pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
+#on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
+
+
+[[block]]
+block = "battery"
+if_command = "test -e /sys/class/power_supply/BAT0"
+
+[[block]]
+block = "sound"
+[block.theme_overrides]
+idle_bg = "#a9a9a9"
+idle_fg = "#011318"
+
+[[block]]
+block = "time"
+interval = 5
+format = "%R"
+
+[[block]]
+block = "time"
+interval = 5
+format = "%A %d/%m"
+locale = "es_AR"
+[block.theme_overrides]
+idle_bg = "#a9a9a9"
+idle_fg = "#011318"
