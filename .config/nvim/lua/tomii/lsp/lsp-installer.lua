@@ -21,7 +21,6 @@ lsp_installer.setup({
 
 -- Define locallly the lsp
 local lsp = require("lspconfig")
-local configs = require("lspconfig.configs")
 local lsps_opts = { on_attach = on_attach, capabilities = capabilities }
 
 -- Server for javascript, typescript, react javascript and react typescript.
@@ -41,9 +40,6 @@ lsp.cssls.setup(lsps_opts)
 
 -- Python
 lsp.pyright.setup(lsps_opts)
-
--- JSON
-lsp.jsonls.setup(lsps_opts)
 
 -- Server language for lua.
 lsp.sumneko_lua.setup({
@@ -73,6 +69,8 @@ lsp.omnisharp.setup({
 	analyze_open_documents_only = false,
 })
 
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
 
 -- VHDL: Manual add rust_hdl server
 if not configs.rust_hdl then
@@ -80,26 +78,24 @@ if not configs.rust_hdl then
 		default_config = {
 			cmd = { "vhdl_ls" },
 			filetypes = { "vhdl" },
+			root_dir = function(fname)
+				return lspconfig.util.root_pattern("vhdl_ls.toml")(fname) or vim.fn.getcwd()
+			end,
 			settings = {},
-      root_dir = function(fname)
-        local util = lsp.util
-        return util.root_pattern('vhdl_ls.toml')(fname)
-      end;
 		},
 	}
 end
-lsp.rust_hdl.setup(lsps_opts)
 
 -- VHDL: hdl_checker
-if not configs.hdl_checker then
-	configs.hdl_checker = {
+if not require("lspconfig.configs").hdl_checker then
+	require("lspconfig.configs").hdl_checker = {
 		default_config = {
 			cmd = { "hdl_checker", "--lsp" },
 			filetypes = { "vhdl", "verilog", "systemverilog" },
 			root_dir = function(fname)
 				-- will look for the .hdl_checker.config file in parent directory, a
 				-- .git directory, or else use the current directory, in that order.
-				local util = lsp.util
+				local util = require("lspconfig").util
 				return util.root_pattern(".hdl_checker.config")(fname)
 					or util.find_git_ancestor(fname)
 					or util.path.dirname(fname)
@@ -108,4 +104,4 @@ if not configs.hdl_checker then
 		},
 	}
 end
-lsp.hdl_checker.setup(lsps_opts)
+require("lspconfig").hdl_checker.setup(lsps_opts)
