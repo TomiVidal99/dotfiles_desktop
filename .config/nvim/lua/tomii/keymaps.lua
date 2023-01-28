@@ -82,7 +82,7 @@ kmn("<C-p>", vim.diagnostic.goto_prev)
 vim.cmd "command! W w !sudo tee > /dev/null %"
 
 -- Delete without yank.
-vim.cmd 'nnoremap <leader>d "_d'
+--vim.cmd 'nnoremap <leader>d "_d' -- TODO: this does not work
 vim.cmd 'nnoremap x "_x'
 
 -- Increment/decrement.
