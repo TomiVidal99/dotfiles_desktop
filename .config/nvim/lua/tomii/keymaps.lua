@@ -35,6 +35,7 @@ vim.g.maplocalleader = ","
 -- Lspsaga 
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 kmn("<leader>k", "<CMD>Lspsaga hover_doc<CR>")
+kmn("<leader>A", "<CMD>Lspsaga lsp_finder<CR>")
 
 -- LATEX
 kmn("<localleader>lc", "<CMD>VimtexCompile<CR>")
@@ -155,6 +156,13 @@ kmv("p", '"_dP')
 
 -- Quit visual mode with Alt+a.
 vim.cmd "vmap <A-a> <Esc>"
+
+-- visual multi edit
+vim.cmd [[
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-d>' " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-d>' " replace visual C-n
+]]
 
 -- Stay in indent mode.
 kmv("<", "<gv")
