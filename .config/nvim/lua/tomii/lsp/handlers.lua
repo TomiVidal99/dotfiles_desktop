@@ -86,13 +86,13 @@ local function lsp_keymaps(bufnr)
   keymap_buf('gD', '<CMD>lua vim.lsp.buf.declaration()<CR>')
   keymap_buf('<leader>dd', '<CMD>lua vim.lsp.buf.type_definition()<CR>')
   keymap_buf('<leader>rr', '<CMD>lua vim.lsp.buf.rename()<CR>')
-  keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.formatting()<CR>")
+  keymap_buf("<leader>ff", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>")
 
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]]
 end
 
 HANDLERS.on_attach = function(client, bufnr)
-  for val, key in pairs(PREVENT_LSPS_FROM_FORMATTING) do
+  for _, key in pairs(PREVENT_LSPS_FROM_FORMATTING) do
     if client.name == key then
       client.server_capabilities.document_formatting = false
     end
@@ -104,6 +104,9 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+-- Error that throws clangd
+capabilities.offsetEncoding = "utf-8"
+
 -- native LSP completion
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_ok then
@@ -112,7 +115,7 @@ if not cmp_nvim_lsp_ok then
 end
 
 HANDLERS.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-HANDLERS.capabilities.textDocument.colorProvider = {true} -- this is to enable the tailwindcss plugin
+--HANDLERS.capabilities.textDocument.colorProvider = true -- this is to enable the tailwindcss plugin
 
 
 return HANDLERS

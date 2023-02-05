@@ -50,7 +50,7 @@ function switch_working_directory() {
     echo "No directory selected. Did not switch."
     return
   fi
-  FULLPATH=$(echo $WDIRS | grep $DIR | cut -d'=' -f2)
+  FULLPATH=$(echo $WDIRS | grep $DIR | head -n 1 | cut -d'=' -f2)
   if [ -d $FULLPATH ]; then
     cd $FULLPATH
     update_status
@@ -65,7 +65,7 @@ function add_to_working_directory() {
   read "DIR_NAME?What should i call this directory? "
   if [ -z "$DIR_NAME" ]; then
     echo "ERROR: enter a valid directory name"
-    break
+    return
   fi
   DIR=$(pwd)
   FULLPATH="${DIR_NAME}=${DIR}"
@@ -106,4 +106,23 @@ function git_add_commit_push() {
     echo "ERROR: no commit message."
     echo "Usage: acp 'this is a commit message.'"
   fi
+}
+
+# Adds a directory to the list of common directories
+# TODO: accept parameters (like custom dir path)
+# It should deny '='inside the name of the directory
+function add_common_directory() {
+  DIRECTORIES_FILE=~/.utility/i3/files_directories
+  read "DIR_NAME?What should i call this directory? "
+  DIR_NAME_ALREADY_EXISTS=$(cat $DIRECTORIES_FILE | grep "^$DIR_NAME=*")
+  if [[ "$DIR_NAME" == ""  ]]; then
+    echo "ERROR: enter a valid directory name"
+    return
+  elif [[ "$DIR_NAME_ALREADY_EXISTS" != "" ]]; then
+    echo "ERROR: the name entered already exists"
+    return
+  fi
+  DIR=$(pwd)
+  FULLPATH="${DIR_NAME}=${DIR}"
+  echo $FULLPATH >> $DIRECTORIES_FILE
 }

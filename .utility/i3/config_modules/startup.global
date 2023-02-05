@@ -13,3 +13,6 @@ exec_always --no-startup-id "~/.utility/i3/redshift.sh"
 
 # Start tray icons
 exec_always --no-startup-id "~/.utility/i3/tray.sh"
+
+# Notification server
+exec_always --no-startup-id dunst
