@@ -82,6 +82,7 @@ for_window [class="Clementine"] move container to workspace number $ws5
 assign [class="quartus.exe"] $ws6
 assign [class="xviix65.exe"] $ws6
 assign [class="vsim"] $ws6
+assign [class="Octave"] $ws6
 # to workspace 7
 for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws7
 # to workspace 8
@@ -92,5 +93,4 @@ assign [class="mail"] $ws9
 # to workspace 11
 # to workspace 12
 # to workspace 13
-assign [class="Octave"] $ws13
 # to workspace 14
