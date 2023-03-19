@@ -5,7 +5,7 @@ local lspconfig_config = require("lspconfig.configs")
 if not lspconfig_config.rust_hdl then
 	lspconfig_config.rust_hdl = {
 		default_config = {
-      name = "vhdl_ls",
+			name = "vhdl_ls",
 			cmd = { "vhdl_ls" },
 			filetypes = { "vhdl" },
 			root_dir = function(fname)
@@ -21,7 +21,7 @@ end
 if not lspconfig_config.hdl_checker then
 	lspconfig_config.hdl_checker = {
 		default_config = {
-      name = "hdl_checker",
+			name = "hdl_checker",
 			cmd = { "hdl_checker", "--lsp" },
 			filetypes = { "vhdl", "verilog", "systemverilog" },
 			root_dir = function(fname)
@@ -53,10 +53,20 @@ if not lspconfig_config.bash_language_server then
 end
 
 -- mlang
--- vim.lsp.start({
---   name = "mlang",
---   cmd = {"/home/tomii/programming/lsp_mlang/run.sh"},
---   filetypes = { "matlab", "octave" },
---   root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
---   settings = {},
--- })
+if not lspconfig_config.mlang then
+	local mlang_server = "/home/tomii/Github/vscode-extension-samples/lsp-sample/server/out/server.js"
+	lspconfig_config.mlang = {
+		default_config = {
+			name = "mlang",
+			cmd = { "node", mlang_server, "--stdio" },
+			filetypes = { "matlab", "octave", "m" },
+			--root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
+			root_dir = function()
+				return vim.fn.getcwd()
+			end,
+			settings = {
+        test = "my-test-variable",
+      },
+		},
+	}
+end
