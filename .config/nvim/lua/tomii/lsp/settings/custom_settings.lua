@@ -64,9 +64,10 @@ if not lspconfig_config.mlang then
 			root_dir = function()
 				return vim.fn.getcwd()
 			end,
-			settings = {
-        test = "my-test-variable",
-      },
+			settings = {},
+			init_options = {
+				maxNumbersOfProbles = 100,
+			},
 		},
 	}
 end
