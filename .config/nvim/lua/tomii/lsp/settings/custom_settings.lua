@@ -66,7 +66,7 @@ if not lspconfig_config.mlang then
 			end,
 			settings = {},
 			init_options = {
-				maxNumbersOfProbles = 100,
+				maxNumberOfProblems = 100,
 			},
 		},
 	}
