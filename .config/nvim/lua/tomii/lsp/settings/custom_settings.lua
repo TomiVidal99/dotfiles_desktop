@@ -54,7 +54,7 @@ end
 
 -- mlang
 if not lspconfig_config.mlang then
-	local mlang_server = "/home/tomii/Github/vscode-extension-samples/lsp-sample/server/out/server.js"
+	local mlang_server = "/home/tomii/Github/mlang/out/server.js"
 	lspconfig_config.mlang = {
 		default_config = {
 			name = "mlang",
@@ -64,10 +64,11 @@ if not lspconfig_config.mlang then
 			root_dir = function()
 				return vim.fn.getcwd()
 			end,
-			settings = {},
-			init_options = {
-				maxNumberOfProblems = 100,
-			},
+			settings = {
+        settings = {
+          maxNumberOfProblems = 1000,
+        },
+      },
 		},
 	}
 end
