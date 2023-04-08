@@ -1,43 +1,57 @@
+icons_format = " <span font='18'>{icon}</span> "
+
+[theme]
 theme = "solarized-dark"
-icons = "awesome"
-icons_format = " <span font='16'>{icon}</span> "
+[icons]
+icons = "awesome6"
 
 [[block]]
 block = "music"
-buttons = ["play", "next"]
+interface_name_exclude = ["firefox"]
 
 [[block]]
 block = "net"
+format = "^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K)"
 interval = 1
+missing_format = ""
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
 
-# this block wont work if the bluetooth adapter isn't pluged in
-#[[block]]
-#block = "bluetooth"
-#mac = "90:7A:58:C6:73:CF"
-#format = "{percentage}"
-#hide_disconnected = true
-#icons_format = " <span font='12'>🎧</span> "
+[[block]]
+block = "bluetooth"
+mac = "90:7A:58:C6:73:CF"
+format = "$icon"
+disconnected_format = ""
+icons_format = " <span font='12'>🎧</span> "
 
 [[block]]
 block = "weather"
-format = "{weather} {temp}C   {humidity}%"
-# La Plata: 3432043
-# General La Madrid: 3432043
-service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3432043", units = "metric", lang = "sp" }
+format = "$icon $weather $temp C   $humidity ($location)"
+error_format = ""
+service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
+autolocate = true
+autolocate_interval = "once"
 
 [[block]]
 block = "pacman"
 interval = 600
-format = "{pacman}"
-format_singular = "{pacman}"
-format_up_to_date = "Updated"
+format = "$icon $both.eng"
+error_format = ""
+format_singular = "$icon $both.eng"
+aur_command = "yay -Qua"
+format_up_to_date = "$icon Updated"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
 icons_format = " <span font='20'>󱧘</span> "
 # pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
 #on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
+
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+full_format = " $icon "
+if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
 block = "sound"
@@ -48,13 +62,14 @@ idle_fg = "#011318"
 [[block]]
 block = "time"
 interval = 5
-format = "%R"
+format = "$icon $timestamp.datetime(f:'%R', l:es_AR) "
 
 [[block]]
 block = "time"
 interval = 5
-format = "%A %d/%m"
-locale = "es_AR"
+#timezone = "America/Buenos_Aires"
+format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
+
