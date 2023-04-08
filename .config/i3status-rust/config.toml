@@ -7,7 +7,8 @@ icons = "awesome6"
 
 [[block]]
 block = "music"
-interface_name_exclude = ["firefox"]
+interface_name_exclude = ["firefox*"]
+player = "spotify"
 
 [[block]]
 block = "net"
@@ -73,3 +74,17 @@ format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
 
+[[block]]
+block = "menu"
+text = "  <span font='18'>\uf011</span>  "
+[[block.items]]
+display = "(1/3) - Sleep"
+cmd = "systemctl suspend"
+[[block.items]]
+display = "(2/3) - Power Off"
+cmd = "poweroff"
+confirm_msg = "Are you sure you want to power off?"
+[[block.items]]
+display = "(3/3) - Reboot"
+cmd = "reboot"
+confirm_msg = "Are you sure you want to reboot?"
