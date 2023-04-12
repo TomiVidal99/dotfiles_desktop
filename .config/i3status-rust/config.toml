@@ -1,3 +1,5 @@
+# dependency required: ttf-font-awesome-6 
+
 icons_format = " <span font='18'>{icon}</span> "
 
 [theme]
@@ -9,6 +11,7 @@ icons = "awesome6"
 block = "music"
 interface_name_exclude = ["firefox*"]
 player = "spotify"
+error_format = ""
 
 [[block]]
 block = "net"
@@ -24,7 +27,7 @@ block = "bluetooth"
 mac = "90:7A:58:C6:73:CF"
 format = "$icon"
 disconnected_format = ""
-icons_format = " <span font='12'>🎧</span> "
+icons_format = " <span font='18'>🎧</span> "
 
 [[block]]
 block = "weather"
@@ -43,7 +46,7 @@ format_singular = "$icon $both.eng"
 aur_command = "yay -Qua"
 format_up_to_date = "$icon Updated"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
-icons_format = " <span font='20'>󱧘</span> "
+icons_format = " <span font='18'>󱧘</span> "
 # pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
 #on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
 
@@ -63,13 +66,13 @@ idle_fg = "#011318"
 [[block]]
 block = "time"
 interval = 5
-format = "$icon $timestamp.datetime(f:'%R', l:es_AR) "
+format = " $icon $timestamp.datetime(f:'%R', l:es_AR) "
 
 [[block]]
 block = "time"
 interval = 5
 #timezone = "America/Buenos_Aires"
-format = "$icon $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
+format = " $icon  $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
