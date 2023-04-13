@@ -9,6 +9,7 @@
 --  command_mode = "c",
 
 -- Some helper variables
+local get_os_keymaps = require("tomii.utils.get-os-keymaps")
 local opts = { noremap = true, silent = true }
 local km = vim.keymap.set
 
@@ -63,9 +64,9 @@ kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")
 kmn("<leader>gs", "<CMD>Telescope git_status<CR>")
 
 ---------- TERMINALS ----------
-kmn("<leader>T", "<CMD>tabedit term://zsh | tabmove 0<CR>") -- starts a new terminal in a new tab
-kmn("<leader>tr", "<CMD>vsplit term://zsh<CR>") -- starts a new terminal in the right side of the screen
-kmn("<leader>tb", "<CMD>split term://zsh | resize 10<CR>") -- starts a new terminal in the bottom of the screen
+kmn("<leader>T", get_os_keymaps.get_new_tab_terminal()) -- starts a new terminal in a new tab
+kmn("<leader>tr", get_os_keymaps.get_right_terminal()) -- starts a new terminal in the right side of the screen
+kmn("<leader>tb", get_os_keymaps.get_bottom_terminal()) -- starts a new terminal in the bottom of the screen
 vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
 vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
 kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
