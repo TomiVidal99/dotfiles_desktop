@@ -4,8 +4,14 @@ icons_format = " <span font='18'>{icon}</span> "
 
 [theme]
 theme = "solarized-dark"
+[theme.overrides]
+info_bg = "#255667"
+info_fg = "#002b36"
 [icons]
 icons = "awesome6"
+[icons.overrides]
+volume = ["󰖀", "󰕾", ""]
+volume_muted = "󰖁"
 
 [[block]]
 block = "music"
@@ -32,6 +38,7 @@ icons_format = " <span font='18'>🎧</span> "
 [[block]]
 block = "weather"
 format = "$icon $weather $temp C   $humidity ($location)"
+icons_format = " <span font='14'>{icon}</span> "
 error_format = ""
 service = { name = "openweathermap", api_key = "0b440372cffdd59274b4e0e2594c2f86", city_id = "3855104", units = "metric", lang = "sp" }
 autolocate = true
@@ -40,13 +47,13 @@ autolocate_interval = "once"
 [[block]]
 block = "pacman"
 interval = 600
-format = "$icon $both.eng"
+format = "$icon $both.eng "
 error_format = ""
 format_singular = "$icon $both.eng"
 aur_command = "yay -Qua"
 format_up_to_date = "$icon Updated"
 critical_updates_regex = "(linux|linux-lts|linux-zen)"
-icons_format = " <span font='18'>󱧘</span> "
+icons_format = " <span font='18'>󱧕</span> "
 # pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
 #on_click = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-yourusername/ | wofi --show dmenu"
 
@@ -59,6 +66,7 @@ if_command = "test -e /sys/class/power_supply/BAT0"
 
 [[block]]
 block = "sound"
+icons_format = "<span font='26'>{icon}</span>"
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
@@ -67,12 +75,14 @@ idle_fg = "#011318"
 block = "time"
 interval = 5
 format = " $icon $timestamp.datetime(f:'%R', l:es_AR) "
+icons_format = "<span font='16'></span>"
 
 [[block]]
 block = "time"
 interval = 5
 #timezone = "America/Buenos_Aires"
 format = " $icon  $timestamp.datetime(f:'%A %d/%m', l:es_AR) "
+icons_format = "<span font='16'></span>"
 [block.theme_overrides]
 idle_bg = "#a9a9a9"
 idle_fg = "#011318"
