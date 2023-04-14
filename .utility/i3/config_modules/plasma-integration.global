@@ -1,3 +1,4 @@
 # Remove plasma background
 exec --no-startup-id wmctrl -c Plasma
-for_window [title="Escritorio — Plasma"] kill; floating enable; border none
+for_window [title="Escritorio"] kill; floating enable; border none
+for_window [title="Desktop"] kill; floating enable; border none

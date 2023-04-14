@@ -20,3 +20,9 @@ mode "$APPS" {
 # Some helpful scripts
 bindsym $mod+Shift+d exec $(sh ~/.utility/i3/launch_directories.sh)
 bindsym $mod+Shift+p exec $(sh ~/.utility/common/get_documents.sh)
+
+# Audio/Media
+bindsym $mod+Up exec $(sh ~/.utility/i3/update_volume.sh UP)
+bindsym $mod+Down exec $(sh ~/.utility/i3/update_volume.sh DOWN)
+bindsym $mod+Left exec playerctl previous
+bindsym $mod+Right exec playerctl next

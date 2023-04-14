@@ -1,5 +1,6 @@
 -- Options file
 
+local options_os_dependent = require("tomii.utils.get-os-options")
 local o = vim.opt
 
 o.spell = false
@@ -8,7 +9,7 @@ o.spellsuggest = {"best", "3"}
 o.laststatus = 3
 o.splitright = true
 o.splitbelow = true
-o.shell = "zsh"
+o.shell = options_os_dependent.get_os_shell()
 o.title = true
 o.backup = false
 o.clipboard = "unnamedplus"

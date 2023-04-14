@@ -9,8 +9,15 @@
 --  command_mode = "c",
 
 -- Some helper variables
+local custom_scripts = require("tomii.utils.custom-scripts")
+local get_os_keymaps = require("tomii.utils.get-os-keymaps")
 local opts = { noremap = true, silent = true }
 local km = vim.keymap.set
+
+local function run_main_script_tab() custom_scripts.run_main_script("t") end
+local function run_main_script_right() custom_scripts.run_main_script("v") end
+local function run_main_script_bottom() custom_scripts.run_main_script("h") end
+local add_commit_current_file = custom_scripts.add_commit_current_file
 
 -- Helper function to set a normal keymap.
 local kmn = function(key, func)
@@ -32,6 +39,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 ---------- NORMAL ----------
+-- Custom scripts
+--kmn("<localleader><localleader>", "<CMD>lua require('tomii.utils.custom-scripts')<CR>") -- compiles
+kmn("<localleader>cc", run_main_script_tab) -- compiles in a new tab
+kmn("<localleader>cr", run_main_script_right) -- compiles in a right terminal
+kmn("<localleader>cb", run_main_script_bottom) -- compiles in a bottom terminal
+kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
+--vim.keymap.set("n", "<leader>ga", add_commit_current_file, { expr = true, noremap = true, silent = true })
+
 -- Lspsaga 
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 kmn("<leader>k", "<CMD>Lspsaga hover_doc<CR>")
@@ -63,9 +78,9 @@ kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")
 kmn("<leader>gs", "<CMD>Telescope git_status<CR>")
 
 ---------- TERMINALS ----------
-kmn("<leader>T", "<CMD>tabedit term://zsh | tabmove 0<CR>") -- starts a new terminal in a new tab
-kmn("<leader>tr", "<CMD>vsplit term://zsh<CR>") -- starts a new terminal in the right side of the screen
-kmn("<leader>tb", "<CMD>split term://zsh | resize 10<CR>") -- starts a new terminal in the bottom of the screen
+kmn("<leader>T", get_os_keymaps.get_new_tab_terminal()) -- starts a new terminal in a new tab
+kmn("<leader>tr", get_os_keymaps.get_right_terminal()) -- starts a new terminal in the right side of the screen
+kmn("<leader>tb", get_os_keymaps.get_bottom_terminal()) -- starts a new terminal in the bottom of the screen
 vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
 vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
 kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
