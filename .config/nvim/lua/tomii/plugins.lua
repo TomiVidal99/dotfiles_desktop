@@ -124,7 +124,8 @@ return packer.startup(function(use)
 	use("preservim/nerdtree") -- file explorer
 	use({ "Xuyuanp/nerdtree-git-plugin", requires = { { "preservim/nerdtree" } } }) -- displays git status on nerdtree
 	use({ "ryanoasis/vim-devicons", requires = { { "preservim/nerdtree" } } }) -- display icons in nerdtree
-	use({ "tiagofumo/vim-nerdtree-syntax-highlight", requires = { { "preservim/nerdtree" } } }) -- display folders and files with diferent font colors and styles
+  -- TODO: this causes errors, gotta wait until they fix it
+	--use({ "tiagofumo/vim-nerdtree-syntax-highlight", requires = { { "preservim/nerdtree" } } }) -- display folders and files with diferent font colors and styles
 
 	-- Latex
 	use("lervag/vimtex")

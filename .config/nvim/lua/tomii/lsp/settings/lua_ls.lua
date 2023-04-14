@@ -1,4 +1,4 @@
--- Settings for the sumneko_lua LSP
+-- Settings for the lua_ls LSP
 local settings = {
   Lua = { -- improvements when working with Lua inside nvim
     runtime = { version = 'LuaJIT' }, -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)

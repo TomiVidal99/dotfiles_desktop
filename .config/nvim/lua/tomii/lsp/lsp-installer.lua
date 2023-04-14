@@ -39,10 +39,10 @@ end
 
 -- TODO: think how to change the lsp_list to accept custom settings
 -- LUA
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = require("tomii.lsp.settings.sumneko_lua"),
+	settings = require("tomii.lsp.settings.lua_ls"),
 })
 
 -- Custom LSPs

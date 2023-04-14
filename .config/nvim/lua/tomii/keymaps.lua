@@ -17,6 +17,9 @@ local km = vim.keymap.set
 local function run_main_script_tab() custom_scripts.run_main_script("t") end
 local function run_main_script_right() custom_scripts.run_main_script("v") end
 local function run_main_script_bottom() custom_scripts.run_main_script("h") end
+local function run_current_script_tab() custom_scripts.run_current_script("t") end
+local function run_current_script_right() custom_scripts.run_current_script("v") end
+local function run_current_script_bottom() custom_scripts.run_current_script("h") end
 local add_commit_current_file = custom_scripts.add_commit_current_file
 
 -- Helper function to set a normal keymap.
@@ -44,6 +47,9 @@ vim.g.maplocalleader = ","
 kmn("<localleader>cc", run_main_script_tab) -- compiles in a new tab
 kmn("<localleader>cr", run_main_script_right) -- compiles in a right terminal
 kmn("<localleader>cb", run_main_script_bottom) -- compiles in a bottom terminal
+kmn("<localleader>ff", run_current_script_tab) -- compiles in a bottom terminal
+kmn("<localleader>fr", run_current_script_right) -- compiles in a bottom terminal
+kmn("<localleader>fb", run_current_script_bottom) -- compiles in a bottom terminal
 kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
 --vim.keymap.set("n", "<leader>ga", add_commit_current_file, { expr = true, noremap = true, silent = true })
 
