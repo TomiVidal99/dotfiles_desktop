@@ -18,6 +18,8 @@ function M.set_terminal_command(side)
     M.terminal_command = "vsplit term://zsh -i -c"
   elseif side == "h" then
     M.terminal_command = "split term://zsh -i -c"
+  else
+    print("ERROR: bad argument. Called in custom-scripts.lua")
   end
 end
 
@@ -145,6 +147,16 @@ M.run_main_script = function(side)
     run_particular_script_file(f)
   end
 
+end
+
+M.run_current_script = function(side)
+	M.set_terminal_command(side)
+
+  local bufnr = vim.api.nvim_get_current_buf()
+  local file = vim.api.nvim_buf_get_name(bufnr)
+  local filename = vim.fs.basename(file)
+
+  M.run_octave_script(filename)
 
 end
 
