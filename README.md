@@ -24,7 +24,7 @@ __This is my personal configuration for my Arch installation in my desktop. Incl
 - [ ] Improve configPlot with a different fontsize for the title and another one for the axis.
 
 ## VHDL (how to setup a project)
-Currently (hdl_checker)[https://github.com/suoto/hdl_checker] and (rust_hdl)[https://github.com/VHDL-LS/rust_hdl/] are setup for native lsp. To setup a project checkout the 'hdl_checker' (instruction)[https://github.com/suoto/hdl_checker/wiki/HOWTO:-Setting-up-a-project]
+Currently [hdl_checker](https://github.com/suoto/hdl_checker) and [rust_hdl](https://github.com/VHDL-LS/rust_hdl/) are setup for native lsp. To setup a project checkout the 'hdl_checker' [instruction](https://github.com/suoto/hdl_checker/wiki/HOWTO:-Setting-up-a-project)
 
 # Dependencies
 - xdotool
