@@ -121,15 +121,41 @@ local function ask_what_file_to_run(files)
   return files[tonumber(file_index)]
 end
 
+-- the workspace config should be a file called: .nvim_config
+-- the file should contain what command to run
+local function get_workspace_config()
+  local filename = ".nvim_compile_config"
+  local config = io.open(filename, "r")
+  if (config == nil) then
+    return nil
+  end
+  config:close()
+
+  local lines = {}
+  for line in io.lines(filename) do
+    lines[#lines + 1] = line
+  end
+  local command = lines[1]
+
+  return command
+
+end
+
 -- compiles/runs the main file of the current project
 -- should auto detect the programming language
 -- 'side' it's to compile opening the terminal in different places
 M.run_main_script = function(side)
 	M.set_terminal_command(side)
 
+  -- first check if there's a file that handles the workspace config
+  local command = get_workspace_config()
+  if (command) then
+    print("Running: " .. command)
+    vim.cmd(M.terminal_command .. " " .. "'" .. command .. "'")
+    return
+  end
+
 	local main_filenames = { "yarn.lock", "package-lock.json", "main.m", "Makefile", "main.c" }
-	local cwd = vim.fn.getcwd()
-	local files_in_cwd = get_files_in_directory(cwd)
 	local found_files = find_files(main_filenames)
 
 	if #found_files == 0 then
