@@ -51,12 +51,18 @@ kmn("<localleader>ff", run_current_script_tab) -- compiles in a bottom terminal
 kmn("<localleader>fr", run_current_script_right) -- compiles in a bottom terminal
 kmn("<localleader>fb", run_current_script_bottom) -- compiles in a bottom terminal
 kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
---vim.keymap.set("n", "<leader>ga", add_commit_current_file, { expr = true, noremap = true, silent = true })
 
 -- Lspsaga 
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 kmn("<leader>k", "<CMD>Lspsaga hover_doc<CR>")
-kmn("<leader>A", "<CMD>Lspsaga lsp_finder<CR>")
+kmn("<leader>ff", "<CMD>Lspsaga lsp_finder<CR>")
+kmn("<leader>gr", "<CMD>Lspsaga rename<CR>")
+kmn("<leader>wd", "<CMD>Lspsaga show_workspace_diagnostics<CR>")
+kmn("<leader>ld", "<CMD>Lspsaga show_line_diagnostics<CR>")
+kmn("<leader>cd", "<CMD>Lspsaga show_cursor_diagnostics<CR>")
+kmn("pd", "<CMD>Lspsaga peak_definition<CR>")
+kmn("gd", "<CMD>Lspsaga goto_definition<CR>")
+kmn("gtd", "<CMD>Lspsaga goto_type_definition<CR>")
 
 -- LATEX
 kmn("<localleader>lc", "<CMD>VimtexCompile<CR>")
@@ -73,7 +79,7 @@ kmn("<leader>F", "<CMD>lua vim.lsp.buf.format()<CR>")
 -- All type of search: files, keywords, maps, etc.
 kmn("gr", "<CMD>Telescope lsp_references<CR>")
 kmn("gi", "<CMD>Telescope lsp_implementations<CR>")
-kmn("gd", "<CMD>Telescope lsp_definitions<CR>")
+--kmn("gd", "<CMD>Telescope lsp_definitions<CR>")
 kmn("<leader><leader>", "<CMD>Telescope find_files<CR>")
 kmn("<leader>G", "<CMD>Telescope live_grep<CR>")
 kmn("<leader>mm", "<CMD>Telescope marks<CR>")
@@ -84,7 +90,8 @@ kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")
 kmn("<leader>gs", "<CMD>Telescope git_status<CR>")
 
 ---------- TERMINALS ----------
-kmn("<leader>T", get_os_keymaps.get_new_tab_terminal()) -- starts a new terminal in a new tab
+kmn("<leader>T", "<CMD>Lspsaga term_toggle<CR>") -- starts a new terminal in a new tab
+kmn("<leader>tt", get_os_keymaps.get_new_tab_terminal()) -- starts a new terminal in a new tab
 kmn("<leader>tr", get_os_keymaps.get_right_terminal()) -- starts a new terminal in the right side of the screen
 kmn("<leader>tb", get_os_keymaps.get_bottom_terminal()) -- starts a new terminal in the bottom of the screen
 vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
@@ -96,8 +103,8 @@ kmn("<F10>", "<CMD>set spell!<CR>")
 
 -- DIAGNOSTICS MAPS
 kmn("<leader>D", "<CMD>Telescope diagnostics<CR>")
-kmn("<C-n>", vim.diagnostic.goto_next)
-kmn("<C-p>", vim.diagnostic.goto_prev)
+kmn("<A-i>", vim.diagnostic.goto_next)
+kmn("<A-o>", vim.diagnostic.goto_prev)
 
 -- Save with root permission.
 vim.cmd "command! W w !sudo tee > /dev/null %"
