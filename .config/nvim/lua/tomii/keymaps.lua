@@ -14,26 +14,38 @@ local get_os_keymaps = require("tomii.utils.get-os-keymaps")
 local opts = { noremap = true, silent = true }
 local km = vim.keymap.set
 
-local function run_main_script_tab() custom_scripts.run_main_script("t") end
-local function run_main_script_right() custom_scripts.run_main_script("v") end
-local function run_main_script_bottom() custom_scripts.run_main_script("h") end
-local function run_current_script_tab() custom_scripts.run_current_script("t") end
-local function run_current_script_right() custom_scripts.run_current_script("v") end
-local function run_current_script_bottom() custom_scripts.run_current_script("h") end
+local function run_main_script_tab()
+	custom_scripts.run_main_script("t")
+end
+local function run_main_script_right()
+	custom_scripts.run_main_script("v")
+end
+local function run_main_script_bottom()
+	custom_scripts.run_main_script("h")
+end
+local function run_current_script_tab()
+	custom_scripts.run_current_script("t")
+end
+local function run_current_script_right()
+	custom_scripts.run_current_script("v")
+end
+local function run_current_script_bottom()
+	custom_scripts.run_current_script("h")
+end
 local add_commit_current_file = custom_scripts.add_commit_current_file
 
 -- Helper function to set a normal keymap.
 local kmn = function(key, func)
-  km("n", key, func, opts)
+	km("n", key, func, opts)
 end
 --local kmi = function(key, func)
 --  km("i", key, func, opts)
 --end
 local kmv = function(key, func)
-  km("v", key, func, opts)
+	km("v", key, func, opts)
 end
 local kmb = function(key, func)
-  km("x", key, func, opts)
+	km("x", key, func, opts)
 end
 
 -- Remap leader to space.
@@ -52,7 +64,7 @@ kmn("<localleader>fr", run_current_script_right) -- compiles in a bottom termina
 kmn("<localleader>fb", run_current_script_bottom) -- compiles in a bottom terminal
 kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
 
--- Lspsaga 
+-- Lspsaga
 kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
 kmn("<leader>k", "<CMD>Lspsaga hover_doc<CR>")
 kmn("<leader>ff", "<CMD>Lspsaga lsp_finder<CR>")
@@ -94,8 +106,8 @@ kmn("<leader>T", "<CMD>Lspsaga term_toggle<CR>") -- starts a new terminal in a n
 kmn("<leader>tt", get_os_keymaps.get_new_tab_terminal()) -- starts a new terminal in a new tab
 kmn("<leader>tr", get_os_keymaps.get_right_terminal()) -- starts a new terminal in the right side of the screen
 kmn("<leader>tb", get_os_keymaps.get_bottom_terminal()) -- starts a new terminal in the bottom of the screen
-vim.cmd "au BufEnter * if &buftype == 'terminal' | :startinsert | endif" -- start terminal in insert mode
-vim.cmd "tnoremap <A-a> <C-\\><C-n>" -- this lets you scape the terminal and switch windows and/or tabs
+vim.cmd("au BufEnter * if &buftype == 'terminal' | :startinsert | endif") -- start terminal in insert mode
+vim.cmd("tnoremap <A-a> <C-\\><C-n>") -- this lets you scape the terminal and switch windows and/or tabs
 kmn("<F12>", "<CMD>exec '!konsole '.shellescape('%:p')' & disown'<CR>") -- launches a new window in the current path
 
 -- Change spell check
@@ -106,19 +118,31 @@ kmn("<leader>D", "<CMD>Telescope diagnostics<CR>")
 kmn("<A-i>", vim.diagnostic.goto_next)
 kmn("<A-o>", vim.diagnostic.goto_prev)
 
+-- toggle wrap
+local function toggleWrap()
+	if vim.o.wrap then
+		vim.o.wrap = false
+		vim.api.nvim_command("set nowrap")
+	else
+		vim.o.wrap = true
+		vim.api.nvim_command("set wrap")
+	end
+end
+kmn("WW", toggleWrap)
+
 -- Save with root permission.
-vim.cmd "command! W w !sudo tee > /dev/null %"
+vim.cmd("command! W w !sudo tee > /dev/null %")
 
 -- Delete without yank.
 --vim.cmd 'nnoremap <leader>d "_d' -- TODO: this does not work
-vim.cmd 'nnoremap x "_x'
+vim.cmd('nnoremap x "_x')
 
 -- Increment/decrement.
-vim.cmd "nnoremap + <C-a>"
-vim.cmd "nnoremap - <C-x>"
+vim.cmd("nnoremap + <C-a>")
+vim.cmd("nnoremap - <C-x>")
 
 -- Remap enter to ff (rapidly)
-vim.cmd "nmap ff <return>"
+vim.cmd("nmap ff <return>")
 
 -- Save file.
 kmn("<C-s>", "<CMD>w<CR>")
@@ -169,36 +193,36 @@ kmn("t6", "<CMD>tabnext 6<CR>") -- change to the 6th tab
 kmn("tt", "<CMD>tablast<CR>") -- change to the fourth tab
 
 -- Edit tabs.
-vim.cmd "nmap te :tabedit "
+vim.cmd("nmap te :tabedit ")
 
 -- Remove highlight
-vim.cmd "map <A-a> <CMD>noh<CR>"
+vim.cmd("map <A-a> <CMD>noh<CR>")
 
 ---------- INSERT ----------
 -- Quit insert.
-vim.cmd "imap <A-a> <Esc>"
+vim.cmd("imap <A-a> <Esc>")
 
 ---------- VISUAL ----------
 -- Paste and don't yank.
 kmv("p", '"_dP')
 
 -- Quit visual mode with Alt+a.
-vim.cmd "vmap <A-a> <Esc>"
+vim.cmd("vmap <A-a> <Esc>")
 
 -- visual multi edit
-vim.cmd [[
+vim.cmd([[
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>' " replace C-n
 let g:VM_maps['Find Subword Under'] = '<C-d>' " replace visual C-n
-]]
+]])
 
 -- Stay in indent mode.
 kmv("<", "<gv")
 kmv(">", ">gv")
 
 -- Move entire selected lines up and down.
-vim.cmd "vnoremap K :m '<-2<CR>gv=gv"
-vim.cmd "vnoremap J :m '>+1<CR>gv=gv"
+vim.cmd("vnoremap K :m '<-2<CR>gv=gv")
+vim.cmd("vnoremap J :m '>+1<CR>gv=gv")
 
 ---------- VISUAL BLOCK ----------
 kmb("J", ":m '>+1<CR>gv-gv")
