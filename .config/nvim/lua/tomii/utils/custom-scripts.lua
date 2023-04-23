@@ -11,76 +11,55 @@ M.terminal_command = "tabedit term://zsh -i -c"
 -- options it's a table with the options
 -- menu_msg it's the message of the prompt
 -- it returns the selection synchronously
-local function selection_menu(options, menu_msg, callback)
+local function selection_menu(options, title, menu_msg, callback)
 	local actions = require("telescope.actions")
 	local pickers = require("telescope.pickers")
 	local finders = require("telescope.finders")
-	local sorters = require("telescope.sorters")
 	local previewers = require("telescope.previewers")
+	local previewer_utils = require("telescope.previewers.utils")
 	local conf = require("telescope.config").values
+  local user_theme = require("telescope.themes")
+  local action_state = require "telescope.actions.state"
 
-	local results = nil
-	local entry_maker = function(line, info)
-		return {
-			value = line,
-			display = line,
-			ordinal = line,
-      info = " test "
-		}
-	end
-
-  local entry_display = function(entry)
-    return entry.value .. " " .. entry.info
-  end
-
-  local prev_opts = {
-    setup = function()
-      return "test"
-    end
-  }
-
-  --local Previewer = previewers.Previewer()
-  -- local my_previewer = Previewer:new({
-  --   title = "laskjdsalkdjaslkdja"
+  -- local my_previewer = previewers.new({
+  --   title = "Information",
+  --   preview_fn = function(self, entry, status)
+  --     print("state: ", vim.inspect(self.state.bufnr))
+  --     print("windid: ", vim.inspect(self.state.winid))
+  --     -- previewer_utils.set_preview_message(
+  --     --   self.state.bufnr,
+  --     --   self.state.winid,
+  --     --   "MY PREVIEW TEXT"
+  --     -- )
+  --     return ""
+  --   end,
   -- })
 
-	local opts = {
-    --previewer = my_previewer, -- TODO: add the previewer to display the command info
-    prompt_title = menu_msg,
-		sorting_strategy = "ascending",
-		layout_strategy = "horizontal",
-		prompt = menu_msg,
-		finder = finders.new_table({
-			results = options,
-			entry_maker = function(line, info)
-        return entry_maker(line, info)
-			end,
-		}),
-		sorter = sorters.get_fuzzy_file(),
-		attach_mappings = function(prompt_bufnr, map)
-			actions.select_default:replace(function()
-				actions.close(prompt_bufnr)
-        local action_state = require "telescope.actions.state"
-				local selection = action_state.get_selected_entry()
-        local value = selection.value
-				-- print("selection: " .. vim.inspect(selection))
-        callback(value)
-				vim.api.nvim_put({ selection[1] }, "", false, true)
-			end)
-			return true
-		end,
-    entry_display = function(entry)
-      return entry_display(entry)
-    end
-	}
+  local menu = function(opts)
+    opts = opts or {}
+    pickers.new(opts, {
+      -- previewer = my_previewer,
+      prompt = menu_msg,
+      prompt_title = title,
+      finder = finders.new_table {
+        results = options
+      },
+      sorter = conf.generic_sorter(opts),
+      attach_mappings = function(prompt_bufnr, map)
+        actions.select_default:replace(function()
+          actions.close(prompt_bufnr)
+          local selection = action_state.get_selected_entry()
+          local value = selection.value
+          -- print(vim.inspect(selection))
+          callback(value)
+          -- vim.api.nvim_put({ selection[1] }, "", false, true)
+        end)
+        return true
+      end,
+    }):find()
+  end
+  menu(user_theme.get_dropdown({}))
 
-	local prompt = pickers.new(opts, {
-		prompt_title = menu_msg,
-		finder = finders.new_table(options),
-		sorter = conf.generic_sorter(opts),
-	})
-
-	prompt:find()
 end
 
 -- runs an OS command
@@ -262,7 +241,7 @@ local function run_workspace_commands()
 		linenumber = linenumber + 2
 	end
 
-	selection_menu(commands, "Pick a command", run_command)
+	selection_menu(commands, "Commands", "Pick a command", run_command)
 
 end
 
