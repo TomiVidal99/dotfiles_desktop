@@ -20,23 +20,42 @@ local function selection_menu(options, menu_msg, callback)
 	local conf = require("telescope.config").values
 
 	local results = nil
-	local entry_maker = function(line)
+	local entry_maker = function(line, info)
 		return {
 			value = line,
 			display = line,
 			ordinal = line,
+      info = " test "
 		}
 	end
 
+  local entry_display = function(entry)
+    return entry.value .. " " .. entry.info
+  end
+
+  local prev_opts = {
+    setup = function()
+      return "test"
+    end
+  }
+
+  --local Previewer = previewers.Previewer()
+  -- local my_previewer = Previewer:new({
+  --   title = "laskjdsalkdjaslkdja"
+  -- })
+
 	local opts = {
+    --previewer = my_previewer, -- TODO: add the previewer to display the command info
+    prompt_title = menu_msg,
 		sorting_strategy = "ascending",
 		layout_strategy = "horizontal",
 		prompt = menu_msg,
 		finder = finders.new_table({
 			results = options,
-			entry_maker = entry_maker,
+			entry_maker = function(line, info)
+        return entry_maker(line, info)
+			end,
 		}),
-		previewer = previewers.cat.new({}),
 		sorter = sorters.get_fuzzy_file(),
 		attach_mappings = function(prompt_bufnr, map)
 			actions.select_default:replace(function()
@@ -50,6 +69,9 @@ local function selection_menu(options, menu_msg, callback)
 			end)
 			return true
 		end,
+    entry_display = function(entry)
+      return entry_display(entry)
+    end
 	}
 
 	local prompt = pickers.new(opts, {
@@ -240,9 +262,8 @@ local function run_workspace_commands()
 		linenumber = linenumber + 2
 	end
 
-	print(vim.inspect(commands))
-
 	selection_menu(commands, "Pick a command", run_command)
+
 end
 
 -- compiles/runs the main file of the current project
