@@ -72,7 +72,7 @@ kmn("<leader>gr", "<CMD>Lspsaga rename<CR>")
 kmn("<leader>wd", "<CMD>Lspsaga show_workspace_diagnostics<CR>")
 kmn("<leader>ld", "<CMD>Lspsaga show_line_diagnostics<CR>")
 kmn("<leader>cd", "<CMD>Lspsaga show_cursor_diagnostics<CR>")
-kmn("pd", "<CMD>Lspsaga peak_definition<CR>")
+kmn("<leader>pd", "<CMD>Lspsaga peak_definition<CR>")
 kmn("gd", "<CMD>Lspsaga goto_definition<CR>")
 kmn("gtd", "<CMD>Lspsaga goto_type_definition<CR>")
 
