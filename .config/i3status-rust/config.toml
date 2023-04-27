@@ -21,7 +21,7 @@ error_format = ""
 
 [[block]]
 block = "net"
-format = "^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K)"
+format = "^icon_net_down$speed_down.eng(prefix:K) ^icon_net_up$speed_up.eng(prefix:K) "
 interval = 1
 missing_format = ""
 [block.theme_overrides]
