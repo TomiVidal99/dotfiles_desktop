@@ -52,6 +52,7 @@ local function selection_menu(options, title, menu_msg, callback)
           local value = selection.value
           -- print(vim.inspect(selection))
           callback(value)
+          vim.api.nvim_feedkeys("i", "n", true)
           -- vim.api.nvim_put({ selection[1] }, "", false, true)
         end)
         return true
@@ -217,7 +218,8 @@ local function run_workspace_commands()
 
 	-- just run the command if there's only 1 line
 	if #lines == 1 then
-		return lines[1]
+		run_command(lines[1])
+    return
 	end
 
 	local data = {}
