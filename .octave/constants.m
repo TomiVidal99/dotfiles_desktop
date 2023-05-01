@@ -31,7 +31,7 @@ intpi10d = [-pi10:dpi:pi10];
 
 
 % Magnitudes físicas.
-E0 = 8.854e-12; % impermeabilidad electrica del medio [F/m]
+E0 = 8.854e-12; % permitividad electrica del medio [F/m]
 K = 1 / (4*pi*E0); % constante de fuerzas coulombianas.
 R0 = 0.53e-10; % radio de Bohr [m]
 Me = 9.1e-31; % masa electrón [kg]
@@ -40,6 +40,7 @@ Qe = -Qp; % carga del electrón [C]
 Kb = 8.617333262145e-5; % constante de Boltzmann [eV/°K]
 Hp = 4.135667696e-15; % constante de Planck [eV*s]
 C = 299792458; % Velocidad de la luz [m/s]
+u0 = 4*pi*1e-7; % permeabilidad magnetica del vacio [T.m/A]
 
 % constants eléctricas/electrónicas
 Es = 11.7 * (8.85e-14); % Permitividad eléctrica del silicio.

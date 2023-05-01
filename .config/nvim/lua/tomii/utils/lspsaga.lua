@@ -15,13 +15,14 @@ lspsaga.setup({
 		expand = "",
 		collapse = "",
 		preview = " ",
-		code_action = " ",
+		code_action = " ",
 		diagnostic = "🪲",
 		incoming = " ",
 		outgoing = " ",
 		colors = {
 			--float window normal background color
 			normal_bg = "#002b36",
+			--normal_bg = "#586e75",
 			--title background color
 			title_bg = "#255667",
 			red = "#dc322f",
@@ -36,6 +37,11 @@ lspsaga.setup({
 			black = "#1c1c19",
 		},
 		kind = {},
+	},
+	hover = {
+		max_width = 0.6,
+		open_link = "gx",
+		open_browser = "!firefox",
 	},
 	symbol_in_winbar = {
 		enable = true,
