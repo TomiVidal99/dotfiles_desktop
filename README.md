@@ -2,6 +2,7 @@
 __This is my personal configuration for my Arch installation in my desktop. Includes configuration for i3, i3status, neovim, and some custom scripts for Arch (volume control, connect to all paired bluetooth devices, etc.)__
 
 # TODO
+- [ ] add keymap for Telescope lsp_workspace_symbols query="...".
 - [ ] Fix colorls when the path it's weird.
 - [ ] Add right Alt key to bind more workspaces for apps like Quartus, Spice and so on.
 - [ ] Replace bumblebee-status pulseaudio modules with new ones.
