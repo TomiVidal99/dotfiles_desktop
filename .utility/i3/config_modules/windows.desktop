@@ -66,6 +66,7 @@ assign [class="quartus.exe"] $ws6
 assign [class="xviix65.exe"] $ws6
 assign [class="vsim"] $ws6
 assign [class="Octave"] $ws6
+assign [class="matlab"] $ws6
 # to workspace 7
 for_window [title="RTL Viewer" class="quartus.exe"] move container to workspace number $ws7
 # to workspace 8

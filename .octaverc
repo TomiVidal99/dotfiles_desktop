@@ -1,5 +1,5 @@
 % inital config
-defaultFontname = 'NotoMono Nerd Font';
+defaultFontname = "NotoMono Nerd Font";
 addpath('~/.octave');
 
 % diplay welcome message
