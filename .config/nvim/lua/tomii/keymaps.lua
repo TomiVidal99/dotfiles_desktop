@@ -32,6 +32,7 @@ end
 local function run_current_script_bottom()
 	custom_scripts.run_current_script("h")
 end
+local telescope_find_keywords = custom_scripts.telescope_find_keywords
 local add_commit_current_file = custom_scripts.add_commit_current_file
 
 -- Helper function to set a normal keymap.
@@ -100,6 +101,7 @@ kmn("<leader>gC", "<CMD>Telescope git_commits<CR>")
 kmn("<leader>gc", "<CMD>Telescope git_bcommits<CR>")
 kmn("<leader>gb", "<CMD>Telescope git_branches<CR>")
 kmn("<leader>gs", "<CMD>Telescope git_status<CR>")
+kmn("<leader>fk", telescope_find_keywords)
 
 ---------- TERMINALS ----------
 kmn("<leader>T", "<CMD>Lspsaga term_toggle<CR>") -- starts a new terminal in a new tab
