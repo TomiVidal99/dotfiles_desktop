@@ -75,6 +75,7 @@ assign [class="discord"] $ws8
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
 # to workspace 11
+assign [class="Zoom"] $ws11
 # to workspace 12
 # to workspace 13
 # to workspace 14
