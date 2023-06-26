@@ -5,7 +5,7 @@ DefaultProfile=TOMI.profile
 ConfigVersion=1
 
 [MainWindow]
-2 screens: Height=526
+2 screens: Height=1052
 2 screens: Width=1920
 2 screens: XPosition=0
 2 screens: YPosition=28
