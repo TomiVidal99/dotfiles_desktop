@@ -33,7 +33,7 @@ local lsp_list = {
 			},
 		},
 	},
-	"tsserver",
+  "tsserver",
 	"diagnosticls",
 	"tailwindcss",
 	"emmet_ls",
