@@ -1,4 +1,4 @@
-function plotPhasor(complexNumber)
+function [p] = plotPhasor(complexNumber)
 
     # ploteo un fasor dado como numero complejo en cartesianas
 
@@ -8,6 +8,6 @@ function plotPhasor(complexNumber)
     # paso a radianes los grados
     phase = deg2rad(phase);
 
-    polar([0, phase], [0, magnitude]);
+    p = polar([0, phase], [0, magnitude]);
 
 end
