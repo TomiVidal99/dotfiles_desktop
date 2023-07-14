@@ -66,7 +66,8 @@ kmn("<localleader>fb", run_current_script_bottom) -- compiles in a bottom termin
 kmn("<leader>ga", add_commit_current_file) -- git add and git commit -m for the current file
 
 -- Lspsaga
-kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>")
+-- kmn("<leader>ca", "<CMD>Lspsaga code_action<CR>") TODO this does not seem to work for now
+kmn("<leader>ca", "<CMD>lua vim.lsp.buf.code_action()<CR>")
 kmn("<leader>k", "<CMD>Lspsaga hover_doc<CR>")
 kmn("<leader>ff", "<CMD>Lspsaga lsp_finder<CR>")
 kmn("<leader>gr", "<CMD>Lspsaga rename<CR>")

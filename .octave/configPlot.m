@@ -104,10 +104,10 @@ function configPlot(varargin)
   %h = legend()
   %set(gca)
 
-  axis(limits);
-  xbounds = xlim();
+  % axis(limits);
+  % xbounds = xlim();
   ybounds = ylim();
-  set(gca, 'xtick', xbounds(1):xstep:xbounds(2));
+  % set(gca, 'xtick', xbounds(1):xstep:xbounds(2));
   set(gca, 'ytick', ybounds(1):ystep:ybounds(2));
 
   if (ischar(labelX)) 

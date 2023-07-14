@@ -77,10 +77,13 @@ return packer.startup(function(use)
 	use({ -- LSP loading display
 		"j-hui/fidget.nvim",
 	})
-	use({ -- better UI for LSP related
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-	})
+  use ({ -- better UI for LSP related
+    "nvimdev/lspsaga.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+  })
 	use({ -- icons
 		"onsails/lspkind.nvim",
 		config = function()
