@@ -18,6 +18,6 @@ require "tomii.fidget"
 -- utils (plugins that require minor setup and make your life easier)
 require "tomii.utils.color-display"
 require "tomii.utils.latex"
-require "tomii.utils.gitsigns"
+--require "tomii.utils.gitsigns"
 require "tomii.utils.lspsaga"
 require "tomii.utils.winbar"

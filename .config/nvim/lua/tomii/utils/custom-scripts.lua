@@ -300,10 +300,4 @@ M.add_commit_current_file = function()
 	os.execute("git commit -m " .. '"' .. commit_message .. '"')
 end
 
-M.telescope_find_keywords = function()
-  local find_term = vim.fn.input("Search keyword: ")
-  local command = 'Telescope lsp_workspace_symbols query="' .. find_term .. '"'
-  vim.cmd(command)
-end
-
 return M

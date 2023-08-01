@@ -74,9 +74,10 @@ return packer.startup(function(use)
 		"williamboman/nvim-lsp-installer",
 		"neovim/nvim-lspconfig",
 	})
-	use({ -- LSP loading display
-		"j-hui/fidget.nvim",
-	})
+  use { -- LSP loading display
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+  }
 	use({ -- better UI for LSP related
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -190,6 +191,14 @@ return packer.startup(function(use)
 		"kkoomen/vim-doge",
 		run = ":call doge#install()",
 	})
+
+  -- To be able to work with jupyter in neovim
+  use {
+    "meatballs/notebook.nvim",
+    config = function()
+      require('notebook').setup()
+    end,
+  }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

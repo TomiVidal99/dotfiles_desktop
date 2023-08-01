@@ -45,7 +45,7 @@ local kind_icons = {
   Struct = "",
   Event = "",
   Operator = "",
-  TypeParameter = ""
+  TypeParameter = "",
 }
 
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
