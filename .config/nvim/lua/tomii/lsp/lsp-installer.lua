@@ -29,10 +29,12 @@ local lsp_list = {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			cmd = {
-			  "clangd"
+			  "clangd",
+        "--offset-encoding=utf-16"
 			},
 		},
 	},
+  "eslint",
 	"tsserver",
 	"diagnosticls",
 	"tailwindcss",
