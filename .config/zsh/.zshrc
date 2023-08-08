@@ -20,6 +20,7 @@ zsh_add_file "plugins"
 zsh_add_file "aliases"
 zsh_add_file "local_aliases"
 zsh_add_file "shortcuts"
+zsh_add_file "env_vars"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
