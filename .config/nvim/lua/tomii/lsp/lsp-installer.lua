@@ -2,7 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 local lspconfig = require("lspconfig")
 
 -- auto format on save
-vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+--vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
 -- Register a handler that will be called for all installed servers.
 lsp_installer.setup({
@@ -29,12 +29,12 @@ local lsp_list = {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			cmd = {
-			  "clangd",
-        "--offset-encoding=utf-16"
+				"clangd",
+				"--offset-encoding=utf-16",
 			},
 		},
 	},
-  "eslint",
+	"eslint",
 	"tsserver",
 	"diagnosticls",
 	"tailwindcss",
@@ -88,6 +88,38 @@ require("mason-lspconfig").setup_handlers({
 			lspconfig[server_name].setup(lsp_data["opts"])
 		else
 			lspconfig[server_name].setup(lsps_opts)
+		end
+	end,
+})
+
+---------------------------------
+-- Formatting
+---------------------------------
+local diagnostics = require("null-ls").builtins.diagnostics
+local formatting = require("null-ls").builtins.formatting
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+require("null-ls").setup({
+	debug = true,
+	sources = {
+		formatting.black,
+		formatting.rustfmt,
+		formatting.phpcsfixer,
+		formatting.prettier,
+		formatting.stylua,
+		formatting.phpcbf,
+		diagnostics.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
+	},
+	on_attach = function(client, bufnr)
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = augroup,
+				buffer = bufnr,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = bufnr })
+				end,
+			})
 		end
 	end,
 })
