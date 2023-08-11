@@ -34,7 +34,6 @@ local lsp_list = {
 			},
 		},
 	},
-	"eslint",
 	"tsserver",
 	"diagnosticls",
 	"tailwindcss",
@@ -50,6 +49,28 @@ local lsp_list = {
 			settings = require("tomii.lsp.settings.lua_ls"),
 		},
 	},
+	eslint = {
+		name = "eslint",
+		opts = {
+			bin = "eslint_d",
+			code_actions = {
+				enable = true,
+				apply_on_save = {
+					enable = true,
+					types = { "directive", "problem", "suggestion", "layout" },
+				},
+				disable_rule_comment = {
+					enable = true,
+					location = "separate_line", -- or `same_line`
+				},
+			},
+			diagnostics = {
+				enable = true,
+				report_unused_disable_directives = false,
+				run_on = "type", -- or `save`
+			},
+		},
+	},
 }
 
 for _, data in pairs(lsp_list) do
@@ -59,14 +80,6 @@ for _, data in pairs(lsp_list) do
 		lspconfig[data["name"]].setup(data["opts"])
 	end
 end
-
--- TODO: think how to change the lsp_list to accept custom settings
--- LUA
--- lspconfig.lua_ls.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- 	settings = require("tomii.lsp.settings.lua_ls"),
--- })
 
 -- Custom LSPs
 local custom_lsps = {
