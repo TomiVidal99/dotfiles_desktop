@@ -6,6 +6,8 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
 # Music
 bindsym $mod+Shift+s exec spotify
+# Color picker
+bindsym $mod+Shift+k exec kcolorchooser
 
 # Launch some interesting programs
 bindsym $mod+a mode "$APPS"
