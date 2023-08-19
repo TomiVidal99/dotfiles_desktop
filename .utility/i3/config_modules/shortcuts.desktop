@@ -6,14 +6,13 @@ bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+x exec dolphin
 # Music
 bindsym $mod+Shift+s exec spotify
-# Color picker
-bindsym $mod+Shift+k exec kcolorchooser
 
 # Launch some interesting programs
 bindsym $mod+a mode "$APPS"
 mode "$APPS" {
     bindsym t exec thunderbird
     bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
+    bindsym k exec kcolorchooser
 
     bindsym q mode "default"
     bindsym Escape mode "default"
