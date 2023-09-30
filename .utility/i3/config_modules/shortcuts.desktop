@@ -22,6 +22,7 @@ mode "$APPS" {
 # Some helpful scripts
 bindsym $mod+Shift+d exec $(sh ~/.utility/i3/launch_directories.sh)
 bindsym $mod+Shift+p exec $(sh ~/.utility/common/get_documents.sh)
+bindsym $mod+Shift+o exec $(sh ~/.utility/common/change_sink.sh)
 
 # Audio/Media
 bindsym $mod+Up exec $(sh ~/.utility/i3/update_volume.sh UP)

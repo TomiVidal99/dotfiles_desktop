@@ -271,11 +271,11 @@ lazynvim.setup({
 			"nvim-treesitter/nvim-treesitter",
 		},
 	},
-	{
-		-- Allows you to modify multi lines visually like shift+alt+a in vsco**
-		"mg979/vim-visual-multi",
-		branch = "master",
-	},
+	-- {
+	-- 	-- Allows you to modify multi lines visually like shift+alt+a in vsco**
+	-- 	"mg979/vim-visual-multi",
+	-- 	branch = "master",
+	-- },
 
 	-- REACT, TSX, ETC
 	{
