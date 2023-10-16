@@ -65,10 +65,10 @@ if not lspconfig_config.mlang then
 				return vim.fn.getcwd()
 			end,
 			settings = {
-        settings = {
-          maxNumberOfProblems = 1000,
-        },
-      },
+				settings = {
+					maxNumberOfProblems = 1000,
+				},
+			},
 		},
 	}
 end

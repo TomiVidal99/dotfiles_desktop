@@ -6,12 +6,12 @@ ConfigVersion=1
 
 [MainWindow]
 1920x1080 screen: Height=1052
-1920x1080 screen: Width=960
-1920x1080 screen: XPosition=960
-1920x1080 screen: YPosition=28
-2 screens: Height=1080
+1920x1080 screen: Width=1920
+1920x1080 screen: XPosition=0
+1920x1080 screen: YPosition=62
+2 screens: Height=1052
 2 screens: Width=1920
-2 screens: XPosition=0
+2 screens: XPosition=768
 2 screens: YPosition=28
 HDMI-A-0 HDMI-A-1=HDMI-A-0
 HDMI-A-0 HDMI-A-1 Height 1920x1080 HDMI-A-0=1052

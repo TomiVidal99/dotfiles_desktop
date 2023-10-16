@@ -13,6 +13,7 @@ mode "$APPS" {
     bindsym t exec thunderbird
     bindsym l exec $(wine .wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe)
     bindsym k exec kcolorchooser
+    bindsym c exec kalendar
 
     bindsym q mode "default"
     bindsym Escape mode "default"

@@ -18,49 +18,50 @@ local function selection_menu(options, title, menu_msg, callback)
 	local previewers = require("telescope.previewers")
 	local previewer_utils = require("telescope.previewers.utils")
 	local conf = require("telescope.config").values
-  local user_theme = require("telescope.themes")
-  local action_state = require "telescope.actions.state"
+	local user_theme = require("telescope.themes")
+	local action_state = require("telescope.actions.state")
 
-  -- local my_previewer = previewers.new({
-  --   title = "Information",
-  --   preview_fn = function(self, entry, status)
-  --     print("state: ", vim.inspect(self.state.bufnr))
-  --     print("windid: ", vim.inspect(self.state.winid))
-  --     -- previewer_utils.set_preview_message(
-  --     --   self.state.bufnr,
-  --     --   self.state.winid,
-  --     --   "MY PREVIEW TEXT"
-  --     -- )
-  --     return ""
-  --   end,
-  -- })
+	-- local my_previewer = previewers.new({
+	--   title = "Information",
+	--   preview_fn = function(self, entry, status)
+	--     print("state: ", vim.inspect(self.state.bufnr))
+	--     print("windid: ", vim.inspect(self.state.winid))
+	--     -- previewer_utils.set_preview_message(
+	--     --   self.state.bufnr,
+	--     --   self.state.winid,
+	--     --   "MY PREVIEW TEXT"
+	--     -- )
+	--     return ""
+	--   end,
+	-- })
 
-  local menu = function(opts)
-    opts = opts or {}
-    pickers.new(opts, {
-      -- previewer = my_previewer,
-      prompt = menu_msg,
-      prompt_title = title,
-      finder = finders.new_table {
-        results = options
-      },
-      sorter = conf.generic_sorter(opts),
-      attach_mappings = function(prompt_bufnr, map)
-        actions.select_default:replace(function()
-          actions.close(prompt_bufnr)
-          local selection = action_state.get_selected_entry()
-          local value = selection.value
-          -- print(vim.inspect(selection))
-          callback(value)
-          vim.api.nvim_feedkeys("i", "n", true)
-          -- vim.api.nvim_put({ selection[1] }, "", false, true)
-        end)
-        return true
-      end,
-    }):find()
-  end
-  menu(user_theme.get_dropdown({}))
-
+	local menu = function(opts)
+		opts = opts or {}
+		pickers
+			.new(opts, {
+				-- previewer = my_previewer,
+				prompt = menu_msg,
+				prompt_title = title,
+				finder = finders.new_table({
+					results = options,
+				}),
+				sorter = conf.generic_sorter(opts),
+				attach_mappings = function(prompt_bufnr, map)
+					actions.select_default:replace(function()
+						actions.close(prompt_bufnr)
+						local selection = action_state.get_selected_entry()
+						local value = selection.value
+						-- print(vim.inspect(selection))
+						callback(value)
+						vim.api.nvim_feedkeys("i", "n", true)
+						-- vim.api.nvim_put({ selection[1] }, "", false, true)
+					end)
+					return true
+				end,
+			})
+			:find()
+	end
+	menu(user_theme.get_dropdown({}))
 end
 
 -- runs an OS command
@@ -68,6 +69,7 @@ local function run_command(command)
 	print("Running: " .. command)
 	vim.cmd(M.terminal_command .. " " .. "'" .. command .. "'")
 end
+M.run_command = run_command
 
 -- sets weather the terminal should open in a new tab, vertically or horizontally
 function M.set_terminal_command(side)
@@ -219,7 +221,7 @@ local function run_workspace_commands()
 	-- just run the command if there's only 1 line
 	if #lines == 1 then
 		run_command(lines[1])
-    return
+		return
 	end
 
 	local data = {}
@@ -244,7 +246,6 @@ local function run_workspace_commands()
 	end
 
 	selection_menu(commands, "Commands", "Pick a command", run_command)
-
 end
 
 -- compiles/runs the main file of the current project
