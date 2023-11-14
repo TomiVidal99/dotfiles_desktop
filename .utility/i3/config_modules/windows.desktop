@@ -74,6 +74,7 @@ for_window [class="libreoffice"] move container to workspace number $ws7
 # to workspace 8
 assign [class="discord"] $ws8
 assign [class="whatstux"] $ws8
+for_window [class="whatstux"] move container to workspace number $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9

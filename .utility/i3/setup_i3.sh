@@ -2,7 +2,7 @@
 
 # TODO: change the current system to execute scripts 
 # in a certain order to name them with a number that 
-# specifies that order, ie: 1.variables.global
+# specifies that order, ie: 1.variables.3ZQglobal
 
 # This will generate the i3/config file
 # The gold it's to modulerize the config and 

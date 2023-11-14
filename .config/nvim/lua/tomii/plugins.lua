@@ -45,7 +45,7 @@ lazynvim.setup({
 		"svrana/neosolarized.nvim", -- actual theme
 		dependencies = { "tjdevries/colorbuddy.nvim" },
 	},
-	"lukas-reineke/indent-blankline.nvim", -- identation lines
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- identation lines
 	"nvim-lualine/lualine.nvim", -- status line down below
 	"fgheng/winbar.nvim", -- winbar
 	{
@@ -218,6 +218,7 @@ lazynvim.setup({
 	},
 	"preservim/nerdtree", -- file explorer
 	{ "Xuyuanp/nerdtree-git-plugin", dependencies = { "preservim/nerdtree" } }, -- displays git status on nerdtre
+	{ "lewis6991/gitsigns.nvim" }, -- display git status on the side
 	{ "ryanoasis/vim-devicons", dependencies = { "preservim/nerdtree" } }, -- display icons in nerdtre,
 	-- TODO: this causes errors, gotta wait until they fix it
 	--{ "tiagofumo/vim-nerdtree-syntax-highlight", dependencies = { { "preservim/nerdtree" } } }) -- display folders and files with diferent font colors and style,

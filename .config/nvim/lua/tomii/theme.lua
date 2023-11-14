@@ -1,56 +1,57 @@
--- Styles and visual appearance 
+-- Styles and visual appearance
 -- TODO: change the name of the tabs.
 -- TODO: migrate different config to different files.
 --require("tomii.tabs")
 
 local n_ok, n = pcall(require, "neosolarized")
-if (not n_ok) then
-  print "ERROR: neosolarizd not found. Called from theme.lua"
-  return
+if not n_ok then
+	print("ERROR: neosolarizd not found. Called from theme.lua")
+	return
 end
 
 local cb_ok, cb = pcall(require, "colorbuddy.init")
-if (not cb_ok) then
-  print "ERROR: colorbuddy not found. Called from theme.lua"
-  return
+if not cb_ok then
+	print("ERROR: colorbuddy not found. Called from theme.lua")
+	return
 end
 
 -- Indentations
 vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
-local indent_blankline_ok, indent_blankline = pcall(require, "indent_blankline")
-if (not indent_blankline_ok) then
-  print "ERROR: indent_blankline not found. Called from theme.lua"
-  return
+vim.opt.listchars:append("eol:↴")
+local indent_blankline_ok, indent_blankline = pcall(require, "ibl")
+if not indent_blankline_ok then
+	print("ERROR: indent_blankline not found. Called from theme.lua")
+	return
 end
-indent_blankline.setup({
-  show_end_of_line = true,
-  space_char_blankline = " ",
-  show_current_context = true,
-  show_current_context_start = true,
-}) -- enable identation lines
+indent_blankline.setup() -- enable identation lines
+-- indent_blankline.setup({
+--   show_end_of_line = true,
+--   space_char_blankline = " ",
+--   show_current_context = true,
+--   show_current_context_start = true,
+-- }) -- enable identation lines
 
 n.setup({
-  comment_italics = true,
+	comment_italics = true,
 })
 
 -- Modified colors
-cb.Color.new('base03', '#002b36')
-cb.Color.new('base02', '#073642')
-cb.Color.new('base01', '#586e75')
-cb.Color.new('base00', '#255667') -- background secondary
-cb.Color.new('base0', '#839496')
+cb.Color.new("base03", "#002b36")
+cb.Color.new("base02", "#073642")
+cb.Color.new("base01", "#586e75")
+cb.Color.new("base00", "#255667") -- background secondary
+cb.Color.new("base0", "#839496")
 cb.Color.new("base1", "#586e75")
-cb.Color.new('base2', '#2c2cbf')
-cb.Color.new('base3', '#7922a8')
-cb.Color.new('yellow', '#b58900')
-cb.Color.new('orange', '#cb4b16')
-cb.Color.new('red', '#dc322f')
-cb.Color.new('magenta', '#d33682')
-cb.Color.new('violet', '#6c71c4')
-cb.Color.new('blue', '#268bd2')
-cb.Color.new('cyan', '#2aa198') -- This is the text (strings) color 
-cb.Color.new('green', '#719e07')
+cb.Color.new("base2", "#2c2cbf")
+cb.Color.new("base3", "#7922a8")
+cb.Color.new("yellow", "#b58900")
+cb.Color.new("orange", "#cb4b16")
+cb.Color.new("red", "#dc322f")
+cb.Color.new("magenta", "#d33682")
+cb.Color.new("violet", "#6c71c4")
+cb.Color.new("blue", "#268bd2")
+cb.Color.new("cyan", "#2aa198") -- This is the text (strings) color
+cb.Color.new("green", "#719e07")
 
 local colors = cb.colors
 local Group = cb.Group
@@ -126,12 +127,12 @@ Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl,
 Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)
 
 -- TELESCOPE
-Group.new('TelescopePromptBorder', colors.base00)
-Group.new('TelescopeSelectionCaret', colors.base3)
+Group.new("TelescopePromptBorder", colors.base00)
+Group.new("TelescopeSelectionCaret", colors.base3)
 
 -- TREE SITTER
-Group.new('TSVariable', colors.yellow, colors.none, styles.italic)
+Group.new("TSVariable", colors.yellow, colors.none, styles.italic)
 
 -- TSX
-Group.new('tsxTSKeyword', colors.violet, colors.none, styles.none)
-Group.new('tsxTSConstructor', colors.blue, colors.none, styles.none)
+Group.new("tsxTSKeyword", colors.violet, colors.none, styles.none)
+Group.new("tsxTSConstructor", colors.blue, colors.none, styles.none)

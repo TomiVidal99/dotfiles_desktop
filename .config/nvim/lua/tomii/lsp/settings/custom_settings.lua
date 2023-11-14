@@ -54,7 +54,8 @@ end
 
 -- mlang
 if not lspconfig_config.mlang then
-	local mlang_server = "/home/tomii/Github/mlang/out/server.js"
+	-- local mlang_server = "/home/tomii/Github/mlang/out/server.js"
+	local mlang_server = ""
 	lspconfig_config.mlang = {
 		default_config = {
 			name = "mlang",
