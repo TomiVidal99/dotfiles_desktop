@@ -63,7 +63,7 @@ for_window [class="Spotify"] move container to workspace number $ws5
 for_window [class="Clementine"] move container to workspace number $ws5
 # to workspace 6
 assign [class="quartus.exe"] $ws6
-assign [class="xviix65.exe"] $ws6
+assign [class="xviix64.exe"] $ws6
 assign [class="vsim"] $ws6
 assign [class="Octave"] $ws6
 assign [class="matlab"] $ws6
