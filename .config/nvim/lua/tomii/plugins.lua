@@ -204,8 +204,15 @@ lazynvim.setup({
 	-- use "uga-rosa/cmp-dictionary" -- dictionary
 
 	-- SNIPPETS
-	{ "L3MON4D3/LuaSnip", dependencies = "saadparwaiz1/cmp_luasnip" }, -- snippet engin
-	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
+	{ -- snippet engine
+		"L3MON4D3/LuaSnip", -- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+		dependencies = {
+			{ "rafamadriz/friendly-snippets" }, -- a bunch of snippets to use
+		},
+	},
 
 	-- Navigation
 	{
@@ -233,6 +240,11 @@ lazynvim.setup({
 	},
 
 	-- UTILS: utility plugins to make my life easier
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { { "nvim-lua/plenary.nvim" } },
+	},
 	{
 		-- Commenting, easily and smartly comment with some keymaps
 		"numToStr/Comment.nvim",

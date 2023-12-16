@@ -23,5 +23,5 @@ require("tomii.utils.latex")
 require("tomii.utils.lspsaga")
 require("tomii.utils.winbar")
 
-vim.lsp.set_log_level("debug")
-require("vim.lsp.log").set_format_func(vim.inspect)
+-- vim.lsp.set_log_level("debug")
+-- require("vim.lsp.log").set_format_func(vim.inspect)

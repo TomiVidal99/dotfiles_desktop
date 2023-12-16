@@ -11,6 +11,7 @@
 -- Some helper variables
 local custom_scripts = require("tomii.utils.custom-scripts")
 local get_os_keymaps = require("tomii.utils.get-os-keymaps")
+local harpoon = require("tomii.harpoon")
 local opts = { noremap = true, silent = true }
 local km = vim.keymap.set
 
@@ -60,6 +61,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
 ---------- NORMAL ----------
+-- Harpoon
+kmn("<localleader>a", harpoon.appendBuffer)
+kmn("<localleader>m", harpoon.toggleQuickMenu)
+kmn("<localleader>q", harpoon.gotoBuffer1)
+kmn("<localleader>w", harpoon.gotoBuffer2)
+kmn("<localleader>e", harpoon.gotoBuffer3)
+kmn("<localleader>r", harpoon.gotoBuffer4)
+
 -- Custom scripts
 --kmn("<localleader><localleader>", "<CMD>lua require('tomii.utils.custom-scripts')<CR>") -- compiles
 kmn("<localleader>cc", run_main_script_tab) -- compiles in a new tab
