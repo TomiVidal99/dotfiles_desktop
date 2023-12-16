@@ -68,6 +68,7 @@ kmn("<localleader>q", harpoon.gotoBuffer1)
 kmn("<localleader>w", harpoon.gotoBuffer2)
 kmn("<localleader>e", harpoon.gotoBuffer3)
 kmn("<localleader>r", harpoon.gotoBuffer4)
+kmn("<localleader>t", harpoon.gotoBuffer5)
 
 -- Custom scripts
 --kmn("<localleader><localleader>", "<CMD>lua require('tomii.utils.custom-scripts')<CR>") -- compiles

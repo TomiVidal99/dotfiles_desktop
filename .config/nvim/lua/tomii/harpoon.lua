@@ -4,6 +4,7 @@ M.gotoBuffer1 = function() end
 M.gotoBuffer2 = function() end
 M.gotoBuffer3 = function() end
 M.gotoBuffer4 = function() end
+M.gotoBuffer5 = function() end
 M.appendBuffer = function() end
 M.toggleQuickMenu = function() end
 
@@ -27,6 +28,9 @@ end
 local function gotoBuffer4()
 	harpoon:list():select(4)
 end
+local function gotoBuffer5()
+	harpoon:list():select(5)
+end
 
 local function appendBuffer()
 	harpoon:list():append()
@@ -41,6 +45,7 @@ M.gotoBuffer1 = gotoBuffer1
 M.gotoBuffer2 = gotoBuffer2
 M.gotoBuffer3 = gotoBuffer3
 M.gotoBuffer4 = gotoBuffer4
+M.gotoBuffer5 = gotoBuffer5
 M.appendBuffer = appendBuffer
 M.toggleQuickMenu = toggleQuickMenu
 
