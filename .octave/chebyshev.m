@@ -1,4 +1,4 @@
-function [raices, alphas, betas] = chebyshev(n=0, eps=0, A=1, graph=0)
+function [raices, polinomio] = chebyshev(n=0, eps=0, A=1, graph=0)
   % Devuelve las raices del polinomio de Chebyshev: A + e^2*Vn(w)^2
   % Puede graficar también si se le provee graph=1
   % Argumentos de: function [alphas, betas] = chebyshev(n=0, eps= A=1)
@@ -9,12 +9,10 @@ function [raices, alphas, betas] = chebyshev(n=0, eps=0, A=1, graph=0)
   %
   % Retorna:
   % raices -> Array
-  % alphas -> Array
-  % betas -> Array
+  % polinomio
 
   raices = NaN;
-  alphas = NaN;
-  betas = NaN;
+  polinomio = NaN;
 
   if (n <= 0 || eps <= 0)
     help chebyshev;
@@ -42,5 +40,10 @@ function [raices, alphas, betas] = chebyshev(n=0, eps=0, A=1, graph=0)
   if (graph)
     plot(alphas, betas, 'x', 'linewidth', 4);
   end
+
+  pkg load control;
+  s = tf('s');
+  complexConjugated = s^2 + 2*alphas(1)*s + alphas(1)^2 + betas(1)^2;
+  polinomio = complexConjugated * (s+alphas(2));
 
 end

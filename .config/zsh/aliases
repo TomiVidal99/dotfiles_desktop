@@ -42,3 +42,6 @@ alias rwd='remove_from_working_directory'
 
 # Octave
 alias o='octave --traditional'
+
+# Node (PNPM)
+alias pp='pnpm'

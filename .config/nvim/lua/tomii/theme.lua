@@ -23,7 +23,9 @@ if not indent_blankline_ok then
 	print("ERROR: indent_blankline not found. Called from theme.lua")
 	return
 end
-indent_blankline.setup() -- enable identation lines
+indent_blankline.setup({
+	indent = { char = "|" },
+}) -- enable identation lines
 -- indent_blankline.setup({
 --   show_end_of_line = true,
 --   space_char_blankline = " ",

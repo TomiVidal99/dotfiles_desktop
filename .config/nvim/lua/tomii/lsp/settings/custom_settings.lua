@@ -67,7 +67,12 @@ if not lspconfig_config.mlang then
 			end,
 			settings = {
 				settings = {
-					maxNumberOfProblems = 1000,
+					maxNumberOfProblems = 200,
+					maxFilesSearchDepth = 10,
+					enableInitFile = true,
+					defaultInitFile = "/home/tomii/.octaverc",
+					defaultExecPath = "/usr/bin/octave",
+					defaultDebounceTimeMS = 1000,
 				},
 			},
 		},
