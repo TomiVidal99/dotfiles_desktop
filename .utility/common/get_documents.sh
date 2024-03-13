@@ -21,7 +21,7 @@ export -f get_options_line
 
 # feeds all the one line options to the line creator
 function parse_options() {
-  xargs -I '{}' bash -c 'get_options_line "{}"'
+  xargs -I '{}' bash -c "get_options_line '{}'"
 }
 
 # extracts the path from the given return value
