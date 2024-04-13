@@ -78,6 +78,8 @@ for_window [class="whatstux"] move container to workspace number $ws8
 # to workspace 9
 assign [class="thunderbird"] $ws9
 assign [class="mail"] $ws9
+# to workspace 10
+assign [class="obsidian"] $ws10
 # to workspace 11
 # to workspace 12
 # to workspace 13
