@@ -4,7 +4,7 @@
 !.config/*
 !README.md
 !.gitignore
-!.xinit
+!.xinitrc
 !.startup_programs.sh
 
 # Personal setup file
