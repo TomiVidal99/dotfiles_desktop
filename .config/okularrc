@@ -1,0 +1,66 @@
+1920x1080 screen: Height=1052
+1920x1080 screen: Width=1920
+1920x1080 screen: XPosition=0
+1920x1080 screen: YPosition=28
+2 screens: Height=1018
+2 screens: Width=1920
+2 screens: XPosition=1366
+2 screens: YPosition=62
+HDMI-A-0 HDMI-A-1=HDMI-A-0
+HDMI-A-1=HDMI-A-1
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAJYAAADrvwCAAAAAfsAAAAcAG8AawB1AGwAYQByAF8AcwBpAGQAZQBiAGEAcgAAAABMAAADrgAAAQ4BAAACAAAHgAAAA64AAAAEAAAABAAAAAgAAAAI/AAAAAMAAAABAAAAAQAAACwAcQB1AGkAYwBrAEEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgIAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAAAAAAAgAAAAEAAAAiAGEAbgBuAG8AdABhAHQAaQBvAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+
+[Desktop Entry]
+FullScreen=false
+shouldShowMenuBarComingFromFullScreen=false
+shouldShowToolBarComingFromFullScreen=false
+
+[FileDialogSize]
+2 screens: Height=600
+2 screens: Width=980
+
+[General]
+LockSidebar=true
+ShowSidebar=false
+
+[KFileDialog Settings]
+detailViewIconSize=16
+
+[MainWindow]
+1920x1080 screen: Height=1018
+1920x1080 screen: Width=1920
+1920x1080 screen: XPosition=0
+1920x1080 screen: YPosition=62
+2 screens: Height=1052
+2 screens: Width=960
+2 screens: XPosition=2326
+2 screens: YPosition=28
+HDMI-A-0 HDMI-A-1=HDMI-A-0
+HDMI-A-0 HDMI-A-1 Height 1920x1080 HDMI-A-0=1052
+HDMI-A-0 HDMI-A-1 Width 1920x1080 HDMI-A-0=1920
+HDMI-A-0 HDMI-A-1 XPosition 1920x1080 HDMI-A-0=0
+HDMI-A-0 HDMI-A-1 YPosition 1920x1080 HDMI-A-0=28
+HDMI-A-1=HDMI-A-1
+ToolBarsMovable=Disabled
+
+[Recent Files]
+File1[$e]=$HOME/Github/obsidian_facu/Facu/Circuitos Electronicos I/Guías de Laboratorios.pdf
+File10[$e]=$HOME/Github/Facultad/Electromagnetismo Aplicado/TP 7/Magnetico012.pdf
+File2[$e]=$HOME/temp/latex_tests/main.pdf
+File3[$e]=$HOME/Github/obsidian_facu/Facu/Control Automatico 2/TP 2/TP2_CA2_2023.pdf
+File4[$e]=$HOME/Github/Facultad/Control Automatico I/Ingeniería de Control Moderna - 5ta Ed. Katsuhiko Ogata - 2010.pdf
+File5[$e]=$HOME/Descargas/SAT Math Content-1-100.pdf
+File6[$e]=$HOME/Github/obsidian_facu/Facu/Circuitos Electronicos I/Lab2/informe_lab2.pdf
+File7[$e]=$HOME/Github/obsidian_facu/Facu/Circuitos Electronicos I/TP 5 Mod 2/practica5-2023.pdf
+File8[$e]=$HOME/Descargas/avr-libc-avr-libc-2_2_0-release/README.md
+File9[$e]=$HOME/Descargas/C Programming Language(K&R) -- K; R -- 2012 -- chenjin5_com 万千书友聚集地 -- f244c32b882812721063bc78118d0ec5 -- Anna’s Archive(1).epub
+Name1[$e]=Guías de Laboratorios.pdf
+Name10[$e]=Magnetico012.pdf
+Name2[$e]=main.pdf
+Name3[$e]=TP2_CA2_2023.pdf
+Name4[$e]=Ingeniería de Control Moderna - 5ta Ed. Katsuhiko Ogata - 2010.pdf
+Name5[$e]=SAT Math Content-1-100.pdf
+Name6[$e]=informe_lab2.pdf
+Name7[$e]=practica5-2023.pdf
+Name8[$e]=README.md
+Name9[$e]=C Programming Language(K&R) -- K; R -- 2012 -- chenjin5_com 万千书友聚集地 -- f244c32b882812721063bc78118d0ec5 -- Anna’s Archive(1).epub
