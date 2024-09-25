@@ -26,6 +26,7 @@ alias ls='colorls --color=always --hyperlink'
 alias ll='colorls -la --color=always --hyperlink'
 
 # Git
+alias TOMI_GIT='git@github.com:TomiVidal99'
 alias gcom='git commit -m '
 alias gpush='git push'
 alias gpull='git pull'
