@@ -52,5 +52,6 @@ fi
 #startx /usr/bin/i3 &
 source .startup_programs.sh &
 source .xprofile &
+exec startlxde &
 exec i3 &
 exec konsole
