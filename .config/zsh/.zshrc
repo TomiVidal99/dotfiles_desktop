@@ -15,6 +15,7 @@ HISTFILE=~/.cache/zsh_history
 
 # Load the other files, some options need to be executed before some plugins.
 source "$ZDOTDIR/functions"
+source "$ZDOTDIR/constants"
 zsh_add_file "options"
 zsh_add_file "plugins"
 zsh_add_file "aliases"

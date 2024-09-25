@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Some constants to save me some time
+
+BASE_GIT='git@github.com:TomiVidal99'
