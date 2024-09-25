@@ -1,5 +1,5 @@
 # Terminal
-bindsym Ctrl+$alt+t exec konsole
+bindsym Ctrl+$alt+t exec $(lxterminal -e "zsh -l")
 # web navigator
 bindsym $mod+Shift+f exec firefox
 # files
